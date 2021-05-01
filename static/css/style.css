@@ -1,0 +1,12 @@
+body{
+    background-color: gray;
+}
+
+.border{
+    border: 3px solid black;
+}
+
+footer{
+    line-height: 10;
+    font-size: larger;
+}
