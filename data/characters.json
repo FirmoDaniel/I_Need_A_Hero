@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Jim",
+        "description": "A totally underwhelming junior accountant",
+        "image_spource": "static/images/random.jpg",
+        "skills": "junior accounting, mostly underwheling"
+    },
+    {
+        "name": "Susan",
+        "description": "Undead sales executive",
+        "image_spource": "static/images/random.jpg",
+        "skills": "gargled speech"
+    }
+]
