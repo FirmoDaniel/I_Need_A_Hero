@@ -2,13 +2,22 @@
     {
         "name": "Jim",
         "description": "A totally underwhelming junior accountant",
-        "image_spource": "static/images/random.jpg",
-        "skills": "junior accounting, mostly underwheling"
+        "image_source": "/static/images/random.jpg",
+        "skills": "junior accounting, mostly underwheling",
+        "url": "jim"
     },
     {
         "name": "Susan",
         "description": "Undead sales executive",
-        "image_spource": "static/images/random.jpg",
-        "skills": "gargled speech"
+        "image_source": "/static/images/random.jpg",
+        "skills": "gargled speech",
+        "url": "susan"
+    },
+    {
+        "name": "Alan",
+        "description": "Failed speech therapist",
+        "image_source": "/static/images/random.jpg",
+        "skills": "bad breath",
+        "url": "alan"
     }
 ]
