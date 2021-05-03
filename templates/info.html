@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    {% for info in infos %}
+        <li> Name : {{ info.infos_name }}</li><br>
+        <li> Allegiance : {{ info.characters_name }}</li><br>
+        <li> Description : {{ info.infos_description }}</li><br>
+    {% endfor %}
+    </div>
+
+{% endblock %}
