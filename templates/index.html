@@ -1,9 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Home Page</h1>
-    <div class="row center-align">
-      <div class="col s12 border">This div is 12-columns wide on all screen sizes</div>
-      <div class="col s6 border"><img class="responsive-img" src="{{ url_for('static', filename='images/random.jpg') }}"></div>
-      <div class="col s6 border"><img class="responsive-img" src="{{ url_for('static', filename='images/random.jpg') }}"></div>
+    <div class="container">
+        <h1>Home/Introduction</h1>
+        <div class="row">introdicution to our site.</div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col m4">
+                <div class="card medium">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/blue-sky-bg.jpg') }}">
+                        <span class="card-title">Hero</span>
+                    </div>
+                    <div class="card-content blue darken-4 white-text">
+                        <p>Peruse our epic Hero's and Heroines for the perfect character to fit your story,
+                             or get idea's to modify your own Hero.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col m4">
+                <div class="card medium">
+                    <div class="card-image">
+                        <img  src="{{ url_for('static', filename='images/grey-sky-bg.jpg') }}">
+                        <span class="card-title">SideKick</span>
+                    </div>
+                    <div class="card-content grey darken-3 white-text">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col m4">
+                <div class="card medium">
+                    <div class="card-image">
+                        <img  src="{{ url_for('static', filename='images/red-sky-bg.jpg') }}">
+                        <span class="card-title">Villan</span>
+                    </div>
+                    <div class="card-content red darken-4 white-text">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>       
+        </div>
     </div>
 {% endblock %}
