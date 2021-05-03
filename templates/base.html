@@ -37,6 +37,21 @@
 
     <br>
 
+    <section>
+        <!--Flash Messages-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+                <div class="container s6 offset-s3">
+                    <div class="row s6">
+                        <h4 id="test" class="center-align">{{ message }}</h4>
+                    </div>
+                </div>
+               {% endfor %} 
+            {% endif %}
+        {% endwith  %}
+    </section>
+
     
     {% block content %}
 
