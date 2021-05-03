@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container">
-        <h1>Home/Introduction</h1>
+        <h1>Home / Introduction</h1>
         <div class="row">introdicution to our site.</div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col m4">
                 <div class="card medium">
-                    <div class="card-image">
+                    <div class="image-scaling card-image">
                         <img src="{{ url_for('static', filename='images/blue-sky-bg.jpg') }}">
                         <span class="card-title">Hero</span>
                     </div>
@@ -23,7 +21,7 @@
             </div>
             <div class="col m4">
                 <div class="card medium">
-                    <div class="card-image">
+                    <div class="image-scaling card-image">
                         <img  src="{{ url_for('static', filename='images/grey-sky-bg.jpg') }}">
                         <span class="card-title">SideKick</span>
                     </div>
@@ -38,7 +36,7 @@
             </div>
             <div class="col m4">
                 <div class="card medium">
-                    <div class="card-image">
+                    <div class="image-scaling card-image">
                         <img  src="{{ url_for('static', filename='images/red-sky-bg.jpg') }}">
                         <span class="card-title">Villan</span>
                     </div>

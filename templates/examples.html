@@ -5,11 +5,11 @@
 
     {% for character in characters %}
     
-        <div class="div">
+        <div>
 
             {% if loop.index % 2 !=0 %}
 
-                <h3><a href="/about/{{ character.url }}">{{loop.index}}.{{character.name }}</a></h3>
+                <h3><a href="/examples/{{ character.url }}">{{loop.index}}.{{character.name }}</a></h3>
                 <p>{{character.description }}</p>
                 <div><img class="responsive-img" src="{{character.image_source}}" alt="Image of {{character.name}}"></div>
                 <p>{{character.skills}}</p>
@@ -18,7 +18,7 @@
 
                 <div><img class="responsive-img" src="{{character.image_source}}" alt="Image of {{character.name}}"></div>
                 <p>{{character.skills}}</p>
-                <h3><a href="/about/{{ character.url }}">{{loop.index}}.{{character.name }}</a></h3>
+                <h3><a href="/examples/{{ character.url }}">{{loop.index}}.{{character.name }}</a></h3>
                 <p>{{character.description }}</p>
         
             {% endif %}

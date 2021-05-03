@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <div class="row">
-        <div class="col-s6">
-            <img src="{{ character.image_source }}" alt="Image of {{ character.name }}">
-            <h2 class="col-6">{{ character.name }}</h2>
-        </div>
-    </div>
-
-    <div class="col-s12">
-        <p>{{ character.description }}</p>
+    <div class="container"><h1>This is {{  character.name }}</h1></div>
+    <div class="container"><img class="responsive-img" src="{{character.image_source}}" alt="Image of {{character.name}}"></div>
+    <div class="container">
+    <ul class="collection">
+        <li class="collection-item"><strong>Race : </strong>{{  character.race }}</li>
+        <li class="collection-item"><strong>Allegiance : </strong>{{  character.allegiance }}</li>
+        <li class="collection-item"><strong>Description : </strong>{{ character.description }}</li>
+        <li class="collection-item"><strong>Speciality : </strong>{{ character.skills }}</li>
+        <li class="collection-item"><strong>Weaknesses : </strong>{{ character.weaknesses }}</li>
+        <li class="collection-item"><strong>Bio : </strong>{{ character.bio  }}</li>
+    </ul>
     </div>
 
 {% endblock %}

@@ -14,15 +14,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/about")
-def about():
+@app.route("/examples")
+def examples():
     data = []
     with open("data/characters.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("about.html", page_title="About", characters=data)
+    return render_template("examples.html", page_title="Examples", characters=data)
 
 
-@app.route("/about/<character_name>")
+@app.route("/examples/<character_name>")
 def about_character(character_name):
     character = {}
     with open("data/characters.json", "r") as json_data:

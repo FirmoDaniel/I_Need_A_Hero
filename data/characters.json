@@ -1,11 +1,16 @@
 [
     {
         "name": "Jim",
-        "description": "A totally underwhelming junior accountant",
-        "image_source": "/static/images/random.jpg",
-        "skills": "junior accounting, mostly underwheling",
+        "description": "A mute tax accountant with bad teeth and zero computer skills.",
+        "image_source": "/static/images/accountant.jpeg",
+        "skills": "Questionable tax advice",
+        "race": "Human male",
+        "allegiance": "Neutral",
+        "weaknesses": "Standard Human stuff like fire, or a brick to the head.",
+        "bio": "Jim's sister, 'Susan', married the ArchDuke of Pain in a lovely ceremony on the beach. Eager to show his support for their union, Jim offered his services to the ArchDuke. Now the Duke is in hot water with 'Revenue', and rightly lays the blame at his brother-in-law's feet. Jim has nineteen days to fix the problem he created or his life is forfeit.",
         "url": "jim"
     },
+
     {
         "name": "Susan",
         "description": "Undead sales executive",
