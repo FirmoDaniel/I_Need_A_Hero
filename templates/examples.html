@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
     <!--Example of using json file to pull data, and use loops to iterate.-->
-    <h1>About Page</h1>
+    
 
     {% for character in characters %}
     
-        <div>
+        <div class="container">
+
+            <h1>Some examples</h1>
 
             {% if loop.index % 2 !=0 %}
 
-                <h3><a href="/examples/{{ character.url }}">{{loop.index}}.{{character.name }}</a></h3>
+                <h3>{{character.name }} </h3> 
                 <p>{{character.description }}</p>
-                <div><img class="responsive-img" src="{{character.image_source}}" alt="Image of {{character.name}}"></div>
-                <p>{{character.skills}}</p>
+                <p>{{character.bio}}</p>
+                <a href="/examples/{{ character.url }}">Learn more about {{ character.name }}</a>
 
             {% else %}
 
@@ -23,13 +25,15 @@
         
             {% endif %}
 
-        </div>
+        
 
         {% if loop.index != loop.length %}
 
             <hr class="divider">
         
         {% endif %}
+
+        </div>
 
     {% endfor %}
 
