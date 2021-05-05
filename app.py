@@ -27,7 +27,31 @@ def get_info():
     return render_template("info.html", infos=infos)
 
 
-# Porfile Page
+# Log out
+@app.route("/logout")
+def logout():
+    flash("You've been logged out. #SadTimes! Come back soon")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+# Create  Page
+
+
+@app.route("/create")
+def create():
+    return render_template("create.html")
+
+
+# Browse  Page
+
+
+@app.route("/browse")
+def browse():
+    return render_template("browse.html")
+
+
+# Profile  Page
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -35,8 +59,11 @@ def profile(username):
     # get active session username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    
+    if session["user"]:
+        return render_template("profile.html", username=username)
 
+    return redirect(url_for("login"))
 
 
 # Login Page
@@ -106,7 +133,8 @@ def examples():
     data = []
     with open("data/characters.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("examples.html", page_title="Examples", characters=data)
+    return render_template(
+        "examples.html", page_title="Examples", characters=data)
 
 
 @app.route("/examples/<character_name>")

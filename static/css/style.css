@@ -1,7 +1,7 @@
 body{
     background-color: whitesmoke;
 }
-/*---------------------------test add classes for flash messages*/
+/*---------------------------test add classes for flash messages(TEMPORARY)*/
 .red{
     background-color: red;
 }
@@ -9,6 +9,12 @@ body{
 .green{
     background-color: green;
 }
+
+.blue{
+    background-color: blue;
+}
+
+
 /*----------------------footer*/
 footer{
     line-height: 10;
