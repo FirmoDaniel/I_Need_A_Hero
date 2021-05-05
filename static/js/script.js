@@ -4,7 +4,7 @@ $(document).ready(function(){
     let success=$('#test').text();
     if(success == "Registration Successful"){
         $('#test').addClass("green")
-    } if(success == "Username already exists"){
+    } else if(success == "Username already exists"){
         $('#test').removeClass("green").addClass("red")
     } 
 
