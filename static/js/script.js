@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
     
     let success=$('#test').text();
     if(success == "Registration Successful"){
