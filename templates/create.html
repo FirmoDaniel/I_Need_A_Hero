@@ -11,12 +11,13 @@
       </div>
       <h3 class="deep-purple darken-1">Create a Charcater</h3>
         <div class="row card-panel grey">
-            <form class="col s12" method ="POST" action="">
+            <form class="col s12" method ="POST" action="{{ url_for('create', username=session['user']) }}">
                 <div class="row">
+                    <!--Character Role / alligience-->
                     <div class="input-field col s12">
                         <i class="fas fa-folder-open prefix white-text"></i>
                         <select id="characters_role" name="characters_role" class="validate" required>
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected>Choose Alligience</option>
                             {% for character in characters  %}
                                 <option value="{{ character.characters_role }}">{{ character.characters_role }}</option>
                             {% endfor %}
@@ -25,6 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    <!--Character Name-->
                     <div class="input-field col s12 deep-purple darken-1">
                         <i class="fas fa-user-circle prefix white-text"></i>
                         <input id="infos_name" name="infos_name" type="text" 
@@ -33,12 +35,19 @@
                     </div>
                 </div>
                 <div class="row">
+                    <!--Character Description-->
                     <div class="input-field col s12 deep-purple darken-1">
                         <i class="fas fa-align-left prefix white-text"></i>
                         <textarea id="infos_description" name="infos_description" minlength="5" 
                             maxlength="200" class="materialize-textarea validate" required></textarea>
                         <label for="infos_description">Charcater Description :</label>
                     </div>
+                </div>
+                <div class="row">
+                    <!--submit button-->
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large deep-purple">Create Character <i class="fas fa-plus-square right"></i></button>
+                    </div>   
                 </div>
             </form>
         </div>
