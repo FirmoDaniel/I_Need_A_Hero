@@ -9,18 +9,18 @@
     </div>
 
     <ul class="collapsible">
+        {% for info in infos %}
         <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header white-text deep-purple darken-1">
+                <i class="fas fa-caret-down"></i>
+                <strong>Name : {{ info.infos_name }}</strong> : Allegiance : {{ info.characters_name }}
+            </div>
+            <div class="collapsible-body">
+                <strong>Description : {{ info.infos_description }}</strong>
+                <p>Something else in here.</p>
+            </div>
         </li>
-        <li>
-        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% endfor %}
   </ul>
 
 

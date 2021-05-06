@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 
 @app.route("/get_info")
 def get_info():
-    infos = mongo.db.info.find()
+    #list added below to run two for loops on one page(info.html)
+    infos = list(mongo.db.info.find())
     return render_template("info.html", infos=infos)
 
 
@@ -38,9 +39,14 @@ def logout():
 # Create  Page
 
 
-@app.route("/create")
-def create():
-    return render_template("create.html")
+@app.route("/create/<username>", methods=["GET", "POST"])
+def create(username):
+    # Copied from Profile.html set up
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("create.html", username=username)
 
 
 # Browse  Page
