@@ -1,6 +1,9 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
+    $('select').formSelect();
+    $('#textarea1').val('New Text');
+        M.textareaAutoResize($('#textarea1'));
     
     let success=$('#test').text();
     if(success == "Registration Successful"){
