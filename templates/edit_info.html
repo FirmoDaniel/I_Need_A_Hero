@@ -34,7 +34,7 @@
                     <div class="input-field col s12 deep-purple darken-1">
                         <i class="fas fa-user-circle prefix white-text"></i>
                         <input id="infos_name" name="infos_name" type="text" 
-                            minlength="5" maxlength="50" value="{{ info.infos_name }}" 
+                            minlength="3" maxlength="50" value="{{ info.infos_name }}" 
                             class="validate" required>
                         <label for="infos_name">Character Name :</label>
                     </div>
@@ -50,9 +50,10 @@
                         <label for="infos_description">Charcater Description :</label>
                     </div>
                 </div>
+                <!--Cancel & Submit Buttons-->
                 <div class="row">
-                    <!--submit button-->
                     <div class="col s12 center-align">
+                        <a href="{{ url_for('get_info') }}" class="btn-large red">Cancel <i class="fas fa-times-circle right"></i> </a>
                         <button type="submit" class="btn-large deep-purple">Edit Character <i class="fas fa-edit right"></i></button>
                     </div>   
                 </div>

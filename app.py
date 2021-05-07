@@ -67,6 +67,16 @@ def create(username):
 
 @app.route("/edit_info/<info_id>", methods=["GET", "POST"])
 def edit_info(info_id):
+    if request.method == "POST":
+        edit = {
+            "characters_role": request.form.get("characters_role"),
+            "infos_name": request.form.get("infos_name"),
+            "infos_description": request.form.get("infos_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.info.update({"_id": ObjectId(info_id)}, edit)
+        flash("Clever Hooman! Character Edited.")
+
     info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
 
     username = mongo.db.users.find_one(
