@@ -2,8 +2,6 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('#infos_description').val('');
-        M.textareaAutoResize($('#infos_description'));
     
     let success=$('#test').text();
     if(success == "Registration Successful"){
