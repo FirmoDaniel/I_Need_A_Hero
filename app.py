@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 
 @app.route("/get_info")
 def get_info():
-    #list added below to run two for loops on one page(info.html)
+    # list added below to run two for loops on one page(info.html)
     infos = list(mongo.db.info.find())
     return render_template("info.html", infos=infos)
 
@@ -43,7 +43,7 @@ def logout():
 def create(username):
     # Copied from Profile.html set up.
     if request.method == "POST":
-        infos ={
+        infos = {
             "characters_role": request.form.get("characters_role"),
             "infos_name": request.form.get("infos_name"),
             "infos_description": request.form.get("infos_description"),
@@ -62,6 +62,21 @@ def create(username):
             characters=characters)
 
 
+# edit button/function on create.html
+
+
+@app.route("/edit_info/<info_id>", methods=["GET", "POST"])
+def edit_info(info_id):
+    info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    characters = mongo.db.characters.find().sort("characters_role", 1)
+    return render_template("edit_info.html", info=info, 
+        username=username, characters=characters)
+
+
 # Browse  Page
 
 
@@ -78,7 +93,7 @@ def profile(username):
     # get active session username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -100,7 +115,8 @@ def login():
                     existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for("profile", username=session["user"]))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 # Wrong Passowrd
                 flash("Incorrect Username and/or Password")

@@ -17,7 +17,7 @@
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                     <a href="" class="btn-small green accent-4">Done</a>
-                    <a href="" class="btn-small light-blue accent-4">Edit</a>
+                    <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
                 </div>
                 <div class="col s9">
                     <strong>Name : {{ info.infos_name }}</strong> : Allegiance : {{ info.characters_role }}
