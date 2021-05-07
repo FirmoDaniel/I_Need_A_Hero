@@ -3,21 +3,24 @@
     <div class="container">
     {% for info in infos %}
         <li> Name : {{ info.infos_name }}</li><br>
-        <li> Allegiance : {{ info.characters_name }}</li><br>
+        <li> Allegiance : {{ info.characters_role }}</li><br>
         <li> Description : {{ info.infos_description }}</li><br>
     {% endfor %}
     </div>
+
+    <h3 class="deep-purple darken-1">All Characters</h3>
 
     <ul class="collapsible">
         {% for info in infos %}
         <li>
             <div class="collapsible-header white-text deep-purple darken-1">
                 <i class="fas fa-caret-down"></i>
-                <strong>Name : {{ info.infos_name }}</strong> : Allegiance : {{ info.characters_name }}
+                <strong>Name : {{ info.infos_name }}</strong> : Allegiance : {{ info.characters_role }}
             </div>
             <div class="collapsible-body">
                 <strong>Description : {{ info.infos_description }}</strong>
                 <p>Something else in here.</p>
+                <p><em>created by : {{ info.created_by }}</em></p>
             </div>
         </li>
         {% endfor %}

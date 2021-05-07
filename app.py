@@ -41,9 +41,18 @@ def logout():
 
 @app.route("/create/<username>", methods=["GET", "POST"])
 def create(username):
-    # Copied from Profile.html set up. Bookmarked @4:38
+    # Copied from Profile.html set up.
     if request.method == "POST":
-        mongo.db.info.insert_one()
+        infos ={
+            "characters_role": request.form.get("characters_role"),
+            "infos_name": request.form.get("infos_name"),
+            "infos_description": request.form.get("infos_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.info.insert_one(infos)
+        flash("Clever Hooman! Character created.")
+        return redirect(url_for("get_info"))
+
     characters = mongo.db.characters.find().sort("characters_role", 1)
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -51,7 +60,7 @@ def create(username):
     if session["user"]:
         return render_template("create.html", username=username, 
             characters=characters)
-    
+
 
 # Browse  Page
 
