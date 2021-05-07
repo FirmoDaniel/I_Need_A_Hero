@@ -2,8 +2,8 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('#textarea1').val('New Text');
-        M.textareaAutoResize($('#textarea1'));
+    $('#infos_description').val('');
+        M.textareaAutoResize($('#infos_description'));
     
     let success=$('#test').text();
     if(success == "Registration Successful"){
@@ -14,7 +14,7 @@ $(document).ready(function(){
         $('#test').addClass("blue")
     }
     
-    /*Taken from CI source code to for form select:validation on create.html*/
+    /*Taken from CI source code for form select:validation on create.html*/
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };

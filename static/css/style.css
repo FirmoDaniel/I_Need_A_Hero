@@ -14,8 +14,23 @@ body{
     background-color: blue;
 }
 
+/*-------------------------------------------------------------------------------BUTTONS*/
 
-/*----------------------footer*/
+/*buttons on info.html*/
+.btn-small {
+    margin:5px;   
+}
+
+/*-------------------------------------------------------------------------------TEXT*/
+
+/*text on info.html*/
+.collapsible-header .col strong {
+    margin:5px;
+    line-height: 42px;
+}
+
+
+/*-------------------------------------------------------------------------------FOOTER*/
 footer{
     line-height: 10;
     font-size: larger;
