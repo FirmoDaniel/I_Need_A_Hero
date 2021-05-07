@@ -87,6 +87,16 @@ def edit_info(info_id):
         username=username, characters=characters)
 
 
+# delete button/function on create.html
+
+
+@app.route("/delete_info/<info_id>")
+def delete_info(info_id):
+    mongo.db.info.remove({"_id": ObjectId(info_id)})
+    flash("Fearless Hooman! Character Obliterated")
+    return redirect(url_for("get_info"))
+
+
 # Browse  Page
 
 
