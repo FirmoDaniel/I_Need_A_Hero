@@ -1,5 +1,16 @@
+/*---------------------------Import from Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+.per_marker{
+    font-family:'Permanent Marker';
+}
+
+/*----------------------------------------------*/
+
 body{
     background-color: whitesmoke;
+    font-family:'Montserrat';
 }
 /*---------------------------test add classes for flash messages(TEMPORARY)*/
 .red{
@@ -41,7 +52,7 @@ footer{
 
 
 
-/*@media screen and (max-width:609px){
+/*@media screen and (max-width:601px){
     .card-image img {
          height:150px;
          max-height: 100%;

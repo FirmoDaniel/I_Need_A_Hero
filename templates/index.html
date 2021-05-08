@@ -1,54 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container">
-        <h1>Home / Introduction</h1>
-        <div class="row">introdicution to our site.</div>
+        <h1 class="per_marker">I need a Hero</h1>
         <div class="row">
-            <div class="col m4">
-                <div class="card medium">
-                    <div class="image-scaling card-image">
-                        <img src="{{ url_for('static', filename='images/blue-sky-bg.jpg') }}">
-                        <span class="card-title">Hero</span>
-                    </div>
-                    <div class="card-content blue darken-4 white-text">
-                        <p>Peruse our epic Hero's and Heroines for the perfect character to fit your story,
-                             or get idea's to modify your own Hero.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col m4">
-                <div class="card medium">
-                    <div class="image-scaling card-image">
-                        <img  src="{{ url_for('static', filename='images/grey-sky-bg.jpg') }}">
-                        <span class="card-title">SideKick</span>
-                    </div>
-                    <div class="card-content grey darken-3 white-text">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col m4">
-                <div class="card medium">
-                    <div class="image-scaling card-image">
-                        <img  src="{{ url_for('static', filename='images/red-sky-bg.jpg') }}">
-                        <span class="card-title">Villan</span>
-                    </div>
-                    <div class="card-content red darken-4 white-text">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>       
+            <p>A common happenstance for writers is either not having enough characters or having too many. So we've created a home for both.
+                Here you'll find a handy database of characters our users have uploaded. You're free to use any characters for any project, and absolutely encouraged to upload
+                your own. 
+            </p>
         </div>
     </div>
-{% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col m4">
+                <div class="card">
+                    <a href="{{ url_for('get_info') }}">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/blue-sky-bg.jpg') }}">
+                            <span class="card-title per_marker">Hero</span>
+                        </div>
+                        <div class="card-content blue darken-4 white-text">
+                            <p>Explore our epic Hero's and Heroines for the perfect characters to fit or expand your story,
+                                or get idea's to modify your own.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col m4">
+                <div class="card">
+                    <a href="{{ url_for('get_info') }}">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/grey-sky-bg.jpg') }}">
+                            <span class="card-title per_marker">SideKick</span>
+                        </div>
+                        <div class="card-content grey darken-4 white-text">
+                            <p>Mostly created to be killed by Villans, or saved by Hero's, see our neutral 
+                                sidekicks or secondary characters to choose from or add to.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col m4">
+                <div class="card">
+                    <a href="{{ url_for('get_info') }}">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/red-sky-bg.jpg') }}">
+                            <span class="card-title per_marker">Villan</span>
+                        </div>
+                        <div class="card-content red darken-4 white-text">
+                            <p>Navigate through our most evil villans for the biggest of bads, or a 
+                                simple enemy for your hero to defeat for that act one hook for your readers.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
