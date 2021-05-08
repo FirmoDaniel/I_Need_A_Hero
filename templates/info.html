@@ -1,61 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="container">
-    {% for info in infos %}
-        <li> Name : {{ info.infos_name }}</li><br>
-        <li> Allegiance : {{ info.characters_role }}</li><br>
-        <li> Description : {{ info.infos_description }}</li><br>
-    {% endfor %}
+        <h1 class="per_marker">Characters...</h1>
+        <div class="row">
+            <p>Here you can view all our current characters. 
+            </p>
+        </div>
     </div>
-
-    <h3 class="deep-purple darken-1">All Characters</h3>
-
-    <div class="row card-panel deep-purple">
-        <form action="{{ url_for('search') }}" method="POST" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix"></i>
-                    <input type="text" name="query" id="query" class="validate" minlength="3" required>
-                    <label for="query">Serach Characters</label>
+    <!--Search function for characters-->
+    <div class="container">
+        <div class="row card-panel deep-purple">
+            <form action="{{ url_for('search') }}" method="POST" class="col s12">
+                <div class="row valign-wrapper center-align">
+                    <div class="input-field col s12 m8">
+                        <i class="fas fa-search prefix white-text"></i>
+                        <input type="text" name="query" id="query" class="validate" minlength="3" required>
+                        <label for="query">Serach for Characters</label>
+                        <small class="white-text"> Serach by Allegiance (Hero/ Neutral/ Villan), or by Description (Werewolf/ Necromancer/ Human)</small>
+                    </div>
+                    <div class="col s12 m4">
+                        <a href="{{ url_for('get_info') }}" class="red btn-small">Reset</a>
+                        <button type="submit" class="light-blue"><i class="fas fa-search left"></i> Search
+                        </button>
+                    </div>
                 </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_info') }}" class="red btn">Reset</a>
-                    <button type="submit" class=light-blue> <i class="fas fa-search left"></i> Search
-                    </button>
+            </form>
+        </div>
+        <!--List of characters -->
+        {% if infos|length > 0 %}
+        <ul class="collapsible">
+            {% for info in infos %}
+            <li>
+                <div class="collapsible-header white-text deep-purple darken-1">
+                    <div class="col s3">
+                        <i class="fas fa-caret-down"></i>
+                        {% if session.user|lower == info.created_by|lower %}
+                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
+                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
+                        {% elif session.user|lower == "admin"|lower %}
+                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
+                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
+                        {% endif %}
+                    </div>
+                    <div class="col s9">
+                        <strong>This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="collapsible-body">
+                    <h5 class="per_marker">Character Bio :</h5> 
+                    <p>{{ info.infos_bio }}</p>
+                    <hr>
+                    <h5 class="per_marker">Special skills include :</h5> 
+                    <p>{{ info.infos_skills }}</p>
+                    <hr>
+                    <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <h3 class="deep-purple darken-1">No Results found</h3>
+        {% endif %}
     </div>
-    {% if infos|length > 0 %}
-    <ul class="collapsible">
-        {% for info in infos %}
-        <li>
-            <div class="collapsible-header white-text deep-purple darken-1">
-                <div class="col s3">
-                    <i class="fas fa-caret-down"></i>
-                    {% if session.user|lower == info.created_by|lower %}
-                        <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
-                        <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
-                    {% elif session.user|lower == "admin"|lower %}
-                        <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
-                        <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
-                    {% endif %}
-                </div>
-                <div class="col s9">
-                    <strong>Name : {{ info.infos_name }}</strong> : Allegiance : {{ info.characters_role }}
-                </div>
-            </div>
-            <div class="collapsible-body">
-                <strong>Description : {{ info.infos_description }}</strong>
-                <p>Something else in here.</p>
-                <p><em>created by : {{ info.created_by }}</em></p>
-            </div>
-        </li>
-        {% endfor %}
-  </ul>
-  {% else %}
-    <h3 class="deep-purple darken-1">No Results found</h3>
-  {% endif %}
-
 
 {% endblock %}

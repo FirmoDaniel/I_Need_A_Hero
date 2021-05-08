@@ -82,10 +82,13 @@ def edit_info(info_id):
             "characters_role": request.form.get("characters_role"),
             "infos_name": request.form.get("infos_name"),
             "infos_description": request.form.get("infos_description"),
+            "infos_bio": request.form.get("infos_bio"),
+            "infos_skills": request.form.get("infos_skills"),
             "created_by": session["user"]
         }
         mongo.db.info.update({"_id": ObjectId(info_id)}, edit)
         flash("Clever Hooman! Character Edited.")
+        return redirect(url_for("get_info"))
 
     info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
 
