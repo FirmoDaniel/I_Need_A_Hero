@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-      <div class="row">
-          <div class="col s12 m8 offset-m2 deep-purple darken-1">
-              <div class="card-panel">
-                  <h3 class="center-align">
-                      {{ username }}'s Profile
-                  </h3>
-              </div>
+
+    <h3 class="deep-purple darken-1">Browse</h3>
+
+    <div class="row">
+        {% for character in characters %}
+            <div class="col s12 m3">
+                <div class="card deep-purple darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ character.characters_role }}</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="btn green accent-4">Edit</a>
+                        <a href="#" class="btn light-blue">Delete</a>
+                    </div>
+                </div>
             </div>
-      </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

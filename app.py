@@ -102,7 +102,8 @@ def delete_info(info_id):
 
 @app.route("/browse")
 def browse():
-    return render_template("browse.html")
+    characters = mongo.db.characters.find().sort("characters_role", 1)
+    return render_template("browse.html", characters=characters)
 
 
 # Profile  Page
@@ -126,8 +127,7 @@ def profile(username):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
 
         if existing_user:
             # check username
