@@ -4,6 +4,12 @@
     <h3 class="deep-purple darken-1">Browse</h3>
 
     <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_role') }}" class="btn-large deep-purple">Add Role <i class="fas fa-plus-square right"></i></a>
+        </div>
+    </div>
+
+    <div class="row">
         {% for character in characters %}
             <div class="col s12 m3">
                 <div class="card deep-purple darken-1">
@@ -11,8 +17,8 @@
                         <span class="card-title">{{ character.characters_role }}</span>
                     </div>
                     <div class="card-action">
-                        <a href="#" class="btn green accent-4">Edit</a>
-                        <a href="#" class="btn light-blue">Delete</a>
+                        <a href="{{ url_for('edit_role', character_id=character._id) }}" class="btn green accent-4">Edit</a>
+                        <a href="{{ url_for('delete_role', character_id=character._id) }}" class="btn red">Delete</a>
                     </div>
                 </div>
             </div>

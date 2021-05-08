@@ -97,6 +97,47 @@ def delete_info(info_id):
     return redirect(url_for("get_info"))
 
 
+# Delete Role Page
+@app.route("/delete_role/<character_id>")
+def delete_role(character_id):
+    mongo.db.characters.remove({"_id": ObjectId(character_id)})
+    flash("Role deleted")
+    return redirect(url_for("browse"))
+
+
+# Edit Character Role  Page
+
+
+@app.route("/edit_role/<character_id>", methods=["GET", "POST"])
+def edit_role(character_id):
+    if request.method == "POST":
+        submit = {
+            "characters_role": request.form.get("characters_role")
+        }
+        mongo.db.characters.update({"_id": ObjectId(character_id)}, submit)
+        flash("Role Updated!")
+        return redirect(url_for("browse"))
+
+    character = mongo.db.characters.find_one({"_id": ObjectId(character_id)})
+    return render_template("edit_role.html", character=character)
+
+
+# Add Character Role  Page
+
+
+@app.route("/add_role", methods=["GET", "POST"])
+def add_role():
+    if request.method == "POST":
+        character = { 
+            "characters_role": request.form.get("characters_role")
+        }
+        mongo.db.characters.insert_one(character)
+        flash("New Role created")
+        return redirect(url_for("browse"))
+
+    return render_template("add_role.html")
+
+
 # Browse  Page
 
 
