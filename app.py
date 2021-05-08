@@ -28,6 +28,16 @@ def get_info():
     return render_template("info.html", infos=infos)
 
 
+# search function on browse page
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    infos = list(mongo.db.info.find({"$text": {"$search": query}}))
+    return render_template("info.html", infos=infos)
+
+
 # Log out
 @app.route("/logout")
 def logout():
