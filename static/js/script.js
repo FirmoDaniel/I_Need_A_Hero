@@ -5,21 +5,6 @@ $(document).ready(function(){
     /*$('.modal').modal();
     $('#modal1').hide();*/
     
-    /*If session cookie / user exists update to check on doc change*/
-    if(document.cookie.indexOf('session')){
-        $('.session-exists-hide').hide();
-    }
-    
-
-    
-    let success=$('#test').text();
-    if(success == "Registration Successful"){
-        $('#test').addClass("green")
-    } else if(success == "Username already exists"){
-        $('#test').removeClass("green").addClass("red")
-    } else if(success == "You've been logged out. #SadTimes! Come back soon"){
-        $('#test').addClass("blue")
-    }
 
     /* not wokring 
     $(document).on( "click", '#delete', function(){
@@ -27,7 +12,9 @@ $(document).ready(function(){
         $('#modal1').show()
 
     });*/
-    
+ 
+
+
     /*Taken from CI source code for form select:validation on create.html*/
     validateMaterializeSelect();
     function validateMaterializeSelect() {

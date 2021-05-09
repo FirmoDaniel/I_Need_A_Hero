@@ -1,51 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Contact</h1>
-
-    <div class="row">
-
-         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-
-        <p>contact us if you want</p>
-
-        <form class="col s12" method="POST">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="name" name="name" type="text" class="validate">
-                    <label for="name">Name</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" anme="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="telephone" name="telephone" type="tel" class="validate">
-                    <label for="telephone">Telephone</label>
-                </div>
-             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                    <label for="message">Message</label>
-                </div>
-            </div>
-            <div id="success"></div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-			</div>
-        </form>
+    <div class="container">
+        <h1 class="per_marker shrink-header">Contact</h1>
     </div>
-
+    <div class="container">
+        <div class="row">
+            <form class="col s12" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" name="name" type="text" class="validate" required>
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" anme="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="message" name="message" class="materialize-textarea" maxlength="200" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="waves-effect waves-light btn-large per_marker" id="sendMessageButton">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -3,24 +3,32 @@
 
     <div class="container">
         <div class="row">
-        <h1 id="info-header" class="per_marker">Characters ...</h1>
+        <h1 class="per_marker shrink-header">Characters...</h1>
         </div>
         <div class="row">
             <p>Here you can view all our current characters, or serach by Allegiance such as (Hero/ Neutral/ Villan), 
                 or by Description like (Werewolf/ Necromancer/ Human).
             </p>
         </div>
+        <!--Hide push/reminder for login/register is session user exists-->
+        {% if session.user %}           
+            {% else %}
+            <div class="row">
+                <h4 class="per_marker">Be sure..</h4>
+                <p>to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, 
+                    or <a href="{{url_for('login')}}">Login</a> to edit existing characters.
+                </p>
+            </div>
+        {% endif %}
         <div class="row">
-            <h4 class="per_marker">Or ...</h4>
-        </div>
-        <div class="row">
+            <h4 class="per_marker">Or.</h4>
             <p>You can simply scroll through the full list below. Be sure to use the drop down to see more information.
             </p>
         </div>
     </div>
     <!--Search function for characters-->
     <div class="container">
-        <div class="row card-panel deep-purple">
+        <div class="row card-panel deep-purple darken-1">
             <form action="{{ url_for('search') }}" method="POST" class="col s12">
                 <div id="jq-valign" class="row valign-wrapper center-align">
                     <div class="input-field col s12 m8">
@@ -29,14 +37,18 @@
                         <label id="info-search-label" for="query">Serach for Characters</label>
                     </div>
                     <div class="col s12 m4">
-                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small">Reset</a>
-                        <button type="submit" class="waves-effect waves-light btn-small">Search
+                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">Reset</a>
+                        <button type="submit" class="waves-effect waves-light btn-small per_marker">Search
                         </button>
+                        <!--Hide 'Create Button is session user doesn't exists'-->
+                        {% if session.user %} 
+                            <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
+                        {% endif %}
                     </div>
                 </div>
             </form>
         </div>
-        <!--List of characters -->
+        <!--List of characters & search results with flash message at end. -->
         {% if infos|length > 0 %}
         <ul class="collapsible">
             {% for info in infos %}
@@ -45,7 +57,7 @@
                     <div class="col s3">
                         <i class="fas fa-caret-down"></i>
                         {% if session.user|lower == info.created_by|lower %}
-                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
+                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4 ">Delete</a>
                             <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
                         {% elif session.user|lower == "admin"|lower %}
                             <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
@@ -69,16 +81,8 @@
             {% endfor %}
         </ul>
         {% else %}
-            <h3 class="deep-purple darken-1">No Results found</h3>
+            <h4 class="deep-purple darken-1 per_marker"> Whoops ! No results found.</h4>
         {% endif %}
-        <div class="row session-exists-hide">
-            <h4 class="per_marker">Or ...</h4>
-        </div>
-        <div class="row session-exists-hide">
-            <p>Be sure to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, 
-                or <a href="{{url_for('login')}}">Login</a> to edit existing characters.
-            </p>
-        </div>
     </div>
 
 {% endblock %}

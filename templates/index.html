@@ -59,9 +59,12 @@
     <div class="container">
         <h5 class ="per_marker">We're all about feedback, fairplay and improving our content.</h5>
         <p>Please keep your edits and uploads family friendly. We're not afraid to boot or ban users.</p>
-        <p>We publish a monthly newletter to show case the best uploads, and publish users' short stories. 
+        <p>We publish a monthly newletter to showcase the best uploads, and exhibit users' short stories using characters from our site. 
                 If you're interested in taking part, or have a suggestion for improvements you can contact 
                 us <a href="{{url_for('contact')}}">here.</a></p>
-        <p>Be sure to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, or <a href="{{url_for('login')}}">Login</a> to edit existing characters.</p>
+        {% if session.user %}
+        {% else %}
+            <p>Be sure to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, or <a href="{{url_for('login')}}">Login</a> to edit existing characters.</p>
+        {% endif %}
     </div>
     {% endblock %}

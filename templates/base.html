@@ -17,10 +17,10 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i>menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('examples') }}">Examples</a></li>
+                <li><a href="{{ url_for('examples') }}">Get rid Examples</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                <li><a href="{{ url_for('careers') }}">Careers</a></li>
-                <li><a href="{{ url_for('get_info') }}">Info</a></li>
+                <li><a href="{{ url_for('careers') }}">Get Rid Careers</a></li>
+                <li><a href="{{ url_for('get_info') }}">Info/characters</a></li>
                 {% if session.user  %}
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('browse') }}">Browse</a></li>
@@ -39,10 +39,10 @@
 
     <ul class="sidenav right" id="mobile-demo">
         <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('examples') }}">Examples</a></li>
+        <li><a href="{{ url_for('examples') }}">Get rid Examples</a></li>
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('careers') }}">Careers</a></li>
-        <li><a href="{{ url_for('get_info') }}">Info</a></li>
+        <li><a href="{{ url_for('careers') }}">Get rid Careers</a></li>
+        <li><a href="{{ url_for('get_info') }}">Info/Characters</a></li>
         
         {% if session.user  %}
             {% if session.user|lower == "admin"|lower %}
@@ -67,7 +67,7 @@
                {% for message in messages %}
                 <div class="container s6 offset-s3">
                     <div class="row s6">
-                        <h4 id="test" class="center-align">{{ message }}</h4>
+                        <h4 class="center-align">{{ message }}</h4>
                     </div>
                 </div>
                {% endfor %} 

@@ -12,19 +12,6 @@ body{
     background-color: whitesmoke;
     font-family:'Montserrat';
 }
-/*---------------------------test add classes for flash messages(TEMPORARY)*/
-.red{
-    background-color: red;
-}
-
-.green{
-    background-color: green;
-}
-
-.blue{
-    background-color: blue;
-}
-
 
 
 /*-------------------------------------------------------------------------------BUTTONS*/
@@ -37,7 +24,7 @@ body{
 /*search and reset buttons on info.html*/
 .waves-effect{
     background-color: whitesmoke;
-    color: #5e35b1;
+    color: black;
 }
 
 
@@ -87,7 +74,7 @@ footer{
         color: #5e35b1;
     }
 
-    #info-header{
+    .shrink-header{
         font-size: 45px;
     }
 
