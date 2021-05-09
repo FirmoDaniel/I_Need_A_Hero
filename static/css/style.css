@@ -34,6 +34,13 @@ body{
     margin:5px;   
 }
 
+/*search and reset buttons on info.html*/
+.waves-effect{
+    background-color: whitesmoke;
+    color: #5e35b1;
+}
+
+
 /*-------------------------------------------------------------------------------TEXT*/
 
 /*text on info.html*/
@@ -71,16 +78,29 @@ footer{
 /*------------------------------------------------------------------------------MEDIA QUERIES*/
 
 @media screen and (max-width:450px){
-    #footer span {
+    #footer span, #info-search-label {
         font-size: 0;
     }
+
 
     footer a i {
         color: #5e35b1;
     }
 
+    #info-header{
+        font-size: 45px;
+    }
+
 }
 
+/*@media screen and (max-width:320px){
+ 
+    #search-icon-info{
+        font-size: 0px;
+    }
+
+
+}*/
 
 /*@media screen and (max-width:601px){
     .card-image img {

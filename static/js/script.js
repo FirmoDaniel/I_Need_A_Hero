@@ -5,7 +5,12 @@ $(document).ready(function(){
     /*$('.modal').modal();
     $('#modal1').hide();*/
     
+    /*If session cookie / user exists update to check on doc change*/
+    if(document.cookie.indexOf('session')){
+        $('.session-exists-hide').hide();
+    }
     
+
     
     let success=$('#test').text();
     if(success == "Registration Successful"){
@@ -53,3 +58,14 @@ $(document).ready(function(){
     }
 
   });
+
+  /*window resizing*/
+    $( window ).resize(function(){
+    if ((screen.width>425)) {
+    // if screen size is 425px wide or larger
+        $('#jq-valign').addClass('valign-wrapper'); 
+        }
+        else if ((screen.width<=425)){
+            // if screen size width is less than 425px
+           $('#jq-valign').removeClass('valign-wrapper'); 
+    }});

@@ -2,9 +2,19 @@
 {% block content %}
 
     <div class="container">
-        <h1 class="per_marker">Characters...</h1>
         <div class="row">
-            <p>Here you can view all our current characters. 
+        <h1 id="info-header" class="per_marker">Characters ...</h1>
+        </div>
+        <div class="row">
+            <p>Here you can view all our current characters, or serach by Allegiance such as (Hero/ Neutral/ Villan), 
+                or by Description like (Werewolf/ Necromancer/ Human).
+            </p>
+        </div>
+        <div class="row">
+            <h4 class="per_marker">Or ...</h4>
+        </div>
+        <div class="row">
+            <p>You can simply scroll through the full list below. Be sure to use the drop down to see more information.
             </p>
         </div>
     </div>
@@ -12,16 +22,15 @@
     <div class="container">
         <div class="row card-panel deep-purple">
             <form action="{{ url_for('search') }}" method="POST" class="col s12">
-                <div class="row valign-wrapper center-align">
+                <div id="jq-valign" class="row valign-wrapper center-align">
                     <div class="input-field col s12 m8">
-                        <i class="fas fa-search prefix white-text"></i>
+                        <i id="search-icon-info"class="fas fa-search prefix white-text"></i>
                         <input type="text" name="query" id="query" class="validate" minlength="3" required>
-                        <label for="query">Serach for Characters</label>
-                        <small class="white-text"> Serach by Allegiance (Hero/ Neutral/ Villan), or by Description (Werewolf/ Necromancer/ Human)</small>
+                        <label id="info-search-label" for="query">Serach for Characters</label>
                     </div>
                     <div class="col s12 m4">
-                        <a href="{{ url_for('get_info') }}" class="red btn-small">Reset</a>
-                        <button type="submit" class="light-blue"><i class="fas fa-search left"></i> Search
+                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small">Reset</a>
+                        <button type="submit" class="waves-effect waves-light btn-small">Search
                         </button>
                     </div>
                 </div>
@@ -62,6 +71,14 @@
         {% else %}
             <h3 class="deep-purple darken-1">No Results found</h3>
         {% endif %}
+        <div class="row session-exists-hide">
+            <h4 class="per_marker">Or ...</h4>
+        </div>
+        <div class="row session-exists-hide">
+            <p>Be sure to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, 
+                or <a href="{{url_for('login')}}">Login</a> to edit existing characters.
+            </p>
+        </div>
     </div>
 
 {% endblock %}
