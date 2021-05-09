@@ -25,6 +25,8 @@ body{
     background-color: blue;
 }
 
+
+
 /*-------------------------------------------------------------------------------BUTTONS*/
 
 /*buttons on info.html*/
@@ -47,14 +49,37 @@ body{
 
 
 /*-------------------------------------------------------------------------------FOOTER*/
+
+.footer-items i {
+    display: inline;
+    font-size: 180%;
+    margin: 1%;
+    padding-top:10px;
+    padding-bottom: 10px;  
+}
+
+footer a {
+    border-bottom: none;
+    color: #5e35b1;
+}
+
 footer{
-    line-height: 10;
-    font-size: larger;
+    text-align: center;
 }
 
   
 /*------------------------------------------------------------------------------MEDIA QUERIES*/
 
+@media screen and (max-width:450px){
+    #footer span {
+        font-size: 0;
+    }
+
+    footer a i {
+        color: #5e35b1;
+    }
+
+}
 
 
 /*@media screen and (max-width:601px){

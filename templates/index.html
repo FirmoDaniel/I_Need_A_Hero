@@ -5,11 +5,12 @@
         <div class="row">
             <p>A common happenstance for writers is either not having enough characters or having too many. So we've created a home for both.
                 Here you'll find a handy database of characters our users have uploaded. You're free to use any characters for any project, and absolutely encouraged to upload
-                your own. 
+                your own for others to use.  
             </p>
         </div>
     </div>
     <div class="container">
+        <h5 class ="per_marker">Click on the images below to see our database</h5>
         <div class="row">
             <div class="col m4">
                 <div class="card">
@@ -54,5 +55,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <h5 class ="per_marker">We're all about feedback, fairplay and improving our content.</h5>
+        <p>Please keep your edits and uploads family friendly. We're not afraid to boot or ban users.</p>
+        <p>We publish a monthly newletter to show case the best uploads, and publish users' short stories. 
+                If you're interested in taking part, or have a suggestion for improvements you can contact 
+                us <a href="{{url_for('contact')}}">here.</a></p>
+        <p>Be sure to <a href="{{url_for('register')}}">Register</a> if you want to upload your own characters, or <a href="{{url_for('login')}}">Login</a> to edit existing characters.</p>
     </div>
     {% endblock %}
