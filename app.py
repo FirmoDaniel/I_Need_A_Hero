@@ -19,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 # Routing for DB pages
+# info.html has 'Characters' tag on base template. 
 
 
 @app.route("/get_info")
@@ -260,7 +261,8 @@ def about_character(character_name):
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        flash("Thanks {}, message recieved.".format(request.form.get("name").capitalize()))
+        flash("Thanks {}, message recieved.".format(
+            request.form.get("name").capitalize()))
     return render_template("contact.html")
 
 

@@ -2,17 +2,8 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    /*$('.modal').modal();
-    $('#modal1').hide();*/
+    $('.modal').modal();
     
-
-    /* not wokring 
-    $(document).on( "click", '#delete', function(){
-        var instance = M.Modal.getInstance(elem);
-        $('#modal1').show()
-
-    });*/
- 
 
 
     /*Taken from CI source code for form select:validation on create.html*/

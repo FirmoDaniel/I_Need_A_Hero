@@ -5,11 +5,11 @@
     </div>
     <div class="container">
         <div class="row">
-            <form class="col s12" method="POST">
+            <form class="col s12" method="POST" id="contactForm">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="name" name="name" type="text" class="validate" required>
-                        <label for="name">Name</label>
+                        <label for="name">First Name</label>
                     </div>
                 </div>
                 <div class="row">
@@ -20,12 +20,12 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="message" name="message" class="materialize-textarea" maxlength="200" required></textarea>
+                        <input id="message" type="text" name="message" class="materialize-textarea" maxlength="200" required></input>
                         <label for="message">Message</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="waves-effect waves-light btn-large per_marker" id="sendMessageButton">Send</button>
+                    <button type="submit" value="submit" class="waves-effect waves-light btn-large per_marker" id="sendMessageButton">Send</button>
                 </div>
             </form>
         </div>

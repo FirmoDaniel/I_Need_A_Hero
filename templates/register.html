@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+    <br>
       <div class="row">
-          <form class="col s12 m8 offset-m2 deep-purple darken-1" method="POST" action="{{ url_for('register') }}">
+          <form class="col s12 m6 offset-m3 deep-purple darken-1" method="POST" action="{{ url_for('register') }}">
               <div class="card-panel">
                   <!--Registration Username-->
                   <div class="row">
@@ -31,7 +32,7 @@
       <div class="row">
           <div class="col s12">
               <p class= "center-align ">
-                  Already Registered ? <a href="{{ url_for('login') }}" class="deep-purple darken-1">Log In</a>
+                  Already Registered ? <a href="{{ url_for('login') }}">Log In</a>
               </p>
           </div>
       </div>

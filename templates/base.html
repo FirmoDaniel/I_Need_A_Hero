@@ -19,8 +19,7 @@
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('examples') }}">Get rid Examples</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                <li><a href="{{ url_for('careers') }}">Get Rid Careers</a></li>
-                <li><a href="{{ url_for('get_info') }}">Info/characters</a></li>
+                <li><a href="{{ url_for('get_info') }}">Characters</a></li>
                 {% if session.user  %}
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('browse') }}">Browse</a></li>
@@ -41,8 +40,7 @@
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('examples') }}">Get rid Examples</a></li>
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('careers') }}">Get rid Careers</a></li>
-        <li><a href="{{ url_for('get_info') }}">Info/Characters</a></li>
+        <li><a href="{{ url_for('get_info') }}">Characters</a></li>
         
         {% if session.user  %}
             {% if session.user|lower == "admin"|lower %}
