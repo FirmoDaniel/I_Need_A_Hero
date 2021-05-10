@@ -143,6 +143,13 @@ def delete_role(character_id):
 @app.route("/edit_role/<character_id>", methods=["GET", "POST"])
 def edit_role(character_id):
     if request.method == "POST":
+        existing_role = mongo.db.characters.find_one(
+            {"characters_role": request.form.get("characters_role").lower()})
+
+        if existing_role:
+            flash("Role already exists")
+            return redirect(url_for('roles'))
+
         submit = {
             "characters_role": request.form.get("characters_role")
         }
@@ -167,13 +174,12 @@ def add_role():
             flash("Role already exists")
             return redirect(url_for("add_role"))
 
-        else:
-            character = { 
-                "characters_role": request.form.get("characters_role")
-            }
-            mongo.db.characters.insert_one(character)
-            flash("New Role created")
-            return redirect(url_for("roles"))
+        character = {
+            "characters_role": request.form.get("characters_role").lower()
+        }
+        mongo.db.characters.insert_one(character)
+        flash("New Role created")
+        return redirect(url_for("roles"))
 
     return render_template("add_role.html")
 
