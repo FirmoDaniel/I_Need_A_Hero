@@ -37,12 +37,12 @@
                         <label id="info-search-label" for="query">Serach for Characters</label>
                     </div>
                     <div class="col s12 m4">
-                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">Reset</a>
-                        <button type="submit" class="waves-effect waves-light btn-small per_marker">Search
+                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker red accent-3">Reset</a>
+                        <button type="submit" class="waves-effect waves-light btn-small per_marker blue accent-3">Search
                         </button>
                         <!--Hide 'Create Button is session user doesn't exists'-->
                         {% if session.user %} 
-                            <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
+                            <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
                         {% endif %}
                     </div>
                 </div>
@@ -70,11 +70,11 @@
                     <hr>
                     <div class="col s3">
                         {% if session.user|lower == info.created_by|lower %}
-                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4 ">Delete</a>
-                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
+                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker red accent-3">Delete</a>
+                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                         {% elif session.user|lower == "admin"|lower %}
                             <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
-                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
+                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small blue accent-3">Edit</a>
                         {% endif %}
                     </div>
                 </div>

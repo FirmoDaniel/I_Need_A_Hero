@@ -76,13 +76,13 @@
                 <!--Cancel & Submit Buttons-->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <button type="submit" class="waves-effect waves-light btn-small per_marker">Edit Character <i class="fas fa-edit right"></i></button>
+                        <button type="submit" class="waves-effect waves-light btn-small per_marker green accent-3">Edit Character</button>
                     </div>   
                 </div>
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Back to Profile</a>
-                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">Cancel</a>
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Back to Profile</a>
+                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker red accent-3">Cancel</a>
                     </div>
                 </div>
             </form>
