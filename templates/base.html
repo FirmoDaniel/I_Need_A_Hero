@@ -22,8 +22,7 @@
                 <li><a href="{{ url_for('get_info') }}">Characters</a></li>
                 {% if session.user  %}
                     {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('allegiance') }}">Allegiance</a></li>
-                        <li><a href="{{ url_for('add_role') }}">Add Role</a></li>
+                        <li><a href="{{ url_for('roles') }}">Roles</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                     <li><a href="{{ url_for('create', username=session['user']) }}">Create</a></li>
@@ -43,8 +42,7 @@
         <li><a href="{{ url_for('get_info') }}">Characters</a></li>
         {% if session.user  %}
             {% if session.user|lower == "admin"|lower %}
-                <li><a href="{{ url_for('allegiance') }}">allegiance</a></li>
-                <li><a href="{{ url_for('add_role') }}">Add Role</a></li>
+                <li><a href="{{ url_for('roles') }}">Roles</a></li>
             {% endif %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
             <li><a href="{{ url_for('create', username=session['user']) }}">Create</a></li>

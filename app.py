@@ -19,12 +19,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 # Routing for DB pages
-# info.html has 'Characters' tag on base template. 
 
 
 @app.route("/get_info")
 def get_info():
-    # list added below to run two for loops on one page(info.html)
+    # list added below to run two for loops on one page(characters.html)
+    # info.html is tagged ad 'Characters' on base template navbar.
     infos = list(mongo.db.info.find())
     return render_template("info.html", infos=infos)
 
@@ -131,7 +131,7 @@ def delete_info(info_id):
 def delete_role(character_id):
     mongo.db.characters.remove({"_id": ObjectId(character_id)})
     flash("Role deleted")
-    return redirect(url_for("allegiance"))
+    return redirect(url_for("roles"))
 
 
 # Edit Character Role  Page
@@ -145,7 +145,7 @@ def edit_role(character_id):
         }
         mongo.db.characters.update({"_id": ObjectId(character_id)}, submit)
         flash("Role Updated!")
-        return redirect(url_for("allegiance"))
+        return redirect(url_for("roles"))
 
     character = mongo.db.characters.find_one({"_id": ObjectId(character_id)})
     return render_template("edit_role.html", character=character)
@@ -162,7 +162,7 @@ def add_role():
         }
         mongo.db.characters.insert_one(character)
         flash("New Role created")
-        return redirect(url_for("allegiance"))
+        return redirect(url_for("roles"))
 
     return render_template("add_role.html")
 
@@ -170,10 +170,10 @@ def add_role():
 # Browse  Page
 
 
-@app.route("/allegiance")
-def allegiance():
+@app.route("/roles")
+def roles():
     characters = mongo.db.characters.find().sort("characters_role", 1)
-    return render_template("allegiance.html", characters=characters)
+    return render_template("roles.html", characters=characters)
 
 
 # Login Page
