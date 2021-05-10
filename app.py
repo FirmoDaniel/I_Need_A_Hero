@@ -157,12 +157,20 @@ def edit_role(character_id):
 @app.route("/add_role", methods=["GET", "POST"])
 def add_role():
     if request.method == "POST":
-        character = { 
-            "characters_role": request.form.get("characters_role")
-        }
-        mongo.db.characters.insert_one(character)
-        flash("New Role created")
-        return redirect(url_for("roles"))
+        existing_role = mongo.db.characters.find_one(
+            {"characters_role": request.form.get("characters_role").lower()})
+
+        if existing_role:
+            flash("Role already exists")
+            return redirect(url_for("add_role"))
+
+        else:
+            character = { 
+                "characters_role": request.form.get("characters_role")
+            }
+            mongo.db.characters.insert_one(character)
+            flash("New Role created")
+            return redirect(url_for("roles"))
 
     return render_template("add_role.html")
 

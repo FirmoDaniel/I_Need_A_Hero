@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
- 
-      <h3 class="deep-purple darken-1">Add Charctaer Role</h3>
-        <div class="row card-panel grey">
-            <form class="col s12" method ="POST" action="{{ url_for('add_role') }}">
+        <div class="container">
+            <form class="" method ="POST" action="{{ url_for('add_role') }}">
                 <div class="row">
                     <!--Character Role-->
-                    <div class="input-field col s12 deep-purple darken-1">
+                    <div class="input-field col s10 offset-1 deep-purple darken-1">
                         <i class="fas fa-folder-open prefix white-text"></i>
                         <input id="characters_role" name="characters_role" type="text" 
                             minlength="3" maxlength="25" class="validate" required>
