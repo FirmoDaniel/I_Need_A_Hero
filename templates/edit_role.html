@@ -1,30 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
- 
-      <h3 class="deep-purple darken-1">Edit Charctaer Role</h3>
-        <div class="row card-panel grey">
-            <form class="col s12" method ="POST" action="{{ url_for('edit_role', character_id=character._id) }}">
+    <div class="container">
+      <div class="row">
+            <div class="col s12 m8 offset-m2 deep-purple darken-1">
+                <div class="card-panel">
+                    <h3 class="center-align per_marker">
+                        Edit a Character Role
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row card-panel">
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_role', character_id=character._id) }}">
                 <div class="row">
                     <!--Character Role-->
-                    <div class="input-field col s12 deep-purple darken-1">
-                        <i class="fas fa-folder-open prefix white-text"></i>
+                    <div class="input-field col s12">
+                        <i class="fas fa-mask prefix"></i>
                         <input id="characters_role" name="characters_role" type="text" 
                             value="{{ character.characters_role }}" minlength="3" maxlength="25" class="validate" required>
-                        <label for="characters_role">Character's Role :</label>
+                        <label for="characters_role"></label>
                     </div>
                 </div>
                 <!-- Edit Role button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('roles') }}" class="btn-large red">
-                            Cancel <i class="fas fa-times-cricle right"></i>
+                        <a href="{{ url_for('roles') }}" class="waves-effect waves-light btn-small per_marker red accent-3">
+                            Cancel
                         </a>
-                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                            Edit Role<i class="fas fa-edit right"></i>
+                        <button type="submit" class="waves-effect waves-light btn-small per_marker green accent-3">
+                            Edit Role
                         </button>
                     </div>
                 </div>
             </form>
         </div>
-
+    </div>
 {% endblock %}
