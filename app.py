@@ -74,6 +74,8 @@ def create(username):
             "characters_role": request.form.get("characters_role"),
             "infos_name": request.form.get("infos_name"),
             "infos_description": request.form.get("infos_description"),
+            "infos_bio": request.form.get("infos_bio"),
+            "infos_skills": request.form.get("infos_skills"),
             "created_by": session["user"]
         }
         mongo.db.info.insert_one(infos)

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="container">
       <div class="row">
           <div class="col s12 m8 offset-m2 deep-purple darken-1">
               <div class="card-panel">
@@ -7,7 +8,7 @@
                       {{ username.capitalize() }}'s Profile
                   </h3>
               </div>
-            </div>
+          </div>
       </div>
        <ul  id="profileHideCollapsible" class="collapsible">
             {% for info in infos %}
@@ -40,6 +41,5 @@
             You can <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
             , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">view characters</a>.
         </div>
-
-   
+    </div>
 {% endblock %}
