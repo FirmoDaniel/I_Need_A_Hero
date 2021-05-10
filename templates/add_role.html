@@ -1,21 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
         <div class="container">
-            <form class="" method ="POST" action="{{ url_for('add_role') }}">
+            <div class="row">
+                <div class="col s12 m8 offset-m2 deep-purple darken-1">
+                    <div class="card-panel">
+                        <h3 class="center-align per_marker">
+                            Add a Character Role
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('add_role') }}">
                 <div class="row">
                     <!--Character Role-->
-                    <div class="input-field col s10 offset-1 deep-purple darken-1">
-                        <i class="fas fa-folder-open prefix white-text"></i>
+                    <div class="input-field col s12">
+                        <i class="fas fa-folder-open prefix"></i>
                         <input id="characters_role" name="characters_role" type="text" 
                             minlength="3" maxlength="25" class="validate" required>
                         <label for="characters_role">Character's Role :</label>
                     </div>
                 </div>
-                <!-- Add Role button -->
                 <div class="row">
+                    <!-- Add Role button -->
                     <div class="col s12 center-align">
-                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                            Add Role<i class="fas fa-plus-square right"></i>
+                        <button type="submit" class="waves-effect waves-light btn-small per_marker">
+                            Add Role
                         </button>
                     </div>
                 </div>
