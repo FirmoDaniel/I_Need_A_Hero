@@ -30,7 +30,7 @@ body{
 
 /*-------------------------------------------------------------------------------TEXT*/
 
-/*text on info.html*/
+/*text on info.html & profile.html*/
 .collapsible-header .col strong {
     margin:5px;
     line-height: 42px;
@@ -69,7 +69,6 @@ footer{
         font-size: 0;
     }
 
-
     footer a i {
         color: #5e35b1;
     }
@@ -77,6 +76,11 @@ footer{
     .shrink-header{
         font-size: 45px;
     }
+
+    .collapsible-header .col strong {
+    margin:0px;
+    line-height: 15px;
+}
 
 }
 

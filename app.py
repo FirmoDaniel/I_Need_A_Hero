@@ -191,7 +191,7 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username").capitalize()))
                     return redirect(url_for(
-                        "get_info", username=session["user"]))
+                        "profile", username=session["user"]))
             else:
                 # Wrong Passowrd
                 flash("Incorrect Username and/or Password")

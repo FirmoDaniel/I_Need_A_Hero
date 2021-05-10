@@ -3,23 +3,43 @@
       <div class="row">
           <div class="col s12 m8 offset-m2 deep-purple darken-1">
               <div class="card-panel">
-                  <h3 class="center-align">
+                  <h3 class="center-align per_marker">
                       {{ username.capitalize() }}'s Profile
                   </h3>
               </div>
             </div>
       </div>
-        {% for info in infos %}
+       <ul  id="profileHideCollapsible" class="collapsible">
+            {% for info in infos %}
             {% if session.user|lower == info.created_by|lower %}
-                <div class="col s9">
-                    <strong id="profileCharacters">This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
+            <li>
+                <div class="collapsible-header white-text deep-purple darken-1">
+                    <div class="col s9">
+                        <strong id="profileCharacters">This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
+                    </div>
                 </div>
-            {% endif %}
-        {% endfor %}
-        
-        <div id="profileCharactersNone">No characters created yet. 
+                <div class="collapsible-body">
+                    <h5 class="per_marker">Character Bio :</h5> 
+                    <p>{{ info.infos_bio }}</p>
+                    <hr>
+                    <h5 class="per_marker">Special skills include :</h5> 
+                    <p>{{ info.infos_skills }}</p>
+                    <hr>
+                    <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
+                    <hr>
+                    <div class="col s3">
+                        <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4 ">Delete</a>
+                        <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small light-blue accent-4">Edit</a>
+                    </div>
+                </div>
+            </li>
+                    {% endif %}
+            {% endfor %}
+        </ul>
+        <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
             You can <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
-            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">view characters</a>.</div>
+            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">view characters</a>.
+        </div>
 
    
 {% endblock %}

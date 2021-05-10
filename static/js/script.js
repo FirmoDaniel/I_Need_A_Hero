@@ -5,9 +5,11 @@ $(document).ready(function(){
     
     let profileCharacters = $('#profileCharacters').text();
      if(profileCharacters == ""){
-         $('#profileCharactersNone').show()
+        $('#profileCharactersNone').show()
+        $('#profileHideCollapsible').hide()
      }else{
         $('#profileCharactersNone').hide()
+        
      };
 
 
@@ -48,9 +50,9 @@ $(document).ready(function(){
     $( window ).resize(function(){
     if ((screen.width>425)) {
     // if screen size is 425px wide or larger
-        $('#jq-valign').addClass('valign-wrapper'); 
+        $('#jq-valign').addClass('valign-wrapper');
         }
         else if ((screen.width<=425)){
             // if screen size width is less than 425px
-           $('#jq-valign').removeClass('valign-wrapper'); 
+            $('#jq-valign').removeClass('valign-wrapper');
     }});
