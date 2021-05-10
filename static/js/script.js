@@ -2,22 +2,35 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
+    $('.modal').modal();
     
     let profileCharacters = $('#profileCharacters').text();
-     if(profileCharacters == ""){
-        $('#profileCharactersNone').show()
-        $('#profileHideCollapsible').hide()
-     }else{
-        $('#profileCharactersNone').hide()
-        
+        if(profileCharacters == ""){
+            $('#profileCharactersNone').show()
+            $('#profileHideCollapsible').hide()
+        }else{
+            $('#profileCharactersNone').hide()  
      };
 
+     /*Hide real delete buttons on Role and Characters Pages
+     $(".real-delete").hide();
+     $(".cancel-button").hide();
+     
+     $(".fake-delete").on("click",function(){
+        alert("All deletes are permenant, click 'ok' to ")
+        $(".real-delete").show();
+        $(".cancel-button").show();
+        $(".fake-delete").hide();
+
+     })*/
+    
 
 
 
-    /*Taken from CI source code for form select:validation on create.html*/
-    validateMaterializeSelect();
-    function validateMaterializeSelect() {
+
+     /*Taken from CI source code for form select:validation on create.html*/
+     validateMaterializeSelect();
+     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
         let classInvalid = { "border-bottom": "1px solid #f44336", "box-shadow": "0 1px 0 0 #f44336" };
         if ($("select.validate").prop("required")) {

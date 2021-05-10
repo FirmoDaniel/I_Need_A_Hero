@@ -15,7 +15,19 @@
                     </div>
                     <div class="card-action">
                         <a href="{{ url_for('edit_role', character_id=character._id) }}" class="btn blue accent-3">Edit</a>
-                        <a href="{{ url_for('delete_role', character_id=character._id) }}" class="btn red accent-3">Delete</a>
+                        <!-- Modal Trigger -->
+                        <button data-target="myModal" class="btn modal-trigger red accent-3">Delete</button>
+                        <!-- Modal Structure -->
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                            <h4 class="per_marker">Warning!</h4>
+                            <p>Deletion is absolutely permenant.</p>
+                            </div>
+                            <div class="modal-footer center-align">
+                            <a href="{{ url_for('roles') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+                            <a href="{{ url_for('delete_role', character_id=character._id) }}" class="modal-close btn red accent-3">Yes Delete this forever.</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
