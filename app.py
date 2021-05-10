@@ -57,7 +57,7 @@ def search():
 # Log out
 @app.route("/logout")
 def logout():
-    flash("You've been logged out. #SadTimes! Come back soon")
+    flash("You've been logged out.")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -76,7 +76,7 @@ def create(username):
             "created_by": session["user"]
         }
         mongo.db.info.insert_one(infos)
-        flash("Clever Hooman! Character created.")
+        flash("Character created.")
         return redirect(url_for("get_info"))
 
     characters = mongo.db.characters.find().sort("characters_role", 1)
@@ -103,7 +103,7 @@ def edit_info(info_id):
             "created_by": session["user"]
         }
         mongo.db.info.update({"_id": ObjectId(info_id)}, edit)
-        flash("Clever Hooman! Character Edited.")
+        flash("Character edited.")
         return redirect(url_for("get_info"))
 
     info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
@@ -122,7 +122,7 @@ def edit_info(info_id):
 @app.route("/delete_info/<info_id>")
 def delete_info(info_id):
     mongo.db.info.remove({"_id": ObjectId(info_id)})
-    flash("Fearless Hooman! Character Obliterated")
+    flash("Character deleted")
     return redirect(url_for("get_info"))
 
 
@@ -131,7 +131,7 @@ def delete_info(info_id):
 def delete_role(character_id):
     mongo.db.characters.remove({"_id": ObjectId(character_id)})
     flash("Role deleted")
-    return redirect(url_for("browse"))
+    return redirect(url_for("allegiance"))
 
 
 # Edit Character Role  Page
@@ -145,7 +145,7 @@ def edit_role(character_id):
         }
         mongo.db.characters.update({"_id": ObjectId(character_id)}, submit)
         flash("Role Updated!")
-        return redirect(url_for("browse"))
+        return redirect(url_for("allegiance"))
 
     character = mongo.db.characters.find_one({"_id": ObjectId(character_id)})
     return render_template("edit_role.html", character=character)
@@ -162,7 +162,7 @@ def add_role():
         }
         mongo.db.characters.insert_one(character)
         flash("New Role created")
-        return redirect(url_for("browse"))
+        return redirect(url_for("allegiance"))
 
     return render_template("add_role.html")
 
@@ -170,10 +170,10 @@ def add_role():
 # Browse  Page
 
 
-@app.route("/browse")
-def browse():
+@app.route("/allegiance")
+def allegiance():
     characters = mongo.db.characters.find().sort("characters_role", 1)
-    return render_template("browse.html", characters=characters)
+    return render_template("allegiance.html", characters=characters)
 
 
 # Login Page
