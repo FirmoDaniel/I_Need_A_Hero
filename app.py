@@ -28,6 +28,21 @@ def get_info():
     infos = list(mongo.db.info.find())
     return render_template("info.html", infos=infos)
 
+# Profile  Page
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # get active session username from db
+    infos = list(mongo.db.info.find())
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("profile.html", username=username, infos=infos)
+
+    return redirect(url_for("login"))
+
 
 # search function on browse page
 
@@ -159,21 +174,6 @@ def add_role():
 def browse():
     characters = mongo.db.characters.find().sort("characters_role", 1)
     return render_template("browse.html", characters=characters)
-
-
-# Profile  Page
-
-
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # get active session username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
 
 
 # Login Page

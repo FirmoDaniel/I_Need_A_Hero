@@ -4,10 +4,22 @@
           <div class="col s12 m8 offset-m2 deep-purple darken-1">
               <div class="card-panel">
                   <h3 class="center-align">
-                      {{ username }}'s Profile
+                      {{ username.capitalize() }}'s Profile
                   </h3>
               </div>
             </div>
       </div>
+        {% for info in infos %}
+            {% if session.user|lower == info.created_by|lower %}
+                <div class="col s9">
+                    <strong id="profileCharacters">This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+        <div id="profileCharactersNone">No characters created yet. 
+            You can <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
+            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">view characters</a>.</div>
 
+   
 {% endblock %}

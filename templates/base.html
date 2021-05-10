@@ -41,7 +41,6 @@
         <li><a href="{{ url_for('examples') }}">Get rid Examples</a></li>
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
         <li><a href="{{ url_for('get_info') }}">Characters</a></li>
-        
         {% if session.user  %}
             {% if session.user|lower == "admin"|lower %}
                 <li><a href="{{ url_for('browse') }}">Browse</a></li>

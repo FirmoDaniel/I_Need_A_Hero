@@ -2,8 +2,15 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('.modal').modal();
     
+    let profileCharacters = $('#profileCharacters').text();
+     if(profileCharacters == ""){
+         $('#profileCharactersNone').show()
+     }else{
+        $('#profileCharactersNone').hide()
+     };
+
+
 
 
     /*Taken from CI source code for form select:validation on create.html*/
