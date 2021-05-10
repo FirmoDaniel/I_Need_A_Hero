@@ -2,13 +2,13 @@
 {% block content %}
     <div class="container">
         <div class="row">
-          <div class="col s12 m8 offset-m2 deep-purple darken-1">
-              <div class="card-panel">
-                  <h3 class="center-align per_marker">
-                      Create a Character
-                  </h3>
-              </div>
-          </div>
+            <div class="col s12 m8 offset-m2 deep-purple darken-1">
+                <div class="card-panel">
+                    <h3 class="center-align per_marker">
+                        Create a Character
+                    </h3>
+                </div>
+            </div>
         </div>
         <div class="row card-panel">
             <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('create', username=session['user']) }}">
@@ -64,6 +64,7 @@
                 <div class="row">
                     <!--submit button-->
                     <div class="col s12 center-align">
+                        <a href="{{ url_for('get_info') }}" class="btn-large red">Cancel <i class="fas fa-times-circle right"></i> </a>
                         <button type="submit" class="btn-large deep-purple">Create Character <i class="fas fa-plus-square right"></i></button>
                     </div>   
                 </div>
