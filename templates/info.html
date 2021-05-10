@@ -6,8 +6,14 @@
         <h1 class="per_marker shrink-header">Characters...</h1>
         </div>
         <div class="row">
-            <p>Here you can view all our current characters, or search by Allegiance such as (Hero/ Neutral/ Villan), 
-                or by Description like (Werewolf/ Necromancer/ Human).
+            <p>Here you can view all our current characters, or search by Role such as:
+                {% for character in characters %}
+                    <span>{{ character.characters_role.capitalize() }} / </span>
+                {% endfor %}
+                or by Description like:
+                {% for info in infos %}
+                    <span>{{ info.infos_description.capitalize() }} / </span>
+                {% endfor %}
             </p>
         </div>
         <!--Hide push/reminder for login/register is session user exists-->

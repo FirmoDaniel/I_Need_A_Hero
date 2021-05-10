@@ -2,7 +2,7 @@
 {% block content %}
     <div class="row">
         <div class="col s12 center-align">
-            <a href="{{ url_for('add_role') }}" class="btn-large deep-purple">Add Role <i class="fas fa-plus-square right"></i></a>
+            <a href="{{ url_for('add_role') }}" class="btn-large green accent-3">Add Role <i class="fas fa-plus-square right"></i></a>
         </div>
     </div>
 
@@ -11,7 +11,7 @@
             <div class="col s12 m3">
                 <div class="card deep-purple darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">{{ character.characters_role }}</span>
+                        <span class="card-title">{{ character.characters_role.capitalize() }}</span>
                     </div>
                     <div class="card-action">
                         <a href="{{ url_for('edit_role', character_id=character._id) }}" class="btn blue accent-3">Edit</a>
