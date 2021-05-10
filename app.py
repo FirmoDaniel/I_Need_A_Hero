@@ -1,5 +1,4 @@
 import os
-import json
 from flask import (
     Flask, render_template, request, flash,
     redirect, session, url_for)
@@ -44,7 +43,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# search function on browse page
+# search function on characters page
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -55,6 +54,8 @@ def search():
 
 
 # Log out
+
+
 @app.route("/logout")
 def logout():
     flash("You've been logged out.")
@@ -244,26 +245,6 @@ def register():
 @app.route("/")
 def index():
     return render_template("index.html")
-
-
-@app.route("/examples")
-def examples():
-    data = []
-    with open("data/characters.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template(
-        "examples.html", page_title="Examples", characters=data)
-
-
-@app.route("/examples/<character_name>")
-def about_character(character_name):
-    character = {}
-    with open("data/characters.json", "r") as json_data:
-        data = json.load(json_data)
-        for obj in data:
-            if obj["url"] == character_name:
-                character = obj
-    return render_template("characters.html", character=character)
 
 
 @app.route("/contact", methods=["GET", "POST"])
