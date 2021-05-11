@@ -244,6 +244,16 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# delete button/function on Profile Page
+
+
+@app.route("/delete_info_profile/<info_id>")
+def delete_info_profile(info_id):
+    mongo.db.info.remove({"_id": ObjectId(info_id)})
+    flash("Character deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 # Create  Page
 
 

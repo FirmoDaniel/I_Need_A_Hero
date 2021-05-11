@@ -29,7 +29,7 @@
                     <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
-                        <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small red accent-3 ">Delete</a>
+                        <a id="delete" href="{{ url_for('delete_info_profile', info_id=info._id) }}" class="btn-small red accent-3 ">Delete</a>
                         <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small blue accent-3">Edit</a>
                     </div>
                 </div>
