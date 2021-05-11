@@ -9,7 +9,6 @@ $(document).ready(function(){
     $(".cancelButton").hide();
     
     $(".fakeCharacaterDeleteButton").on("click", function(){
-    /*alert("All DELETES ARE PERMENANT. Click ok for options to proceed or cancel")*/
     $(".characterDeleteButton").show();
     $(".cancelButton").show();
     $(".fakeCharacaterDeleteButton").hide();
@@ -21,8 +20,11 @@ $(document).ready(function(){
         if(profileCharacters == ""){
             $('#profileCharactersNone').show()
             $('#profileHideCollapsible').hide()
+            $('#ifProfileCharactersExist').hide()
         }else{
-            $('#profileCharactersNone').hide()  
+            $('#profileCharactersNone').hide()
+            $('#ifProfileCharactersExist').show()
+
      };
 
      /*Taken from CI source code for form select:validation on create.html*/

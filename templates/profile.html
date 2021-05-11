@@ -10,6 +10,7 @@
               </div>
           </div>
       </div>
+      <a id="ifProfileCharactersExist" href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
        <ul  id="profileHideCollapsible" class="collapsible">
             {% for info in infos %}
             {% if session.user|lower == info.created_by|lower %}
@@ -38,8 +39,8 @@
             {% endfor %}
         </ul>
         <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
-            You can <a href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker">Create</a>
-            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker">view characters</a>.
+            You can <a href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
+            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
         </div>
     </div>
 {% endblock %}
