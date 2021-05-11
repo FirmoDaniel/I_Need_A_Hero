@@ -254,7 +254,34 @@ def delete_info_profile(info_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
-# Create  Page
+# Create character from profile page
+
+
+@app.route("/create_from_profile/<username>", methods=["GET", "POST"])
+def create_from_profile(username):
+    if request.method == "POST":
+        infos = {
+            "characters_role": request.form.get("characters_role"),
+            "infos_name": request.form.get("infos_name"),
+            "infos_description": request.form.get("infos_description"),
+            "infos_bio": request.form.get("infos_bio"),
+            "infos_skills": request.form.get("infos_skills"),
+            "created_by": session["user"]
+        }
+        mongo.db.info.insert_one(infos)
+        flash("Character created.")
+        return redirect(url_for("profile", username=session["user"]))
+
+    characters = mongo.db.characters.find().sort("characters_role", 1)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("create_from_profile.html", username=username, 
+            characters=characters)
+
+
+# Create Page
 
 
 @app.route("/create/<username>", methods=["GET", "POST"])
