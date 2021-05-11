@@ -4,9 +4,17 @@ $(document).ready(function(){
     $('select').formSelect();
     $(".modal").modal();
 
-
-
-
+ /*Defensive hide/show and alerts for character deletion*/
+    $(".characterDeleteButton").hide();
+    $(".cancelButton").hide();
+    
+    $(".fakeCharacaterDeleteButton").on("click", function(){
+    alert("All DELETES ARE PERMENANT. Click ok for options to proceed or cancel")
+    $(".characterDeleteButton").show();
+    $(".cancelButton").show();
+    $(".fakeCharacaterDeleteButton").hide();
+       
+    });
 
     
     let profileCharacters = $('#profileCharacters').text();
