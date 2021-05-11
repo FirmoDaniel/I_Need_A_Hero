@@ -2,7 +2,12 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('.modal').modal();
+    $(".modal").modal();
+
+
+
+
+
     
     let profileCharacters = $('#profileCharacters').text();
         if(profileCharacters == ""){
@@ -11,22 +16,6 @@ $(document).ready(function(){
         }else{
             $('#profileCharactersNone').hide()  
      };
-
-     /*Hide real delete buttons on Role and Characters Pages
-     $(".real-delete").hide();
-     $(".cancel-button").hide();
-     
-     $(".fake-delete").on("click",function(){
-        alert("All deletes are permenant, click 'ok' to ")
-        $(".real-delete").show();
-        $(".cancel-button").show();
-        $(".fake-delete").hide();
-
-     })*/
-    
-
-
-
 
      /*Taken from CI source code for form select:validation on create.html*/
      validateMaterializeSelect();

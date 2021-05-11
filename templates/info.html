@@ -83,10 +83,34 @@
                     <hr>
                     <div class="col s3">
                         {% if session.user|lower == info.created_by|lower %}
-                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker red accent-3">Delete</a>
+                                <!-- Modal Trigger -->
+                            <button data-target="myModal" class="btn modal-trigger per_marker red accent-3">Delete</button>
+                            <!-- Modal Structure -->
+                            <div id="myModal" class="modal bottom-sheet">
+                                <div class="modal-content">
+                                <h4 class="per_marker">Warning!</h4>
+                                <p>Deletion is absolutely permenant.</p>
+                                </div>
+                                <div class="modal-footer center-align">
+                                <a href="{{ url_for('get_info') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+                                <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="modal-close btn red accent-3">Yes Delete this forever.</a>
+                                </div>
+                            </div>
                             <a href="{{ url_for('edit_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                         {% elif session.user|lower == "admin"|lower %}
-                            <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="btn-small green accent-4">Delete</a>
+                            <!-- Modal Trigger -->
+                            <button data-target="myModal" class="btn modal-trigger per_marker red accent-3">Delete</button>
+                            <!-- Modal Structure -->
+                            <div id="myModal" class="modal bottom-sheet">
+                                <div class="modal-content">
+                                <h4 class="per_marker">Warning!</h4>
+                                <p>Deletion is absolutely permenant.</p>
+                                </div>
+                                <div class="modal-footer center-align">
+                                <a href="{{ url_for('get_info') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+                                <a id="delete" href="{{ url_for('delete_info', info_id=info._id) }}" class="modal-close btn red accent-3">Yes Delete this forever.</a>
+                                </div>
+                            </div>
                             <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small blue accent-3">Edit</a>
                         {% endif %}
                     </div>

@@ -4,6 +4,7 @@
 
 .per_marker{
     font-family:'Permanent Marker';
+    color: black;
 }
 
 /*----------------------------------------------*/
@@ -61,7 +62,6 @@ footer{
     text-align: center;
 }
 
-  
 /*------------------------------------------------------------------------------MEDIA QUERIES*/
 
 @media screen and (max-width:450px){
