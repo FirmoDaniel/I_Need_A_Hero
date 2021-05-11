@@ -9,7 +9,7 @@ $(document).ready(function(){
     $(".cancelButton").hide();
     
     $(".fakeCharacaterDeleteButton").on("click", function(){
-    alert("All DELETES ARE PERMENANT. Click ok for options to proceed or cancel")
+    /*alert("All DELETES ARE PERMENANT. Click ok for options to proceed or cancel")*/
     $(".characterDeleteButton").show();
     $(".cancelButton").show();
     $(".fakeCharacaterDeleteButton").hide();
