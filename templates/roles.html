@@ -16,22 +16,27 @@
                     <div class="card-action">
                         <a href="{{ url_for('edit_role', character_id=character._id) }}" class="btn per_marker blue accent-3">Edit</a>
                         <!-- Modal Trigger -->
-                        <button data-target="myModal" class="btn modal-trigger per_marker red accent-3">Delete</button>
-                        <!-- Modal Structure -->
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                            <h4 class="per_marker">Warning!</h4>
-                            <p>Deletion is absolutely permenant.</p>
-                            <a href="{{ url_for('roles') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
-                            <a href="{{ url_for('delete_role', character_id=character._id) }}" class="modal-close btn red accent-3">Yes Delete this forever.</a>
-                            </div>
-                            <div class="modal-footer left-align">
-                            </div>
-                        </div>
+                        <button data-target="myModal" 
+                            class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
+                        <a href="{{ url_for('roles') }}" class="cancelButton waves-effect
+                            waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
+                        <a href="{{ url_for('delete_role', character_id=character._id) }}" 
+                            class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3">Yes Delete this forever.</a>   
                     </div>
                 </div>
             </div>
         {% endfor %}
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+            <h4 class="per_marker">Warning!</h4>
+            <p>Deletion is absolutely permenant.</p>
+            <a href="{{ url_for('roles') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+            <a class="modal-close btn red accent-3">Proceed to delete</a>
+            </div>
+            <div class="modal-footer left-align">
+            </div>
+        </div>
     </div>
 
 {% endblock %}
