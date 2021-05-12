@@ -281,6 +281,34 @@ def create_from_profile(username):
             characters=characters)
 
 
+# edit button/function on profile Page
+
+
+@app.route("/edit_info_from_profile/<info_id>", methods=["GET", "POST"])
+def edit_info_from_profile(info_id):
+    if request.method == "POST":
+        edit = {
+            "characters_role": request.form.get("characters_role"),
+            "infos_name": request.form.get("infos_name"),
+            "infos_description": request.form.get("infos_description"),
+            "infos_bio": request.form.get("infos_bio"),
+            "infos_skills": request.form.get("infos_skills"),
+            "created_by": session["user"]
+        }
+        mongo.db.info.update({"_id": ObjectId(info_id)}, edit)
+        flash("Character edited.")
+        return redirect(url_for("profile", username=session["user"]))
+
+    info = mongo.db.info.find_one({"_id": ObjectId(info_id)})
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    characters = mongo.db.characters.find().sort("characters_role", 1)
+    return render_template("edit_info_from_profile.html", info=info, 
+        username=username, characters=characters)
+
+
 # Create Page
 
 
