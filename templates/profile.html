@@ -30,14 +30,33 @@
                     <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
-                        <a id="delete" href="{{ url_for('delete_info_profile', info_id=info._id) }}" class="btn-small red accent-3 ">Delete</a>
-                        <a href="{{ url_for('edit_info', info_id=info._id) }}" class="btn-small blue accent-3">Edit</a>
+                        <!-- Modal Trigger -->
+                        <button data-target="myModal" 
+                        class="fakeCharacaterDeleteButton btn modal-trigger red accent-3"> fAKE Delete</button>
+                        <a href="{{ url_for('edit_info', info_id=info._id) }}" 
+                            class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
+                        <a href="{{ url_for('profile', username=session['user']) }}" 
+                            class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
+                        <a href="{{ url_for('delete_info_profile', info_id=info._id) }}" 
+                                class="characterDeleteButton waves-effect waves-light
+                                btn-small per_marker red accent-3"> Yes! Delete forever</a>
                     </div>
                 </div>
             </li>
                     {% endif %}
             {% endfor %}
         </ul>
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal bottom-sheet">
+            <div class="modal-content">
+            <h4 class="per_marker">Warning!</h4>
+            <p>Deletion is absolutely permenant.</p>
+            <a href="{{ url_for('profile', username=session['user']) }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+            <a class="modal-close btn red accent-3">Proceed to delete</a>
+            </div>
+            <div class="modal-footer left-align">
+            </div>
+        </div>
         <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
             You can <a href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
             , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
