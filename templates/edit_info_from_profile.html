@@ -15,7 +15,7 @@
                 <div class="row">
                     <!--Character Role-->
                     <div class="input-field col s12">
-                        <i class="fas fa-folder-open prefix"></i>
+                        <i class="fas fa-mask prefix"></i>
                         <select id="characters_role" name="characters_role" class="validate" required>
                             <option value="" disabled>Choose Alligience</option>
                             {% for character in characters  %}
@@ -32,7 +32,7 @@
                 <div class="row">
                     <!--Character Name-->
                     <div class="input-field col s12 ">
-                        <i class="fas fa-user-circle prefix"></i>
+                        <i class="fas fa-signature prefix"></i>
                         <input id="infos_name" name="infos_name" type="text" 
                             minlength="3" maxlength="50" value="{{ info.infos_name }}" 
                             class="validate" placeholder="Character name :" required>
@@ -42,7 +42,7 @@
                 <div class="row">
                     <!--Character Description-->
                     <div class="input-field col s12 ">
-                        <i class="fas fa-user-circle prefix"></i>
+                        <i class="fas fa-transgender-alt prefix"></i>
                         <input id="infos_description" name="infos_description" type="text" 
                             minlength="3" maxlength="50" value="{{ info.infos_description}}" 
                             class="validate" placeholder="Character description :" required>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <!--Character Bio-->
                     <div class="input-field col s12">
-                        <i class="fas fa-align-left prefix"></i>
+                        <i class="fas fa-info prefix"></i>
                         <textarea id="infos_bio" name="infos_bio" minlength="5" 
                                 maxlength="200" class="materialize-textarea validate" 
                                 placeholder="Character bio :" required>
@@ -64,7 +64,7 @@
                 <div class="row">
                     <!--Character skills-->
                     <div class="input-field col s12">
-                        <i class="fas fa-align-left prefix"></i>
+                        <i class="fas fa-toolbox prefix"></i>
                         <textarea id="infos_skills" name="infos_skills" minlength="5" 
                                 maxlength="200" class="materialize-textarea validate"
                                 placeholder="Character skills :" required>
