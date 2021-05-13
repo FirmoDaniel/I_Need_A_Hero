@@ -66,10 +66,8 @@ $(document).ready(function(){
         });
     }
 
-  });
-
   /*window resizing*/
-    $( window ).resize(function(){
+
     if ((screen.width>536)) {
     // if screen size is larger
         $('#jq-valign').addClass('valign-wrapper');
@@ -79,7 +77,7 @@ $(document).ready(function(){
             // if screen size width smaller or equal
             $('#jq-valign').removeClass('valign-wrapper');
             
-    }
+    };
 
     if ((screen.width>666)) {
     // if screen size is larger
@@ -90,7 +88,7 @@ $(document).ready(function(){
             // if screen size width smaller or equal
             $('.card-content').hide();
             
-    }
-
+    };
 
 });
+
