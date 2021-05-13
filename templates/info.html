@@ -66,7 +66,7 @@
         <ul class="collapsible">
             {% for info in infos %}
             <li>
-                <div class="collapsible-header white-text deep-purple darken-1">
+                <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s3"><i class="fas fa-caret-down"></i></div>
                     <div class="col 9">
                         <strong>This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
@@ -108,7 +108,7 @@
             <h4 class="per_marker">Warning!</h4>
             <p>Deletion is absolutely permenant.</p>
             <a href="{{ url_for('get_info') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
-            <a class="modal-close btn red accent-3">Proceed to delete</a>
+            <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
             </div>
             <div class="modal-footer left-align">
             </div>

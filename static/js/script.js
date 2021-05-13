@@ -4,15 +4,25 @@ $(document).ready(function(){
     $('select').formSelect();
     $(".modal").modal();
 
- /*Defensive hide/show and alerts for character deletion*/
+
+/*Defensive hide/show and alerts for character deletion*/
     $(".characterDeleteButton").hide();
     $(".cancelButton").hide();
     
-    $(".fakeCharacaterDeleteButton").on("click", function(){
+    $(".callDeleteCancelButtons").on("click", function(){
     $(".characterDeleteButton").show();
     $(".cancelButton").show();
     $(".fakeCharacaterDeleteButton").hide();
-       
+           
+    });
+
+    $(".ifVisible").on("click", function(){
+        if($(".characterDeleteButton").is(':visible') === $(".characterDeleteButton").is(':not(:hidden)')){
+           $(".characterDeleteButton").hide();
+           $(".cancelButton").hide();
+           $(".fakeCharacaterDeleteButton").show();
+        };
+        
     });
 
     
