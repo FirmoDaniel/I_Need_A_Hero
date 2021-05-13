@@ -113,3 +113,23 @@ and the users' profile page.
 
 ### Features left to implement 
 * Link contact form using python. When email.js was applied and functional, it interfered with the flash messages on submit.
+
+## Technologies used
+* HTML-For basic structure.
+* CSS-For styling and required Media Query outside of Bootstrap.
+* JavaScriprt 
+* [Email.JS](https://www.emailjs.com/)
+* [Jquery](https://jquery.com/)
+* [W3C validator](https://validator.w3.org/)-Used in testing HTML and CSS.
+* [JsHINT](https://jshint.com)-Used for Java Script validation.
+* [GitHub](https://github.com) -For deployment.
+* [GitPod](https://www.gitpod.io/) -IDE.
+* [Bootstrap (including JQuery)](https://getbootstrap.com) -Utilized for responsiveness via columns, buttons and navbars.
+* [Google Fonts](https://fonts.google.com) -Used for primary font employed throughout. [Lato]('https://fonts.googleapis.com/css2?family=Lato&display=swap').
+* [Visual Studio](https://code.visualstudio.com) -For offline work.
+* [Font Awesome](https://fontawesome.com/)  - For icons.
+* Google Chrome's Responsive Viewer found [here](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb)
+* Google Chrome's lighthouse function.
+* [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+* [Pthon3]](https://www.python.org/)
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
