@@ -31,16 +31,22 @@ Both from [Google Fonts](https://fonts.google.com).
 * [Administrator](#Administrator)
 
 ## New User
-New users arrives at the home/index page wto a brief description of the site's intentions.
+New users arrive at the home/index page wto a brief description of the site's intentions.
 They are advised to keep uploads family friendly and provided links to view site's characters.
-[Index](readme/screenshots/new-user-index.jpg)
+![Index](readme/screenshots/new-user-index.jpg)
 
 A New User can:
 * see only certain navbar links (home, contact, characters, register or [log in](readme/screenshots/login.jpg)).
 * choose to [register](readme/screenshots/register.jpg) from the home page.
 * choose to [contact](readme/screenshots/contact.jpg) the site from the home page.
-* click on three card images which all navigate to the characters page/ (info.html)
-* See current character lists
+* click on any of the three card images which all navigate to the characters page
+![characters page/ (info.html)](readme/screenshots/new-user-characters.jpg) where the 
+serach functionality is explained and accompanied by a list of current, and self-updating, 
+active serach terms. In addition to the search function New Users can scroll through the
+existing list of characters and further advised to utilise the dropdown carret for more
+information. ![dropdown](readme/screenshots/new-user-characters-dropdown.jpg)
+
+
 
 ## Returning / Registered User
 
