@@ -136,3 +136,16 @@ and the users' profile page.
 * [MongoDB](https://www.mongodb.com/)
 * [Heroku](https://www.heroku.com/)
 * Others such as FLASK can be found in the app.py and requirements folders.
+
+# Testing 
+## Responsiveness 
+## Lighthouse
+
+# Code Validation
+## jshint and others 
+
+# Deployment 
+
+# Credits   
+## contents 
+## Media
