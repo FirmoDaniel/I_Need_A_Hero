@@ -70,11 +70,16 @@ $(document).ready(function(){
 
   /*window resizing*/
     $( window ).resize(function(){
-    if ((screen.width>425)) {
-    // if screen size is 425px wide or larger
+    if ((screen.width>536)) {
+    // if screen size is larger
         $('#jq-valign').addClass('valign-wrapper');
+        /*$('#info-search-label').show();*/
         }
-        else if ((screen.width<=425)){
-            // if screen size width is less than 425px
+        else if ((screen.width<=536)){
+            // if screen size width smaller or equal
             $('#jq-valign').removeClass('valign-wrapper');
-    }});
+            
+    }
+
+
+});

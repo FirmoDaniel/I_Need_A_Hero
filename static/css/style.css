@@ -65,7 +65,7 @@ footer{
 /*------------------------------------------------------------------------------MEDIA QUERIES*/
 
 @media screen and (max-width:450px){
-    #footer span, #info-search-label {
+    #footer span {
         font-size: 0;
     }
 

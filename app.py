@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/get_info")
 def get_info():
     # list added below to run two for loops on one page(characters.html)
-    # info.html is tagged ad 'Characters' on base template navbar.
+    # info.html is tagged as 'Characters' on base template navbar.
     characters = mongo.db.characters.find().sort("characters_role", 1)
     infos = list(mongo.db.info.find())
     return render_template("info.html", infos=infos, characters=characters)
