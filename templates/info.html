@@ -14,14 +14,14 @@
                     </span>
                     {% endif %}
                 {% endfor %}
-            </p>
-            <p>As well as by currently available Descriptions like:
-                {% for info in infos %}
-                    <span>{{ info.infos_description.capitalize() }}</span>
+                <span>or you can also serach by currently available Descriptions like:
+                    {% for info in infos %}
+                    {{ info.infos_description.capitalize() }}</span>
                     {% if loop.index != loop.length  %}
                         <span>/</span>
                     {% endif %}
                 {% endfor %}
+                ... or both be inputting terms like "Hero and Werewolf".
             </p>
         </div>
         <!--Hide push/reminder for login/register is session user exists-->
@@ -35,8 +35,8 @@
             </div>
         {% endif %}
         <div class="row">
-            <h4 class="per_marker">Or.</h4>
-            <p>You can simply scroll through the full list below. Be sure to use the drop down to see more information.
+            <h4 class="per_marker">Or..</h4>
+            <p>You can simply scroll through the full list below. Hit the drop down ( <i class="fas fa-caret-down"></i> ) to see more information.
             </p>
         </div>
     </div>
