@@ -93,18 +93,44 @@ footer{
 
 }*/
 
-/*@media screen and (max-width:601px){
+/*when width is less than...*/
+
+@media screen and (max-width:769px){
     .card-image img {
-         height:150px;
-         max-height: 100%;
+        height:200px;
+        width: 155px;
+    }
+    .card-content {
+        padding:15px;
+        height: 220px;
     }
 
-}*/
+}
 
-@media screen and (min-width:600px){
+/*when width is less than...*/
+
+@media screen and (max-width:769px){
     .card-image img {
-         height:200px;
-         max-height: 100%;
+        height:200px;
+        width: 155px;
+    }
+    .card-content {
+        height: 175px;
+        padding: 10px !important;
+    }
+
+}
+
+/*when width is more than...*/
+
+@media screen and (min-width:770px){
+    .card-image img {
+        height:200px;
+        width: 155px;
+    }
+    .card-content {
+        padding: 10px !important;
+        height: 150px;
     }
 
 }

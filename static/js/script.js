@@ -73,11 +73,22 @@ $(document).ready(function(){
     if ((screen.width>536)) {
     // if screen size is larger
         $('#jq-valign').addClass('valign-wrapper');
-        /*$('#info-search-label').show();*/
         }
+        
         else if ((screen.width<=536)){
             // if screen size width smaller or equal
             $('#jq-valign').removeClass('valign-wrapper');
+            
+    }
+
+    if ((screen.width>666)) {
+    // if screen size is larger
+        $('.card-content').show();
+        }
+        
+        else if ((screen.width<=666)){
+            // if screen size width smaller or equal
+            $('.card-content').hide();
             
     }
 
