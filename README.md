@@ -133,3 +133,6 @@ and the users' profile page.
 * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
 * [Pthon3]](https://www.python.org/)
 * [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
+* [MongoDB](https://www.mongodb.com/)
+* [Heroku](https://www.heroku.com/)
+* Others such as FLASK can be found in the app.py and requirements folders.
