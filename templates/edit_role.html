@@ -5,7 +5,7 @@
             <div class="col s12 m8 offset-m2 deep-purple darken-1">
                 <div class="card-panel">
                     <h3 class="center-align per_marker">
-                        Edit a Character Role
+                        Edit / Delete a Character Role
                     </h3>
                 </div>
             </div>
@@ -27,14 +27,27 @@
                         <a href="{{ url_for('roles') }}" class="waves-effect waves-light btn-small per_marker yellow accent-3">
                             Cancel
                         </a>
-                        <button type="submit" class="waves-effect waves-light btn-small per_marker green accent-3">
+                        <button type="submit" class="editRoleButton waves-effect waves-light btn-small per_marker green accent-3">
                             Edit Role
                         </button>
+                        <button data-target="myModal" 
+                            class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Modal Delete</button>
                         <a href="{{ url_for('delete_role', character_id=character._id) }}" 
-                            class="waves-effect waves-light btn-small per_marker red accent-3">Yes Delete this forever.</a> 
+                            class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3">Yes Delete this forever.</a> 
                     </div>
                 </div>
             </form>
+        </div>
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+            <h4 class="per_marker">Warning!</h4>
+            <p>Deletion is absolutely permenant.</p>
+            <a href="{{ url_for('roles') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+            <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
+            </div>
+            <div class="modal-footer left-align">
+            </div>
         </div>
     </div>
 {% endblock %}

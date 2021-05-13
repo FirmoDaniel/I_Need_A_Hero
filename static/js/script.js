@@ -13,7 +13,7 @@ $(document).ready(function(){
     $(".characterDeleteButton").show();
     $(".cancelButton").show();
     $(".fakeCharacaterDeleteButton").hide();
-           
+    $(".editRoleButton").hide();
     });
 
     $(".ifVisible").on("click", function(){

@@ -17,7 +17,7 @@
                         <a href="{{ url_for('edit_role', character_id=character._id) }}" class="btn per_marker yellow accent-3">Edit / Delete</a>
                         <!-- Modal Trigger -->
                         <button data-target="myModal" 
-                            class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
+                            class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Modal Delete</button>
                         <a href="{{ url_for('roles') }}" class="cancelButton waves-effect
                             waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
                         <a href="{{ url_for('delete_role', character_id=character._id) }}" 
@@ -32,7 +32,7 @@
             <h4 class="per_marker">Warning!</h4>
             <p>Deletion is absolutely permenant.</p>
             <a href="{{ url_for('roles') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
-            <a class="modal-close btn red accent-3">Proceed to delete</a>
+            <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
             </div>
             <div class="modal-footer left-align">
             </div>
