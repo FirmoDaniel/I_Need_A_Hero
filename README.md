@@ -76,5 +76,40 @@ via serach function, or scrolling, the admin can expand any uploaded character t
 ![Admin delete non-sensical upload](readme/screenshots/admin-delete-nonsensical.jpg)
 After selecting 'delete' a customized modal appears warning the admin that all deleteions are permenant. When the admin confirms their
 understanding and  closes the modal two new buttons appear. "No! Cancel" giving the admin a second chance to rethink their decision, and
-"Yes! Delete Forever" which will permenatly remove the upload from the site. Upon permenant deletion the admin's choice is confirmed 
+"Yes! Delete Forever" which will permenatly remove the upload from the site.![admin delete buttons unhide](readme/screenshots/admin-delete-nonsensical-unhide-buttons.jpg)
+ Upon permenant deletion the admin's choice is confirmed 
 via flash message displayed at the top of the screen. ![admin character deleted](readme/screenshots/admin-character-deleted.jpg)
+
+
+### Wireframes
+#### The Structure & Skeleton planes
+
+ADD IN WIREFRAMES
+
+
+## Features
+### The Surface Plane
+Overall the site is responsive and scales with user screen size.
+
+### Existing Features
+* Header : Navigation collapses depending on screen size, while also adding/removing options depending on users are logged in or not.
+* Index : Is kept concise by design, offers options registration, contact and login in the body. Media queries
+and jquery adjust the display cards
+accordingly as screen size changes.  
+* Contact : A simple form with an area for messages from users. It is not intended for any other purpose.
+* Characters: Contains an active list of queriable terms for the serach function. Also houses a complete list of all uploaded 
+characters.
+* Roles: Available only to ADMIN, the roles pages allows full C.R.U.D. functionality for the admin. Also provides defensive 
+programming against duplicate role creations.
+* Profile: Allows creation for registered users and ADMIN, as well as displaying characters uploaded by only that user. 
+Edit and Delete functions also accessible 
+* Create: Available to registered users and ADMIN only, allows creation of new characters which are added to the main characters page
+and the users' profile page.
+* Log in: verifies username with stored password before granting access.
+* Register: checks current user list against entry to deny duplicate user names.
+* Log out: Returns user to login page with reduced navbar options, treating them as brand new users. 
+* Footer : Links provided to fictional social medias.
+* Other: Modals and hide/show functions to interupt accidental deletions.
+
+### Features left to implement 
+* Link contact form using python. When email.js was applied and functional, it interfered with the flash messages on submit.
