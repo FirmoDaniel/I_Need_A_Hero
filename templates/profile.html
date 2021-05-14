@@ -15,7 +15,7 @@
             {% for info in infos %}
             {% if session.user|lower == info.created_by|lower %}
             <li>
-                <div class="collapsible-header white-text deep-purple darken-1">
+                <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s9">
                         <strong id="profileCharacters">This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
                     </div>
@@ -52,7 +52,7 @@
             <h4 class="per_marker">Warning!</h4>
             <p>Deletion is absolutely permenant.</p>
             <a href="{{ url_for('profile', username=session['user']) }}" class="modal-close btn green accent-3">NO! Cancel.</a>
-            <a class="modal-close btn red accent-3">Proceed to delete</a>
+            <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
             </div>
             <div class="modal-footer left-align">
             </div>
