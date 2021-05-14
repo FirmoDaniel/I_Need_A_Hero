@@ -284,8 +284,8 @@ def delete_info_profile(info_id):
 # Create character from profile page
 
 
-@app.route("/create_from_profile/<username>", methods=["GET", "POST"])
-def create_from_profile(username):
+@app.route("/create_character_from_profile/<username>", methods=["GET", "POST"])
+def create_character_from_profile(username):
     if session and session['user']:
         if request.method == "POST":
             infos = {
@@ -305,7 +305,7 @@ def create_from_profile(username):
             {"username": session["user"]})["username"]
 
         if session["user"]:
-            return render_template("create_from_profile.html", username=username,
+            return render_template("create_character_from_profile.html", username=username,
                                 characters=characters)
     else:
         return redirect(url_for('index'))
@@ -342,10 +342,10 @@ def edit_info_from_profile(info_id):
         return redirect(url_for('index'))
 
 
-# Create Page
+# Create Character Page
 
 
-@app.route("/character/create", methods=["GET", "POST"])
+@app.route("/create_character", methods=["GET", "POST"])
 def create_character():
     if session and session['user']:
         if request.method == "POST":
@@ -363,7 +363,7 @@ def create_character():
 
             characters = mongo.db.characters.find().sort("characters_role", 1)
 
-        return render_template("create.html", username=session['user'],
+        return render_template("create_character.html", username=session['user'],
                                characters=characters)
     else:
         return redirect(url_for('index'))
