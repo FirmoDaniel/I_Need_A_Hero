@@ -61,8 +61,8 @@ A returning / registered user arrives at the home/index page where they can navi
 Upon successful login, they are brought to their own profile page which displays only the characters they have created.
 ![profile](readme/screenshots/registered-user-profile.jpg) (Note:registered user have access to more nav bar options such as
 "Profile" and "Create" ). On their profile page they also have access to edit or delete only charcaters THEY have created. 
-characters![profile](readme/screenshots/registered-user-profile-edit-delete.jpg). Upon selecting 'edit' they are presented with
-the selcted characters information displayed on a new 'Edit character from profile' page[edit_profile](readme/screenshots/registered-user-profile-edit.jpg).
+![profile](readme/screenshots/registered-user-profile-edit-delete.jpg). Upon selecting 'edit' they are presented with
+the selcted characters information displayed on a new 'Edit character from profile' page [edit_profile](readme/screenshots/registered-user-profile-edit.jpg).
 Once the character information has been updated the user is returned to their profile page and flash message confirms their changes.
 ![edit character from profile success](readme/screenshots/registered-user-profile-edit-success.jpg)
 
@@ -137,7 +137,8 @@ and the users' profile page.
 * [Heroku](https://www.heroku.com/)
 * Others such as FLASK can be found in the app.py and requirements folders.
 
-# Testing 
+# Testing
+Click [here](Testing.md) for full testing
 ## Responsiveness 
 ## Lighthouse
 
