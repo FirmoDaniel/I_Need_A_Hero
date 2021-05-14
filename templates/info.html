@@ -43,7 +43,7 @@
     <!--Search function for characters-->
     <div class="container">
         <div class="row card-panel deep-purple darken-1">
-            <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <form action="{{ url_for('get_info') }}" method="GET" class="col s12">
                 <div id="jq-valign" class="row valign-wrapper center-align">
                     <div class="input-field col s12 m8">
                         <i id="search-icon-info"class="fas fa-search prefix white-text"></i>
@@ -56,7 +56,7 @@
                         </button>
                         <!--Hide 'Create Button is session user doesn't exists'-->
                         {% if session.user %} 
-                            <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
+                            <a href="{{ url_for('create_character') }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
                         {% endif %}
                     </div>
                 </div>
