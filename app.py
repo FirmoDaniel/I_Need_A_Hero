@@ -25,10 +25,8 @@ def characters():
     # list added below to run two for loops on one page(characters.html)
     roles = mongo.db.roles.find().sort("character_role", 1)
     characters = list(mongo.db.characters.find())
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
     return render_template(
-        "characters.html", roles=roles, characters=characters, username=username)
+        "characters.html", roles=roles, characters=characters)
 
 
 # search function on Characters Page
