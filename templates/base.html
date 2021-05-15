@@ -18,13 +18,13 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                <li><a href="{{ url_for('get_info') }}">Characters</a></li>
+                <li><a href="{{ url_for('characters') }}">Characters</a></li>
                 {% if session.user  %}
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('roles') }}">Roles</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                    <li><a href="{{ url_for('create', username=session['user']) }}">Create</a></li>
+                    <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else%}
                     <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -37,13 +37,13 @@
     <ul class="sidenav right" id="mobile-demo">
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('get_info') }}">Characters</a></li>
+        <li><a href="{{ url_for('characters') }}">Characters</a></li>
         {% if session.user  %}
             {% if session.user|lower == "admin"|lower %}
                 <li><a href="{{ url_for('roles') }}">Roles</a></li>
             {% endif %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-            <li><a href="{{ url_for('create', username=session['user']) }}">Create</a></li>
+            <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else%}
             <li><a href="{{ url_for('register') }}">Register</a></li>

@@ -7,19 +7,19 @@
         </div>
         <div class="row">
             <p>Here you can view all our characters, or search by currently available Roles such as:
-                {% for character in characters %}
-                    <span>{{ character.characters_role.capitalize() }}
+                {% for role in roles %}
+                    <span>{{ role.character_role.capitalize() }}
                     {% if loop.index != loop.length  %}
                         /
                     </span>
                     {% endif %}
                 {% endfor %}
                 <span>or you can also serach by currently available Descriptions like:
-                    {% for info in infos %}
-                    {{ info.infos_description.capitalize() }}</span>
-                    {% if loop.index != loop.length  %}
+                    {% for character in characters %}
+                        {{ character.character_description }}</span>
+                        {% if loop.index != loop.length  %}
                         <span>/</span>
-                    {% endif %}
+                        {% endif %}
                 {% endfor %}
                 ... or both be inputting queries like " Hero and Werewolf ".
             </p>
@@ -43,7 +43,7 @@
     <!--Search function for characters-->
     <div class="container">
         <div class="row card-panel deep-purple darken-1">
-            <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <form action="{{ url_for('search') }}" method="GET" class="col s12">
                 <div id="jq-valign" class="row valign-wrapper center-align">
                     <div class="input-field col s12 m8">
                         <i id="search-icon-info"class="fas fa-search prefix white-text"></i>
@@ -51,51 +51,51 @@
                         <label for="query">Serach for Characters</label>
                     </div>
                     <div class="col s12 m4">
-                        <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker red accent-3">Reset</a>
+                        <a href="{{ url_for('characters') }}" class="waves-effect waves-light btn-small per_marker red accent-3">Reset</a>
                         <button type="submit" class="waves-effect waves-light btn-small per_marker blue accent-3">Search
                         </button>
                         <!--Hide 'Create Button is session user doesn't exists'-->
                         {% if session.user %} 
-                            <a href="{{ url_for('create', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
+                            <a href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
                         {% endif %}
                     </div>
                 </div>
             </form>
         </div>
         <!--List of characters & search results with flash message at end. -->
-        {% if infos|length > 0 %}
+        {% if characters|length > 0 %}
         <ul class="collapsible">
-            {% for info in infos %}
+            {% for character in characters %}
             <li>
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s3"><i class="fas fa-caret-down"></i></div>
                     <div class="col 9">
-                        <strong>{{ info.characters_role.capitalize() }} : This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }}. </strong>
+                        <strong>{{ character.character_role.capitalize() }} : This is {{ character.character_name.capitalize() }}, a  {{ character.character_description.capitalize() }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
                     <h5 class="per_marker">Character Bio :</h5> 
-                    <p>{{ info.infos_bio }}</p>
+                    <p>{{ character.character_bio }}</p>
                     <hr>
                     <h5 class="per_marker">Special skills include :</h5> 
-                    <p>{{ info.infos_skills }}</p>
+                    <p>{{ character.character_skills }}</p>
                     <hr>
-                    <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
+                    <p><em>Created by : {{ character.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
-                        {% if session.user|lower == info.created_by|lower %}
-                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
+                        {% if session.user|lower == character.created_by|lower %}
+                            <a href="{{ url_for('edit_character', characters_id=character._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                             <!-- Modal Trigger -->
                             <button data-target="myModal" class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                            <a href="{{ url_for('get_info') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                            <a href="{{ url_for('delete_info', info_id=info._id) }}" 
+                            <a href="{{ url_for('characters') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
+                            <a href="{{ url_for('delete_characters', characters_id=character._id) }}" 
                                 class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3"> Yes! Delete forever</a>
                         {% elif session.user|lower == "admin"|lower %}
-                            <a href="{{ url_for('edit_info', info_id=info._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
+                            <a href="{{ url_for('edit_character', characters_id=character._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                             <!-- Modal Trigger -->
                             <button data-target="myModal" class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                            <a href="{{ url_for('get_info') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                            <a href="{{ url_for('delete_info', info_id=info._id) }}" 
+                            <a href="{{ url_for('characters') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
+                            <a href="{{ url_for('delete_character', characters_id=character._id) }}" 
                                 class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3"> Yes! Delete forever</a>
                         {% endif %}
                     </div>
@@ -108,7 +108,7 @@
             <div class="modal-content">
             <h4 class="per_marker">Warning!</h4>
             <p>Deletion is absolutely permenant.</p>
-            <a href="{{ url_for('get_info') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
+            <a href="{{ url_for('characters') }}" class="modal-close btn green accent-3">NO! I want to Cancel.</a>
             <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
             </div>
             <div class="modal-footer left-align">

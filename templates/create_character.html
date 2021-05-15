@@ -11,60 +11,60 @@
             </div>
         </div>
         <div class="row card-panel">
-            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('create', username=session['user']) }}">
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('create_character', username=session['user']) }}">
                 <div class="row">
                     <!--Character Role-->
                     <div class="input-field col s12">
                         <i class="fas fa-mask prefix"></i>
-                        <select id="characters_role" name="characters_role" class="validate" required>
+                        <select id="character_role" name="character_role" class="validate" required>
                             <option value="" disabled selected>Choose Role</option>
-                            {% for character in characters  %}
-                                <option value="{{ character.characters_role }}">{{ character.characters_role }}</option>
+                            {% for role in roles  %}
+                                <option value="{{ role.character_role }}">{{ role.character_role }}</option>
                             {% endfor %}
                         </select>
-                        <label for="characters_role"></label>
+                        <label for="character_role"></label>
                     </div>
                 </div>
                 <div class="row">
                     <!--Character Name-->
                     <div class="input-field col s12">
                         <i class="fas fa-signature prefix"></i>
-                        <input id="infos_name" name="infos_name" type="text" 
+                        <input id="character_name" name="character_name" type="text" 
                             minlength="5" maxlength="50" class="validate" required>
-                        <label for="infos_name">Character name :</label>
+                        <label for="character_name">Character name :</label>
                     </div>
                 </div>
                 <div class="row">
                     <!--Character Description-->
                     <div class="input-field col s12">
                         <i class="fas fa-transgender-alt prefix"></i>
-                        <textarea id="infos_description" name="infos_description"
+                        <textarea id="character_description" name="character_description"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="infos_description">Character description :</label>
+                        <label for="character_description">Character description :</label>
                     </div>
                 </div>
                 <div class="row">
                     <!--Character Bio-->
                     <div class="input-field col s12">
                         <i class="fas fa-info prefix"></i>
-                        <textarea id="infos_bio" name="infos_bio"
+                        <textarea id="character_bio" name="character_bio"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="infos_bio">Character bio :</label>
+                        <label for="character_bio">Character bio :</label>
                     </div>
                 </div>
                 <div class="row">
                     <!--Character Skills-->
                     <div class="input-field col s12">
                         <i class="fas fa-toolbox prefix"></i>
-                        <textarea id="infos_skills" name="infos_skills"
+                        <textarea id="character_skills" name="character_skills"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="infos_skills">Character skills :</label>
+                        <label for="character_skills">Character skills :</label>
                     </div>
                 </div>
                 <div class="row">
                     <!--submit button-->
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('get_info') }}"  class="waves-effect waves-light btn-small per_marker red accent-3">Cancel</a>
+                        <a href="{{ url_for('characters') }}"  class="waves-effect waves-light btn-small per_marker red accent-3">Cancel</a>
                         <button type="submit" class="waves-effect waves-light btn-small per_marker green accent-3">Create</button>
                     </div>   
                 </div>

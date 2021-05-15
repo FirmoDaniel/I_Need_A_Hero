@@ -11,13 +11,13 @@
             </div>
         </div>
         <div class="row card-panel">
-            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_role', character_id=character._id) }}">
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_role', roles_id=roles._id) }}">
                 <div class="row">
                     <!--Character Role-->
                     <div class="input-field col s12">
                         <i class="fas fa-mask prefix"></i>
                         <input id="characters_role" name="characters_role" type="text" 
-                            value="{{ character.characters_role }}" minlength="3" maxlength="25" class="validate" required>
+                            value="{{ character.character_role }}" minlength="3" maxlength="25" class="validate" required>
                         <label for="characters_role"></label>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         </button>
                         <button data-target="myModal" 
                             class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                        <a href="{{ url_for('delete_role', character_id=character._id) }}" 
+                        <a href="{{ url_for('delete_role', roles_id=roles._id) }}" 
                             class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3">Yes Delete this forever.</a> 
                     </div>
                 </div>

@@ -10,34 +10,34 @@
               </div>
           </div>
       </div>
-      <a id="ifProfileCharactersExist" href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
+      <a id="ifProfileCharactersExist" href="{{ url_for('create_character_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
        <ul  id="profileHideCollapsible" class="collapsible">
-            {% for info in infos %}
-            {% if session.user|lower == info.created_by|lower %}
+            {% for character in characters %}
+            {% if session.user|lower == characters.created_by|lower %}
             <li>
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s9">
-                        <strong id="profileCharacters">This is {{ info.infos_name.capitalize() }}, a  {{ info.infos_description.capitalize() }} {{ info.characters_role.capitalize() }}. </strong>
+                        <strong id="profileCharacters">This is {{ characters.character_name.capitalize() }}, a  {{ characters.character_description.capitalize() }} {{ characters.characters_role.capitalize() }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
                     <h5 class="per_marker">Character Bio :</h5> 
-                    <p>{{ info.infos_bio }}</p>
+                    <p>{{ characters.character_bio }}</p>
                     <hr>
                     <h5 class="per_marker">Special skills include :</h5> 
-                    <p>{{ info.infos_skills }}</p>
+                    <p>{{ characters.character_skills }}</p>
                     <hr>
-                    <p><em>Created by : {{ info.created_by.capitalize() }}</em></p>
+                    <p><em>Created by : {{ characters.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
                         <!-- Modal Trigger -->
                         <button data-target="myModal" 
                         class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                        <a href="{{ url_for('edit_info_from_profile', info_id=info._id) }}" 
+                        <a href="{{ url_for('edit_character_from_profile', characters_id=characters._id) }}" 
                             class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                         <a href="{{ url_for('profile', username=session['user']) }}" 
                             class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                        <a href="{{ url_for('delete_info_profile', info_id=info._id) }}" 
+                        <a href="{{ url_for('delete_character_from_profile', characters_id=characters._id) }}" 
                                 class="characterDeleteButton waves-effect waves-light
                                 btn-small per_marker red accent-3"> Yes! Delete forever</a>
                     </div>
@@ -58,8 +58,8 @@
             </div>
         </div>
         <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
-            You can <a href="{{ url_for('create_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
-            , or <a href="{{ url_for('get_info') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
+            You can <a href="{{ url_for('create_character_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
+            , or <a href="{{ url_for('characters') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
         </div>
     </div>
 {% endblock %}
