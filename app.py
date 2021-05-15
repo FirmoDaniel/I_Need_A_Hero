@@ -242,9 +242,8 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username, characters=characters)
 
-        return redirect(url_for("login"))
-    else:
-        return redirect(url_for('index'))
+    return redirect(url_for("login"))
+    
 
 
 # delete button/function on Profile Page

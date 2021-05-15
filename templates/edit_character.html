@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row card-panel">
-            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_character_from_profile', username=session['user'], characters_id=characters._id) }}"> 
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_character', characters_id=characters._id) }}"> 
                 <div class="row">
                     <!--Character Role-->
                     <div class="input-field col s12">
@@ -46,7 +46,7 @@
                         <input id="character_description" name="characters_description" type="text" 
                             minlength="3" maxlength="50" value="{{ characters.character_description}}" 
                             class="validate" required>
-                            {{- characters.character_description -}}
+                            
                         <label for="character_description">Character description :</label>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('profile', username=session['user']) }}" 
+                        <a href="{{ url_for('characters') }}"
                             class="waves-effect waves-light btn-small per_marker red accent-3">Cancel</a>
                     </div>
                 </div>

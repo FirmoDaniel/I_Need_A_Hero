@@ -10,14 +10,14 @@
               </div>
           </div>
       </div>
-      <a id="ifProfileCharactersExist" href="{{ url_for('create_character_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
+      <a id="ifProfileCharactersExist" href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
        <ul  id="profileHideCollapsible" class="collapsible">
             {% for character in characters %}
             {% if session.user|lower == character.created_by|lower %}
             <li>
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s9">
-                        <strong id="profileCharacters">This is {{ character.character_name.capitalize() }}, a  {{ character.character_description.capitalize() }} {{ character.character_role.capitalize() }}. </strong>
+                        <strong id="profileCharacters">This is {{ character.character_name }}, a  {{ character.character_description }} {{ character.character_role }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
@@ -33,11 +33,11 @@
                         <!-- Modal Trigger -->
                         <button data-target="myModal" 
                         class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                        <a href="{{ url_for('edit_character_from_profile', characters_id=characters._id) }}" 
+                        <a href="{{ url_for('edit_character', characters_id=character._id) }}"
                             class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                         <a href="{{ url_for('profile', username=session['user']) }}" 
                             class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                        <a href="{{ url_for('delete_character_from_profile', characters_id=characters._id) }}" 
+                        <a href="{{ url_for('delete_characters', characters_id=character._id) }}"
                                 class="characterDeleteButton waves-effect waves-light
                                 btn-small per_marker red accent-3"> Yes! Delete forever</a>
                     </div>
