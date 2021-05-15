@@ -70,7 +70,7 @@
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s3"><i class="fas fa-caret-down"></i></div>
                     <div class="col 9">
-                        <strong>{{ character.character_role}} : This is {{ character.character_name}}, a  {{ character.character_description }}. </strong>
+                        <strong>{{ character.character_role}} : This is {{ character.character_name}}, a {{ character.character_description }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
@@ -95,7 +95,7 @@
                             <!-- Modal Trigger -->
                             <button data-target="myModal" class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
                             <a href="{{ url_for('characters') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                            <a href="{{ url_for('delete_character', characters_id=character._id) }}" 
+                            <a href="{{ url_for('delete_characters', characters_id=character._id) }}" 
                                 class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3"> Yes! Delete forever</a>
                         {% endif %}
                     </div>

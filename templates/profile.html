@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
-            You can <a href="{{ url_for('create_character_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
+            You can <a href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
             , or <a href="{{ url_for('characters') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
         </div>
     </div>

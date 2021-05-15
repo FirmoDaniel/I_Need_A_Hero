@@ -77,14 +77,14 @@ def delete_characters(characters_id):
     return redirect(url_for("characters"))
 
 
-# Roles  Page
+# Roles Page
 
 
 @app.route("/roles")
 def roles():
     if session and session["user"] == "admin":
-        characters = mongo.db.roles.find().sort("character_role", 1)
-        return render_template("roles.html", characters=characters)
+        roles = list(mongo.db.roles.find().sort("character_role", 1))
+        return render_template("roles.html", roles=roles)
     else:
         return redirect(url_for("index"))
 
@@ -99,45 +99,33 @@ def delete_role(roles_id):
     return redirect(url_for("roles"))
 
 
-# Edit Character Role  Page
+# Edit Character Role Page
 
 
 @app.route("/edit_role/<roles_id>", methods=["GET", "POST"])
 def edit_role(roles_id):
     if request.method == "POST":
-        existing_role = mongo.db.roles.find_one(
-            {"characters_role": request.form.get("character_role").lower()})
-        if existing_role:
-            flash("Role already exists")
-            return redirect(url_for('roles'))
-
         submit = {
-            "characters_role": request.form.get("character_role")
+            "character_role": request.form.get("character_role")
         }
         mongo.db.roles.update({"_id": ObjectId(roles_id)}, submit)
         flash("Role Updated!")
         return redirect(url_for("roles"))
 
-    roles = mongo.db.characters.find_one({"_id": ObjectId(roles_id)})
+    roles = mongo.db.roles.find_one({"_id": ObjectId(roles_id)})
     return render_template("edit_role.html", roles=roles)
 
 
-# Add Character Role  Page
+# Add Character Role Page
 
 
 @app.route("/add_role", methods=["GET", "POST"])
 def add_role():
     if request.method == "POST":
-        existing_role = mongo.db.roles.find_one(
-            {"character_role": request.form.get("character_role").lower()})
-        if existing_role:
-            flash("Role already exists")
-            return redirect(url_for("add_role"))
-
-        character = {
+        roles = {
             "character_role": request.form.get("character_role").lower()
         }
-        mongo.db.characters.insert_one(character)
+        mongo.db.roles.insert_one(roles)
         flash("New Role created")
         return redirect(url_for("roles"))
 
@@ -229,7 +217,7 @@ def contact():
     return render_template("contact.html")
 
 
-# Profile  Page
+# Profile Page
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -243,75 +231,9 @@ def profile(username):
         return render_template("profile.html", username=username, characters=characters)
 
     return redirect(url_for("login"))
-    
 
 
-# delete button/function on Profile Page
-
-
-@app.route("/delete_character_from_profile/<characters_id>")
-def delete_character_from_profile(characters_id):
-    mongo.db.characters.remove({"_id": ObjectId(characters_id)})
-    flash("Character deleted")
-    return redirect(url_for("profile", username=session["user"]))
-
-
-# Create character from profile page
-
-
-@app.route("/create_character_from_profile/<username>", methods=["GET", "POST"])
-def create_character_from_profile(username):
-    if request.method == "POST":
-        characters = {
-            "character_role": request.form.get("character_role"),
-            "character_name": request.form.get("character_name"),
-            "character_description": request.form.get("character_description"),
-            "character_bio": request.form.get("character_bio"),
-            "character_skills": request.form.get("character_skills"),
-            "created_by": session["user"]
-        }
-        mongo.db.characters.insert_one(characters)
-        flash("Character created.")
-        return redirect(url_for("profile", username=session["user"]))
-
-    roles = mongo.db.roles.find().sort("character_role", 1)
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("create_character_from_profile.html", username=username, 
-            roles=roles)
-
-
-# edit button/function on profile Page
-
-
-@app.route("/edit_character_from_profile/<characters_id>", methods=["GET", "POST"])
-def edit_character_from_profile(characters_id):
-    if request.method == "POST":
-        edit = {
-            "character_role": request.form.get("character_role"),
-            "character_name": request.form.get("character_name"),
-            "character_description": request.form.get("character_description"),
-            "characters_bio": request.form.get("character_bio"),
-            "character_skills": request.form.get("character_skills"),
-            "created_by": session["user"]
-        }
-        mongo.db.characters.update({"_id": ObjectId(characters_id)}, edit)
-        flash("Character edited.")
-        return redirect(url_for("profile", username=session["user"]))
-
-    characters = mongo.db.characters.find_one({"_id": ObjectId(characters_id)})
-
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    roles = mongo.db.roles.find().sort("character_role", 1)
-    return render_template("edit_character_from_profile.html", roles=roles, 
-        username=username, characters=characters)
-
-
-# Create Page
+# Create Character Page
 
 
 @app.route("/create_character/<username>", methods=["GET", "POST"])
