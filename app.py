@@ -108,9 +108,9 @@ def edit_role(roles_id):
         existing_role = mongo.db.roles.find_one(
             {"characters_role": request.form.get("character_role").lower()})
 
-        if existing_role:
-            flash("Role already exists")
-            return redirect(url_for('roles'))
+            if existing_role:
+                flash("Role already exists")
+                return redirect(url_for('roles'))
 
         submit = {
             "characters_role": request.form.get("character_role")
@@ -132,9 +132,9 @@ def add_role():
         existing_role = mongo.db.roles.find_one(
             {"character_role": request.form.get("character_role").lower()})
 
-        if existing_role:
-            flash("Role already exists")
-            return redirect(url_for("add_role"))
+            if existing_role:
+                flash("Role already exists")
+                return redirect(url_for("add_role"))
 
         character = {
             "character_role": request.form.get("character_role").lower()
@@ -159,11 +159,11 @@ def login():
             # check username
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username").capitalize()))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username").capitalize()))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # Wrong Passowrd
                 flash("Incorrect Username and/or Password")
@@ -187,8 +187,8 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-           flash("Username already exists")
-           return redirect(url_for("register"))
+            flash("Username already exists")
+            return redirect(url_for("register"))
 
         register = {
             "username": request.form.get("username").lower(),
@@ -244,7 +244,9 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username, characters=characters)
 
-    return redirect(url_for("login"))
+        return redirect(url_for("login"))
+    else:
+        return redirect(url_for('index'))
 
 
 # delete button/function on Profile Page
