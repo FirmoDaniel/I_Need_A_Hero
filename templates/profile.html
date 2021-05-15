@@ -13,21 +13,21 @@
       <a id="ifProfileCharactersExist" href="{{ url_for('create_character_from_profile', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
        <ul  id="profileHideCollapsible" class="collapsible">
             {% for character in characters %}
-            {% if session.user|lower == characters.created_by|lower %}
+            {% if session.user|lower == character.created_by|lower %}
             <li>
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s9">
-                        <strong id="profileCharacters">This is {{ characters.character_name.capitalize() }}, a  {{ characters.character_description.capitalize() }} {{ characters.characters_role.capitalize() }}. </strong>
+                        <strong id="profileCharacters">This is {{ character.character_name.capitalize() }}, a  {{ character.character_description.capitalize() }} {{ character.character_role.capitalize() }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
                     <h5 class="per_marker">Character Bio :</h5> 
-                    <p>{{ characters.character_bio }}</p>
+                    <p>{{ character.character_bio }}</p>
                     <hr>
                     <h5 class="per_marker">Special skills include :</h5> 
-                    <p>{{ characters.character_skills }}</p>
+                    <p>{{ character.character_skills }}</p>
                     <hr>
-                    <p><em>Created by : {{ characters.created_by.capitalize() }}</em></p>
+                    <p><em>Created by : {{ character.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
                         <!-- Modal Trigger -->

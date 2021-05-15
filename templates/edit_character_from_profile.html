@@ -11,13 +11,13 @@
             </div>
         </div>
         <div class="row card-panel">
-            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_info_from_profile', username=session['user'], info_id=characters._id) }}"> 
+            <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_character_from_profile', username=session['user'], characters_id=characters._id) }}"> 
                 <div class="row">
                     <!--Character Role-->
                     <div class="input-field col s12">
                         <i class="fas fa-mask prefix"></i>
                         <select id="character_role" name="character_role" class="validate" required>
-                            <option value="" disabled>Choose Alligience</option>
+                            <option value="" disabled>Choose Role</option>
                             {% for character in characters  %}
                                 {% if role.character_role == role.character_role %}
                                     <option value="{{ role.character_role }}" selected >{{ role.character_role }}</option>

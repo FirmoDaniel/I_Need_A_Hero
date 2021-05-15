@@ -281,7 +281,7 @@ def create_character_from_profile(username):
 
     if session["user"]:
         return render_template("create_character_from_profile.html", username=username, 
-            characters=characters)
+            roles=roles)
 
 
 # edit button/function on profile Page
@@ -308,7 +308,7 @@ def edit_character_from_profile(characters_id):
         {"username": session["user"]})["username"]
 
     roles = mongo.db.roles.find().sort("character_role", 1)
-    return render_template("edit_info_from_profile.html", roles=roles, 
+    return render_template("edit_character_from_profile.html", roles=roles, 
         username=username, characters=characters)
 
 

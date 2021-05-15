@@ -20,13 +20,11 @@
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
                 <li><a href="{{ url_for('characters') }}">Characters</a></li>
                 {% if session.user  %}
-                    <li><a href="{{ url_for('create_character') }}">Create</a></li>
+                    <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                     {% if session.user|lower == "admin"|lower %}
                             <li><a href="{{ url_for('roles') }}">Roles</a></li>
                     {% endif %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                    <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                     <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -41,13 +39,11 @@
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
         <li><a href="{{ url_for('characters') }}">Characters</a></li>
         {% if session.user  %}
-            <li><a href="{{ url_for('create_character') }}">Create</a></li>
+            <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
             {% if session.user|lower == "admin"|lower %}
                     <li><a href="{{ url_for('roles') }}">Roles</a></li>
             {% endif %}
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-            <li><a href="{{ url_for('create_character', username=session['user']) }}">Create</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
             <li><a href="{{ url_for('register') }}">Register</a></li>
