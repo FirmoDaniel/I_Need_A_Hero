@@ -107,10 +107,9 @@ def edit_role(roles_id):
     if request.method == "POST":
         existing_role = mongo.db.roles.find_one(
             {"characters_role": request.form.get("character_role").lower()})
-
-            if existing_role:
-                flash("Role already exists")
-                return redirect(url_for('roles'))
+        if existing_role:
+            flash("Role already exists")
+            return redirect(url_for('roles'))
 
         submit = {
             "characters_role": request.form.get("character_role")
@@ -131,10 +130,9 @@ def add_role():
     if request.method == "POST":
         existing_role = mongo.db.roles.find_one(
             {"character_role": request.form.get("character_role").lower()})
-
-            if existing_role:
-                flash("Role already exists")
-                return redirect(url_for("add_role"))
+        if existing_role:
+            flash("Role already exists")
+            return redirect(url_for("add_role"))
 
         character = {
             "character_role": request.form.get("character_role").lower()
