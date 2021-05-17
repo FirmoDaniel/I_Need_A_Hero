@@ -102,18 +102,18 @@ def delete_role(roles_id):
 # Edit Character Role Page
 
 
-@app.route("/edit_role/<roles_id>", methods=["GET", "POST"])
-def edit_role(roles_id):
+@app.route("/edit_role/<role_id>", methods=["GET", "POST"])
+def edit_role(role_id):
     if request.method == "POST":
         submit = {
             "character_role": request.form.get("character_role")
         }
-        mongo.db.roles.update({"_id": ObjectId(roles_id)}, submit)
+        mongo.db.roles.update({"_id": ObjectId(role_id)}, submit)
         flash("Role Updated!")
         return redirect(url_for("roles"))
 
-    roles = mongo.db.roles.find_one({"_id": ObjectId(roles_id)})
-    return render_template("edit_role.html", roles=roles)
+    role = mongo.db.roles.find_one({"_id": ObjectId(role_id)})
+    return render_template("edit_role.html", role=role)
 
 
 # Add Character Role Page
