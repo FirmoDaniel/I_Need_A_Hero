@@ -94,26 +94,32 @@ def roles():
 
 @app.route("/delete_role/<role_id>")
 def delete_role(role_id):
-    mongo.db.roles.remove({"_id": ObjectId(role_id)})
-    flash("Role deleted")
-    return redirect(url_for("roles"))
+    if session and session["user"] == "admin":
+        mongo.db.roles.remove({"_id": ObjectId(role_id)})
+        flash("Role deleted")
+        return redirect(url_for("roles"))
+    else:
+        return redirect(url_for("index"))
 
 
-# Edit Character Role Page
+# Edit Role Page
 
 
 @app.route("/edit_role/<role_id>", methods=["GET", "POST"])
 def edit_role(role_id):
-    if request.method == "POST":
-        submit = {
-            "character_role": request.form.get("character_role")
-        }
-        mongo.db.roles.update({"_id": ObjectId(role_id)}, submit)
-        flash("Role Updated!")
-        return redirect(url_for("roles"))
+    if session and session["user"] == "admin":
+        if request.method == "POST":
+            submit = {
+                "character_role": request.form.get("character_role")
+            }
+            mongo.db.roles.update({"_id": ObjectId(role_id)}, submit)
+            flash("Role Updated!")
+            return redirect(url_for("roles"))
 
-    role = mongo.db.roles.find_one({"_id": ObjectId(role_id)})
-    return render_template("edit_role.html", role=role)
+        role = mongo.db.roles.find_one({"_id": ObjectId(role_id)})
+        return render_template("edit_role.html", role=role)
+    else:
+        return redirect(url_for("index"))
 
 
 # Add Character Role Page
@@ -121,23 +127,26 @@ def edit_role(role_id):
 
 @app.route("/add_role", methods=["GET", "POST"])
 def add_role():
-    if request.method == "POST":
-        existing_role = mongo.db.roles.find_one(
-            {"character_role": request.form.get("character_role").lower()})
+    if session and session["user"] == "admin":
+        if request.method == "POST":
+            existing_role = mongo.db.roles.find_one(
+                {"character_role": request.form.get("character_role").lower()})
 
-        if existing_role:
-            flash("Role already exists")
-            return redirect(url_for("add_role"))
+            if existing_role:
+                flash("Role already exists")
+                return redirect(url_for("add_role"))
 
-        role = {
-            "character_role": request.form.get("character_role").lower()
-        }
+            role = {
+                "character_role": request.form.get("character_role").lower()
+            }
 
-        mongo.db.roles.insert_one(role)
-        flash("New Role created")
-        return redirect(url_for("roles"))
+            mongo.db.roles.insert_one(role)
+            flash("New Role created")
+            return redirect(url_for("roles"))
 
-    return render_template("add_role.html")
+        return render_template("add_role.html")
+    else:
+        return redirect(url_for("index"))
 
 
 # Login Page
