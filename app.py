@@ -122,7 +122,7 @@ def edit_role(role_id):
         return redirect(url_for("index"))
 
 
-# Add Character Role Page
+# Add Role Page
 
 
 @app.route("/add_role", methods=["GET", "POST"])

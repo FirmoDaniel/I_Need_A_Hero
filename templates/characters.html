@@ -14,14 +14,7 @@
                     </span>
                     {% endif %}
                 {% endfor %}
-                <span>or you can also serach by currently available Descriptions like:
-                    {% for character in characters %}
-                        {{ character.character_description }}</span>
-                        {% if loop.index != loop.length  %}
-                        <span>/</span>
-                        {% endif %}
-                {% endfor %}
-                ... or both be inputting queries like " Hero and Werewolf ".
+                ... or both by pairing roles with descriptions like " Hero and Werewolf " or "Villan and Necromancer".
             </p>
         </div>
         <!--Hide push/reminder for login/register is session user exists-->
@@ -80,7 +73,7 @@
                     <h5 class="per_marker">Special skills include :</h5> 
                     <p>{{ character.character_skills }}</p>
                     <hr>
-                    <p><em>Created by : {{ character.created_by.capitalize() }}</em></p>
+                    <p><em>Created by : {{ character.created_by }}</em></p>
                     <hr>
                     <div class="col s3">
                         {% if session.user|lower == character.created_by|lower %}
