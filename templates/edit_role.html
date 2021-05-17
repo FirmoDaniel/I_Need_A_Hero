@@ -32,7 +32,7 @@
                         </button>
                         <button data-target="myModal" 
                             class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
-                        <a href="" 
+                        <a href="{{ url_for('delete_role', role_id=role._id) }}"
                             class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3">Yes Delete this forever.</a> 
                     </div>
                 </div>

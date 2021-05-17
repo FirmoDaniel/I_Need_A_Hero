@@ -92,9 +92,9 @@ def roles():
 # Delete Role Page
 
 
-@app.route("/delete_role/<roles_id>")
-def delete_role(roles_id):
-    mongo.db.roles.remove({"_id": ObjectId(roles_id)})
+@app.route("/delete_role/<role_id>")
+def delete_role(role_id):
+    mongo.db.roles.remove({"_id": ObjectId(role_id)})
     flash("Role deleted")
     return redirect(url_for("roles"))
 
