@@ -11,11 +11,14 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 mongo = PyMongo(app)
+
 
 # Characters Page
 
@@ -233,11 +236,8 @@ def index():
 # Contact Page
 
 
-@app.route("/contact", methods=["GET", "POST"])
+@app.route("/contact")
 def contact():
-    if request.method == "POST":
-        flash("Thanks {}, message recieved.".format(
-            request.form.get("name").capitalize()))
     return render_template("contact.html")
 
 
