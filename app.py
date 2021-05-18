@@ -22,7 +22,6 @@ mongo = PyMongo(app)
 
 @app.route("/characters")
 def characters():
-    # list added below to run two for loops on one page(characters.html)
     roles = mongo.db.roles.find().sort("character_role", 1)
     characters = list(mongo.db.characters.find())
     return render_template(

@@ -63,17 +63,17 @@
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
                     <div class="col s3"><i class="fas fa-caret-down"></i></div>
                     <div class="col 9">
-                        <strong>{{ character.character_role}} : This is {{ character.character_name}}, a {{ character.character_description }}. </strong>
+                        <strong>{{ character.character_role.capitalize() }} : This is {{ character.character_name.capitalize() }}, a {{ character.character_description.capitalize() }}. </strong>
                     </div>
                 </div>
                 <div class="collapsible-body">
                     <h5 class="per_marker">Character Bio :</h5> 
-                    <p>{{ character.character_bio }}</p>
+                    <p>{{ character.character_bio.capitalize() }}</p>
                     <hr>
                     <h5 class="per_marker">Special skills include :</h5> 
-                    <p>{{ character.character_skills }}</p>
+                    <p>{{ character.character_skills.capitalize() }}</p>
                     <hr>
-                    <p><em>Created by : {{ character.created_by }}</em></p>
+                    <p><em>Created by : {{ character.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
                         {% if session.user|lower == character.created_by|lower %}

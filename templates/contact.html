@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="per_marker shrink-header">Contact</h1>
         <div class="row">
-            <form class="col s12" method="POST" id="contactForm">
+            <form onsubmit="return sendMail(this);" class="col s12" id="contactForm">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="name" name="name" type="text" class="validate" required>
@@ -12,7 +12,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" anme="email" type="email" class="validate" required>
+                        <input id="email" name="email" type="email" class="validate" required>
                         <label for="email">Email</label>
                     </div>
                 </div>
