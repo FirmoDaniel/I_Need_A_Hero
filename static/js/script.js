@@ -21,21 +21,21 @@ $(document).ready(function(){
            $(".characterDeleteButton").hide();
            $(".cancelButton").hide();
            $(".fakeCharacaterDeleteButton").show();
-        };
+        }
         
     });
 
     
     let profileCharacters = $('#profileCharacters').text();
         if(profileCharacters == ""){
-            $('#profileCharactersNone').show()
-            $('#profileHideCollapsible').hide()
-            $('#ifProfileCharactersExist').hide()
+            $('#profileCharactersNone').show();
+            $('#profileHideCollapsible').hide();
+            $('#ifProfileCharactersExist').hide();
         }else{
-            $('#profileCharactersNone').hide()
-            $('#ifProfileCharactersExist').show()
+            $('#profileCharactersNone').hide();
+            $('#ifProfileCharactersExist').show();
 
-     };
+     }
 
      /*Taken from CI source code for form select:validation on create.html*/
      validateMaterializeSelect();
@@ -77,7 +77,7 @@ $(document).ready(function(){
             // if screen size width smaller or equal
             $('#jq-valign').removeClass('valign-wrapper');
             
-    };
+    }
 
     if ((screen.width>666)) {
     // if screen size is larger
@@ -88,7 +88,7 @@ $(document).ready(function(){
             // if screen size width smaller or equal
             $('.card-content').hide();
             
-    };
+    }
 
 });
 
