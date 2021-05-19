@@ -16,7 +16,7 @@
             {% if session.user|lower == character.created_by|lower %}
             <li>
                 <div class="ifVisible collapsible-header white-text deep-purple darken-1">
-                    <div class="col s9">
+                    <div class="col s9"><i class="fas fa-caret-down"></i>
                         <strong id="profileCharacters">This is {{ character.character_name }}, a  {{ character.character_description }} {{ character.character_role }}. </strong>
                     </div>
                 </div>

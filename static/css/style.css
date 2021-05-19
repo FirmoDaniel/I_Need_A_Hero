@@ -12,35 +12,13 @@ body{
     font-family:'Montserrat';
 }
 
-/*-------------------------------------------------------------------------------BUTTONS*/
+/*-------------------------------------------------------------------------------BUTTONS-CHECKED*/
 
-/*buttons on characters/profile.html*/
 .btn-small {
     margin:5px;   
 }
 
-/*search and reset buttons on info.html*/
-.waves-effect{
-    background-color: whitesmoke;
-    color: black;
-}
-
-
-/*-------------------------------------------------------------------------------TEXT*/
-
-/*text on info.html & profile.html*/
-.collapsible-header .col strong {
-    margin:5px;
-    line-height: 42px;
-}
-
-.underline{
-    
-    text-decoration: 3px solid black;
-}
-
-
-/*-------------------------------------------------------------------------------FOOTER*/
+/*-------------------------------------------------------------------------------FOOTER-CHECKED*/
 
 .footer-items i {
     display: inline;
@@ -61,6 +39,8 @@ footer{
 
 /*------------------------------------------------------------------------------MEDIA QUERIES*/
 
+/* Footer resizing */
+
 @media screen and (max-width:450px){
     #footer span {
         font-size: 0;
@@ -73,26 +53,20 @@ footer{
     .shrink-header{
         font-size: 45px;
     }
-
-    .collapsible-header .col strong {
-    margin:0px;
-    line-height: 15px;
 }
 
-}
+/* Hide Serach icon on characters.html at less than 290px */
 
-/*@media screen and (max-width:320px){
+@media screen and (max-width:290px){
  
     #search-icon-info{
         font-size: 0px;
     }
+}
 
+/*when width is less than...
 
-}*/
-
-/*when width is less than...*/
-
-@media screen and (max-width:769px){
+@media screen and (max-width:770px){
     .card-image img {
         height:200px;
         width: 155px;
@@ -102,28 +76,28 @@ footer{
         height: 220px;
     }
 
-}
+}*/
 
-/*when width is less than...*/
+/*when width is this or above*/
 
-@media screen and (max-width:769px){
+@media screen and (min-width:1024px){
     .card-image img {
         height:200px;
         width: 155px;
     }
     .card-content {
-        height: 175px;
+        height: 150px;
         padding: 10px !important;
     }
 
 }
 
-/*when width is more than...*/
+/*when width is this or below.*/
 
-@media screen and (min-width:770px){
+@media screen and (max-width:768px){
     .card-image img {
-        height:200px;
-        width: 155px;
+        max-height:200px;
+        max-width: 155px;
     }
     .card-content {
         padding: 10px !important;
