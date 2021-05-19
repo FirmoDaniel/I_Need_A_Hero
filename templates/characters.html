@@ -79,7 +79,7 @@
                         {% if session.user|lower == character.created_by|lower %}
                             <a href="{{ url_for('edit_character', characters_id=character._id) }}" class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
                             <!-- Modal Trigger -->
-                            <button data-target="myModal" class="fakeCharacaterDeleteButton btn modal-trigger per_marker red accent-3">Delete</button>
+                            <button data-target="myModal" class="fakeCharacaterDeleteButton btn-small modal-trigger per_marker red accent-3">Delete</button>
                             <a href="{{ url_for('characters') }}" class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
                             <a href="{{ url_for('delete_characters', characters_id=character._id) }}" 
                                 class="characterDeleteButton waves-effect waves-light btn-small per_marker red accent-3"> Yes! Delete forever</a>

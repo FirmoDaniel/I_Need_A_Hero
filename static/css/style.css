@@ -7,17 +7,14 @@
     color: black;
 }
 
-/*----------------------------------------------*/
-
 body{
     background-color: whitesmoke;
     font-family:'Montserrat';
 }
 
-
 /*-------------------------------------------------------------------------------BUTTONS*/
 
-/*buttons on info.html*/
+/*buttons on characters.html*/
 .btn-small {
     margin:5px;   
 }
