@@ -252,7 +252,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username, characters=characters)
+        return render_template(
+            "profile.html", username=username, characters=characters)
 
     return redirect(url_for("login"))
 
@@ -281,7 +282,7 @@ def create_character(username):
 
     if session["user"]:
         return render_template("create_character.html",
-        roles=roles, username=username)
+                               roles=roles, username=username)
 
 
 if __name__ == "__main__":
