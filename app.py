@@ -25,7 +25,7 @@ mongo = PyMongo(app)
 
 @app.route("/characters")
 def characters():
-    roles = mongo.db.roles.find().sort("character_role", -1)
+    roles = mongo.db.roles.find().sort("character_role", 1)
     characters = list(mongo.db.characters.find())
     return render_template(
         "characters.html", roles=roles, characters=characters)
@@ -44,8 +44,8 @@ def search():
 # Create a character on create_character.html
 
 
-@app.route("/create_character/<username>", methods=["GET", "POST"])
-def create_character(username):
+@app.route("/create_character", methods=["GET", "POST"])
+def create_character():
     if session and session["user"]:
         if request.method == "POST":
             characters = {
@@ -62,12 +62,10 @@ def create_character(username):
             return redirect(url_for("characters"))
 
         roles = mongo.db.roles.find().sort("character_role", 1)
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
 
         if session["user"]:
             return render_template("create_character.html",
-                                   roles=roles, username=username)
+                                   roles=roles)
 
     else:
         return redirect(url_for("index"))
