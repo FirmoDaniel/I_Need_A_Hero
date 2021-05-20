@@ -18,7 +18,7 @@
                         <i class="fas fa-mask prefix"></i>
                         <select id="character_role" name="character_role" class="validate" required>
                             <option value="" disabled>Choose Role</option>
-                            {% for role in roles  %}
+                            {% for role in roles %}
                                 {% if role.character_role == role.character_role %}
                                     <option value="{{ role.character_role }}" selected >{{ role.character_role }}</option>
                                 {% else %}
