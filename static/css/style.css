@@ -64,20 +64,6 @@ footer{
     }
 }
 
-/*when width is less than...
-
-@media screen and (max-width:770px){
-    .card-image img {
-        height:200px;
-        width: 155px;
-    }
-    .card-content {
-        padding:15px;
-        height: 220px;
-    }
-
-}*/
-
 /*when width is this or above*/
 
 @media screen and (min-width:1024px){
@@ -94,10 +80,10 @@ footer{
 
 /*when width is this or below.*/
 
-@media screen and (max-width:768px){
+@media screen and (max-width:800px){
     .card-image img {
-        max-height:200px;
-        max-width: 155px;
+        height:200px;
+        width: 155px;
     }
     .card-content {
         padding: 10px !important;
