@@ -25,8 +25,8 @@ mongo = PyMongo(app)
 
 @app.route("/characters")
 def characters():
-    roles = mongo.db.roles.find().sort("character_role", 1)
-    characters = list(mongo.db.characters.find())
+    roles = mongo.db.roles.find().sort("character_role")
+    characters = list(mongo.db.characters.find().sort("character_role"))
     return render_template(
         "characters.html", roles=roles, characters=characters)
 
@@ -61,7 +61,7 @@ def create_character():
             flash("Character created.")
             return redirect(url_for("characters"))
 
-        roles = mongo.db.roles.find().sort("character_role", 1)
+        roles = mongo.db.roles.find().sort("character_role")
 
         if session["user"]:
             return render_template("create_character.html",
@@ -96,7 +96,7 @@ def edit_character(characters_id):
 
         username = session["user"]
 
-        roles = mongo.db.roles.find().sort("character_role", 1)
+        roles = mongo.db.roles.find().sort("character_role")
         return render_template("edit_character.html", roles=roles,
                                username=username, characters=characters)
     else:
@@ -122,7 +122,7 @@ def delete_characters(characters_id):
 @app.route("/roles")
 def roles():
     if session and session["user"] == "admin":
-        roles = list(mongo.db.roles.find().sort("character_role", 1))
+        roles = list(mongo.db.roles.find().sort("character_role"))
         return render_template("roles.html", roles=roles)
     else:
         return redirect(url_for("index"))
