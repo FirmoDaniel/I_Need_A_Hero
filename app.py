@@ -206,7 +206,7 @@ def login():
                 flash("Welcome, {}".format(
                     request.form.get("username").capitalize()))
                 return redirect(url_for(
-                    "profile", username=session["user"]))
+                    "profile"))
             else:
                 # Wrong Passowrd
                 flash("Incorrect Username and/or Password")
@@ -271,21 +271,25 @@ def contact():
     return render_template("contact.html")
 
 
-# Profile Page
+# User profile page on profile.html
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # get active session username from db
-    characters = list(mongo.db.characters.find())
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    if session and session["user"]:
+        # get active session username from db
+        characters = list(mongo.db.characters.find())
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
 
-    if session["user"]:
-        return render_template(
-            "profile.html", username=username, characters=characters)
+        if session["user"]:
+            return render_template(
+                "profile.html", username=username, characters=characters)
 
-    return redirect(url_for("login"))
+        return redirect(url_for("login"))
+
+    else:
+        return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
