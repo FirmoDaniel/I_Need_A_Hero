@@ -20,18 +20,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Characters Page
+# Characters.html
 
 
 @app.route("/characters")
 def characters():
-    roles = mongo.db.roles.find().sort("character_role", 1)
+    roles = mongo.db.roles.find().sort("character_role", -1)
     characters = list(mongo.db.characters.find())
     return render_template(
         "characters.html", roles=roles, characters=characters)
 
 
-# search function on Characters Page
+# search characters on characters.html
 
 
 @app.route("/search")
@@ -41,7 +41,34 @@ def search():
     return render_template("characters.html", characters=characters)
 
 
-# edit button/function on Characters Page
+# Create a character on characters.html
+
+
+@app.route("/create_character/<username>", methods=["GET", "POST"])
+def create_character(username):
+    if request.method == "POST":
+        characters = {
+            "character_role": request.form.get("character_role"),
+            "character_name": request.form.get("character_name"),
+            "character_description": request.form.get("character_description"),
+            "character_bio": request.form.get("character_bio"),
+            "character_skills": request.form.get("character_skills"),
+            "created_by": session["user"]
+        }
+        mongo.db.characters.insert_one(characters)
+        flash("Character created.")
+        return redirect(url_for("characters"))
+
+    roles = mongo.db.roles.find().sort("character_role", 1)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("create_character.html",
+                               roles=roles, username=username)
+
+
+# Edit a character on characters.html
 
 
 @app.route("/edit_character/<characters_id>", methods=["GET", "POST"])
@@ -74,7 +101,7 @@ def edit_character(characters_id):
         return redirect(url_for("index"))
 
 
-# delete button/function on Characters Page
+# Delete a character on characters.html
 
 
 @app.route("/delete_character/<characters_id>")
@@ -87,7 +114,7 @@ def delete_characters(characters_id):
         return redirect(url_for("index"))
 
 
-# Roles Page
+# View character roles on roles.html
 
 
 @app.route("/roles")
@@ -99,7 +126,7 @@ def roles():
         return redirect(url_for("index"))
 
 
-# Delete Role Page
+# Delete a character role on edit_role.html
 
 
 @app.route("/delete_role/<role_id>")
@@ -112,7 +139,7 @@ def delete_role(role_id):
         return redirect(url_for("index"))
 
 
-# Edit Role Page
+# Edit a character role on edit_role.html
 
 
 @app.route("/edit_role/<role_id>", methods=["GET", "POST"])
@@ -132,7 +159,7 @@ def edit_role(role_id):
         return redirect(url_for("index"))
 
 
-# Add Role Page
+# Add a character role on add_role.html
 
 
 @app.route("/add_role", methods=["GET", "POST"])
@@ -256,33 +283,6 @@ def profile(username):
             "profile.html", username=username, characters=characters)
 
     return redirect(url_for("login"))
-
-
-# Create Character Page
-
-
-@app.route("/create_character/<username>", methods=["GET", "POST"])
-def create_character(username):
-    if request.method == "POST":
-        characters = {
-            "character_role": request.form.get("character_role"),
-            "character_name": request.form.get("character_name"),
-            "character_description": request.form.get("character_description"),
-            "character_bio": request.form.get("character_bio"),
-            "character_skills": request.form.get("character_skills"),
-            "created_by": session["user"]
-        }
-        mongo.db.characters.insert_one(characters)
-        flash("Character created.")
-        return redirect(url_for("characters"))
-
-    roles = mongo.db.roles.find().sort("character_role", 1)
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("create_character.html",
-                               roles=roles, username=username)
 
 
 if __name__ == "__main__":
