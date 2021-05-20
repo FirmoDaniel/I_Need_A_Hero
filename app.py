@@ -31,7 +31,7 @@ def characters():
         "characters.html", roles=roles, characters=characters)
 
 
-# search characters on characters.html
+# Search characters on characters.html
 
 
 @app.route("/search")
@@ -41,34 +41,39 @@ def search():
     return render_template("characters.html", characters=characters)
 
 
-# Create a character on characters.html
+# Create a character on create_character.html
 
 
 @app.route("/create_character/<username>", methods=["GET", "POST"])
 def create_character(username):
-    if request.method == "POST":
-        characters = {
-            "character_role": request.form.get("character_role"),
-            "character_name": request.form.get("character_name"),
-            "character_description": request.form.get("character_description"),
-            "character_bio": request.form.get("character_bio"),
-            "character_skills": request.form.get("character_skills"),
-            "created_by": session["user"]
-        }
-        mongo.db.characters.insert_one(characters)
-        flash("Character created.")
-        return redirect(url_for("characters"))
+    if session and session["user"]:
+        if request.method == "POST":
+            characters = {
+                "character_role": request.form.get("character_role"),
+                "character_name": request.form.get("character_name"),
+                "character_description": request.form.get(
+                    "character_description"),
+                "character_bio": request.form.get("character_bio"),
+                "character_skills": request.form.get("character_skills"),
+                "created_by": session["user"]
+            }
+            mongo.db.characters.insert_one(characters)
+            flash("Character created.")
+            return redirect(url_for("characters"))
 
-    roles = mongo.db.roles.find().sort("character_role", 1)
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        roles = mongo.db.roles.find().sort("character_role", 1)
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
 
-    if session["user"]:
-        return render_template("create_character.html",
-                               roles=roles, username=username)
+        if session["user"]:
+            return render_template("create_character.html",
+                                   roles=roles, username=username)
+
+    else:
+        return redirect(url_for("index"))
 
 
-# Edit a character on characters.html
+# Edit a character on edit_character.html
 
 
 @app.route("/edit_character/<characters_id>", methods=["GET", "POST"])
