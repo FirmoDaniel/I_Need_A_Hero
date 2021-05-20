@@ -94,8 +94,7 @@ def edit_character(characters_id):
         characters = mongo.db.characters.find_one(
             {"_id": ObjectId(characters_id)})
 
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
+        username = session["user"]
 
         roles = mongo.db.roles.find().sort("character_role", 1)
         return render_template("edit_character.html", roles=roles,
@@ -279,8 +278,7 @@ def profile():
     if session and session["user"]:
         # get active session username from db
         characters = list(mongo.db.characters.find())
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
+        username = session["user"]
 
         if session["user"]:
             return render_template(
