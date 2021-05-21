@@ -26,7 +26,7 @@ mongo = PyMongo(app)
 @app.route("/characters")
 def characters():
     roles = mongo.db.roles.find().sort("character_role")
-    characters = list(mongo.db.characters.find().sort("character_role"))
+    characters = list(mongo.db.characters.find().sort("_id", -1))
     return render_template(
         "characters.html", roles=roles, characters=characters)
 
@@ -277,7 +277,7 @@ def contact():
 def profile():
     if session and session["user"]:
         # get active session username from db
-        characters = list(mongo.db.characters.find())
+        characters = list(mongo.db.characters.find().sort("_id", -1))
         username = session["user"]
 
         if session["user"]:
