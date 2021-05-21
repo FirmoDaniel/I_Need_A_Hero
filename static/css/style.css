@@ -7,6 +7,11 @@
     color: black;
 }
 
+.per_marker_white_text{
+    font-family:'Permanent Marker';
+    color: white;
+}
+
 body{
     background-color: whitesmoke;
     font-family:'Montserrat';
