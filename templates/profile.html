@@ -37,7 +37,7 @@
                             class="fakeCharacaterDeleteButton btn-small modal-trigger per_marker red accent-3">Delete</button>
                         <a href="{{ url_for('profile', username=session['user']) }}" 
                             class="cancelButton waves-effect waves-light btn-small per_marker yellow accent-3">No! Cancel</a>
-                        <a href="{{ url_for('delete_characters', characters_id=character._id) }}"
+                        <a href="{{ url_for('delete_character', characters_id=character._id) }}"
                                 class="characterDeleteButton waves-effect waves-light
                                 btn-small per_marker red accent-3"> Yes! Delete forever</a>
                     </div>
@@ -52,7 +52,7 @@
             <h4 class="per_marker">Warning!</h4>
             <p>Deletion is absolutely permenant.</p>
             <a href="{{ url_for('profile', username=session['user']) }}" class="modal-close btn green accent-3">NO! Cancel.</a>
-            <a class="callDeleteCancelButtons modal-close btn red accent-3">Proceed to delete</a>
+            <a class="callDeleteCancelButtons modal-close btn red accent-3">I understand.</a>
             </div>
             <div class="modal-footer left-align">
             </div>

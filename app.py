@@ -107,7 +107,7 @@ def edit_character(characters_id):
 
 
 @app.route("/delete_character/<characters_id>")
-def delete_characters(characters_id):
+def delete_character(characters_id):
     if session and session["user"]:
         mongo.db.characters.remove({"_id": ObjectId(characters_id)})
         flash("Character deleted")

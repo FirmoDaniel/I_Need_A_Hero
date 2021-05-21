@@ -79,16 +79,5 @@ $(document).ready(function(){
             
     }
 
-    /*if ((screen.width>666)) {
-    // if screen size is larger
-        $('.card-content').show();
-        }
-        
-        else if ((screen.width<=666)){
-            // if screen size width smaller or equal
-            $('.card-content').hide();
-            
-    }*/
-
 });
 
