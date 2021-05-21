@@ -9,8 +9,6 @@ function sendMail(contactForm){
             console.log("SUCCESS", response);
             $('#contactForm').find("input[type=text]").val("");
             $('#contactForm').find("input[type=email]").val("");
-            /*alert("Message Sent. Thank You!");*/
-            /*$(".modal").show();*/
         },
         function(error) {
             console.log("FAILED", error);

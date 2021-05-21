@@ -4,6 +4,11 @@ $(document).ready(function(){
     $('select').formSelect();
     $(".modal").modal();
 
+    $(".contactMessage").hide();
+    $("#contactForm").submit(function(){
+        $(".contactMessage").delay(1000).fadeIn(3000);
+    });
+
 
 /*Defensive hide/show and alerts for character deletion*/
     $(".characterDeleteButton").hide();
@@ -24,7 +29,6 @@ $(document).ready(function(){
         }
         
     });
-
     
     let profileCharacters = $('#profileCharacters').text();
         if(profileCharacters == ""){
