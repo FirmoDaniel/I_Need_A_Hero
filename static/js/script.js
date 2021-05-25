@@ -4,13 +4,14 @@ $(document).ready(function(){
     $('select').formSelect();
     $(".modal").modal();
 
+/* Thank you message on contact form submit. */
     $(".contactMessage").hide();
     $("#contactForm").submit(function(){
         $(".contactMessage").delay(1000).fadeIn(3000);
     });
 
 
-/*Defensive hide/show and alerts for character deletion*/
+/* Defensive hide/show and alerts for character deletion on characters.html */
     $(".characterDeleteButton").hide();
     $(".cancelButton").hide();
     
@@ -41,7 +42,7 @@ $(document).ready(function(){
 
      }
 
-     /*Taken from CI source code for form select:validation on create.html*/
+/* Taken from CI source code for form select:validation on create_character.html */
      validateMaterializeSelect();
      function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -70,8 +71,7 @@ $(document).ready(function(){
         });
     }
 
-  /*window resizing*/
-
+/* Window resizing */
     if ((screen.width>536)) {
     // if screen size is larger
         $('#jq-valign').addClass('valign-wrapper');
