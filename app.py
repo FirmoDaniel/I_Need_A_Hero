@@ -283,11 +283,8 @@ def profile():
     if session and session["user"]:
         characters = list(mongo.db.characters.find().sort("_id", -1))
         username = session["user"]
-        if session["user"]:
-            return render_template(
+        return render_template(
                 "profile.html", username=username, characters=characters)
-        return redirect(url_for("login"))
-
     else:
         return redirect(url_for("index"))
 
