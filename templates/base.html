@@ -13,6 +13,7 @@
     <title>I Need A Hero</title>
 </head>
 <body>
+    <!--Fixed navigation bar with sidel nav for small screens-->
     <div class="navbar-fixed">  
         <nav class="sidenav-trigger deep-purple darken-1">
             <div class="nav-wrapper">
@@ -20,6 +21,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('characters') }}">Characters</a></li>
+                    <!--Loops to show different nav elements based on existing user / admin user logged in or unregistered users-->
                     {% if session.user  %}
                         <li><a href="{{ url_for('create_character') }}">Create</a></li>
                         <li><a href="{{ url_for('profile') }}">Profile</a>
@@ -38,7 +40,7 @@
             </div>
         </nav>
     </div> 
-
+    <!--Side nav with duplicate loops for nav items.-->
     <ul class="sidenav right" id="mobile-demo">
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('characters') }}">Characters</a></li>
@@ -80,6 +82,7 @@
 
     {% endblock %}
     <br>
+    <!--Footer-->
     <div class="container">
         <footer id="footer">
             <a class="footer-items" href="https://www.facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook-square" aria-hidden="true"></i><span>Facebook</span></a>

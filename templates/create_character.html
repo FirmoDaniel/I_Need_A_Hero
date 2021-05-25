@@ -13,7 +13,7 @@
         <div class="row card-panel">
             <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('create_character', username=session['user']) }}">
                 <div class="row">
-                    <!--Character Role-->
+                    <!--Select character role from available options-->
                     <div class="input-field col s12">
                         <i class="fas fa-mask prefix"></i>
                         <select id="character_role" name="character_role" class="validate" required>
@@ -31,7 +31,7 @@
                         <i class="fas fa-signature prefix"></i>
                         <input id="character_name" name="character_name" type="text" 
                             minlength="5" maxlength="50" class="validate" required>
-                        <label for="character_name">Character name :</label>
+                        <label for="character_name">Character name </label>
                     </div>
                 </div>
                 <div class="row">
@@ -40,7 +40,7 @@
                         <i class="fas fa-transgender-alt prefix"></i>
                         <textarea id="character_description" name="character_description"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="character_description">Character description :</label>
+                        <label for="character_description">Character description </label>
                     </div>
                 </div>
                 <div class="row">
@@ -49,7 +49,7 @@
                         <i class="fas fa-info prefix"></i>
                         <textarea id="character_bio" name="character_bio"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="character_bio">Character bio :</label>
+                        <label for="character_bio">Character bio </label>
                     </div>
                 </div>
                 <div class="row">
@@ -58,7 +58,7 @@
                         <i class="fas fa-toolbox prefix"></i>
                         <textarea id="character_skills" name="character_skills"
                          minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                        <label for="character_skills">Character skills :</label>
+                        <label for="character_skills">Character skills </label>
                     </div>
                 </div>
                 <div class="row">

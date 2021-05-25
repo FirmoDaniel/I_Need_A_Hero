@@ -13,7 +13,7 @@
         <div class="row card-panel">
             <form class="col s12 m8 offset-m2" method ="POST" action="{{ url_for('edit_character', characters_id=characters._id) }}"> 
                 <div class="row">
-                    <!--Character Role-->
+                    <!--Select character role from available options-->
                     <div class="input-field col s12">
                         <i class="fas fa-mask prefix"></i>
                         <select id="character_role" name="character_role" class="validate" required>
@@ -74,7 +74,7 @@
                         <label for="character_skills">Character skills :</label>
                     </div>
                 </div>
-                <!--Cancel & Submit Buttons-->
+                <!--Buttons: 'Cancel' and 'Save changes/submit form'-->
                 <div class="row">
                     <div class="col s12 center-align">
                         <button type="submit" class="waves-effect waves-light btn-small per_marker green accent-3">Save Changes</button>

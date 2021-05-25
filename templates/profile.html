@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container">
+        <!--Box displaying user's name-->
       <div class="row">
           <div class="col s12 m8 offset-m2 deep-purple darken-1">
               <div class="card-panel">
@@ -10,8 +11,10 @@
               </div>
           </div>
       </div>
-      <a id="ifProfileCharactersExist" href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create New Character</a>
+      <!--Button: links to create_character.-->
+      <a id="ifProfileCharactersExist" href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Add a New Character</a>
        <ul  id="profileHideCollapsible" class="collapsible">
+            <!--Loop to display only characters created by the active users.-->
             {% for character in characters %}
             {% if session.user|lower == character.created_by|lower %}
             <li>
@@ -30,6 +33,7 @@
                     <p><em>Created by : {{ character.created_by.capitalize() }}</em></p>
                     <hr>
                     <div class="col s3">
+                    <!--Options to delete/ edit current characters-->
                         <!-- Modal Trigger -->
                         <a href="{{ url_for('edit_character', characters_id=character._id) }}"
                             class="waves-effect waves-light btn-small per_marker blue accent-3">Edit</a>
@@ -57,6 +61,7 @@
             <div class="modal-footer left-align">
             </div>
         </div>
+        <!--Prompt to new users with no charcaters created to either create their own or view others on characters.html. Is hidden when user has characters.-->
         <div class="row s12 m8 offset-m2 center-align deep-purple darken-1 white-text" id="profileCharactersNone">No characters created yet. 
             You can <a href="{{ url_for('create_character', username=session['user']) }}" class="waves-effect waves-light btn-small per_marker green accent-3">Create</a>
             , or <a href="{{ url_for('characters') }}" class="waves-effect waves-light btn-small per_marker blue accent-3">view characters</a>.
