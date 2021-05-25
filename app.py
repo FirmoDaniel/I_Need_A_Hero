@@ -20,7 +20,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Characters.html
+# View characters.html
 
 
 @app.route("/characters")
@@ -46,6 +46,11 @@ def search():
 
 @app.route("/create_character", methods=["GET", "POST"])
 def create_character():
+    """
+    1.  Check if user exists, then render create_character.html.
+    2.  Match user enteries on a form to db key's (See 'characters' variable).
+    3.  Update db roles and characters collections.
+    """
     if session and session["user"]:
         if request.method == "POST":
             characters = {
@@ -76,6 +81,11 @@ def create_character():
 
 @app.route("/edit_character/<characters_id>", methods=["GET", "POST"])
 def edit_character(characters_id):
+    """
+    1.  Check if user exists, then render edit_character.html.
+    2.  Match user enteries on a form to db key's (See 'edit' variable).
+    3.  Update db roles and characters collections.
+    """
     if session and session["user"]:
         if request.method == "POST":
             edit = {
@@ -108,6 +118,10 @@ def edit_character(characters_id):
 
 @app.route("/delete_character/<characters_id>")
 def delete_character(characters_id):
+    """
+    1.  Check if user exists.
+    2.  Delete intended character using selection's ID from db.
+    """
     if session and session["user"]:
         mongo.db.characters.remove({"_id": ObjectId(characters_id)})
         flash("Character deleted")
@@ -121,6 +135,11 @@ def delete_character(characters_id):
 
 @app.route("/roles")
 def roles():
+    """
+    1.  Check if user is Admin.
+        (Roles are only available to Admin.)
+    2.  List Roles in alphabetical order.
+    """
     if session and session["user"] == "admin":
         roles = list(mongo.db.roles.find().sort("character_role"))
         return render_template("roles.html", roles=roles)
@@ -133,6 +152,12 @@ def roles():
 
 @app.route("/delete_role/<role_id>")
 def delete_role(role_id):
+    """
+    1.  Check if user is Admin.
+        (Role deletions are only available to Admin.)
+    2.  Get ID of role to be deleted.
+    3.  Remove ID of role from DB.
+    """
     if session and session["user"] == "admin":
         mongo.db.roles.remove({"_id": ObjectId(role_id)})
         flash("Role deleted")
@@ -146,6 +171,12 @@ def delete_role(role_id):
 
 @app.route("/edit_role/<role_id>", methods=["GET", "POST"])
 def edit_role(role_id):
+    """
+    1.  Check if user is Admin.
+        (Role edits are only available to Admin.)
+    2.  Get ID of role to be edited, and render edit_role.html
+    3.  Update db using the role id and the 'character's role' key.
+    """
     if session and session["user"] == "admin":
         if request.method == "POST":
             submit = {
@@ -166,6 +197,12 @@ def edit_role(role_id):
 
 @app.route("/add_role", methods=["GET", "POST"])
 def add_role():
+    """
+    1.  Check if user is Admin.
+        (Role additions are only available to Admin.)
+    2.  Check if new role already exists in DB. If yes, Flash and redirect.
+    3.  If new role is unique insert it into the roles collection in db.
+    """
     if session and session["user"] == "admin":
         if request.method == "POST":
             existing_role = mongo.db.roles.find_one(
@@ -188,11 +225,17 @@ def add_role():
         return redirect(url_for("index"))
 
 
-# Login Page
+# LOGIN
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    1.  Check user entry against db to verify username and password.
+    2.  Return identical messages whether username or password are incorrect
+        in case of brute force attack, and return to login.html.
+    3.  On success welcome user and render profile page.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -219,11 +262,15 @@ def login():
     return render_template("login.html")
 
 
-# Register Page
-
-
+# REGISTER
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    1.  Check existing usernames in db against user entry.
+    2.  Store unique usernames in db, and hash passwords.
+    3.  Assign successful username entry to session cookie,
+        which is needed to render profile.html.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -244,7 +291,7 @@ def register():
     return render_template("register.html")
 
 
-# Log out
+# LOG OUT
 
 
 @app.route("/logout")
@@ -254,7 +301,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# Index Page
+# INDEX
 
 
 @app.route("/")
@@ -262,7 +309,7 @@ def index():
     return render_template("index.html")
 
 
-# Contact Page
+# CONTACT
 
 
 @app.route("/contact")
@@ -270,7 +317,7 @@ def contact():
     return render_template("contact.html")
 
 
-# User profile page on profile.html
+# PROFILE
 
 
 @app.route("/profile", methods=["GET", "POST"])
@@ -289,9 +336,12 @@ def profile():
         return redirect(url_for("index"))
 
 
+# ERROR HANDLER
+
+
 @app.errorhandler(404)
 def page_not_found(e):
-    """ Returns html on 404 errors """
+    """ Returns a 404.html on 404 errors """
 
     return render_template('404.html'), 404
 
