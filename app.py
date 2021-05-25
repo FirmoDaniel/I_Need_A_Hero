@@ -275,19 +275,28 @@ def contact():
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
+    """
+    1.  Check if user exists before rendering profile page.
+    2.  The character list is arranged in order of most recently added.
+    3.  The username is also used on profile.html greeting.
+    """
     if session and session["user"]:
-        # get active session username from db
         characters = list(mongo.db.characters.find().sort("_id", -1))
         username = session["user"]
-
         if session["user"]:
             return render_template(
                 "profile.html", username=username, characters=characters)
-
         return redirect(url_for("login"))
 
     else:
         return redirect(url_for("index"))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """ Returns html on 404 errors """
+
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
