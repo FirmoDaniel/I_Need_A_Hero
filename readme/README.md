@@ -46,10 +46,11 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 
 
 *   ### Wireframes
-    * Full and mobile Index page - [veiw](readme/index_wireframes.pdf)
+    * Full and mobile Index page [here](/workspace/I_Need_A_Hero/readme/index_wireframes.pdf)
+    * Full and mobile Characters page [here](/workspace/I_Need_A_Hero/readme/characters_wireframes.pdf)
+    * Full and mobile Roles page [here](/workspace/I_Need_A_Hero/readme/roles_wireframes.pdf)
 
 
-ADD IN WIREFRAMES
 
 
 ## Features
