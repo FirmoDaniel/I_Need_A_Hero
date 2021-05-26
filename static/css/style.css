@@ -3,18 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 .per_marker{
-    font-family:'Permanent Marker';
+    font-family:'Permanent Marker', sans-serif;
     color: black;
 }
 
 .per_marker_white_text{
-    font-family:'Permanent Marker';
+    font-family:'Permanent Marker', sans-serif;
     color: white;
 }
 
 body{
     background-color: whitesmoke;
-    font-family:'Montserrat';
+    font-family:'Montserrat', sans-serif;
 }
 
 /*-------------------------------------------------------------------------------BUTTONS-CHECKED*/

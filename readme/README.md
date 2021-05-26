@@ -9,47 +9,45 @@ or anyone with an idea they like to share.
 Firstly the site to benefit the user community, and secondly to grow a user database and run competitions
 via the monthly newletter with user-submitted short-stories and awards for best uploads.
 
+[View Live Version here]()
 
-## UX
-#### Strategy & Scope planes
-The website targets writers in need of or, in posession of: 
-* New character idea's
-* Uneeded characters they don;t wnat to waste
-* General reserach to see if their idea is already out there.
+## User Experiance (UX)
 
-In terms of scope the site is kept concise and utilises the same colours throughout for a smooth
-tranistion from page to page.
-* #8e24aa (Deep Purple) - Nav, forms and footer.
-* #00e676 (Green), #ff1744 (Red), #2979ff (Blue), #ffea00 (Yellow) for buttons.
-* Standard whitesmoke for body background.
-* font-family:'Montserrat' for body font, and font-family:'Permanent Marker' for headers.
-Both from [Google Fonts](https://fonts.google.com).
+### User stories
+-    ## First Time Visitor Goals
+        * I want easily understand the site's purpose. 
+        * I want to navigate the site's content.
+        * I want to understand how to create my own characters.
 
-## User Experiances remove me
+-    ##   Returning / Registered User Goals
+        * I want to see characters I have created.
+        * I want to edit or delete my characters. 
+        * I want to contact the site admin.
 
-### New User Goals
-As a new user:
+-    ## Administrator
+        * I should be able to edit / delete all characters.
+        * I want to edit or add new character roles.
 
-    1. "I want easily understand the site's purpose." 
-    2. "I want to navigate the site's content."
-    3. "I want to understand how to create my own characters."
+### Design
+-    ### Colour Scheme
+        * #8e24aa (Deep Purple) - Nav, forms and footer.
+        * #00e676 (Green), #ff1744 (Red), #2979ff (Blue), #ffea00 (Yellow) for buttons.
+        * Standard whitesmoke for body background.
+            
+-    ### Typography
+        * font-family:'Montserrat' for body font, and font-family:'Permanent Marker' for headers and some flash messages.
+        Both from [Google Fonts](https://fonts.google.com). Sans Serif is used a fallback. 
 
-## Returning / Registered User
-As a returning / registered user:
-
-    1. "I want to see characters I have created."
-    2. "I want to edit or delete my characters." 
-    3. "I want to contact the site admin."
-
-## Administrator
-As the administrator:
-
-    1. "I should be able to edit / delete all characters."
-    2. "I want to edit or add new character roles." 
+-    ### Imagery
+        * Three card images on the index page 
+            * [Blue sky](https://static.wikia.nocookie.net/god-of-slaughter/images/3/3a/Thunder2.jpg)
+            * [Red Sky](https://media.freestocktextures.com/cache/4b/b4/4bb46fda2948c0d26699661ac01f212c.jpg)
+            * [Grey Sky](https://sewitall.com/wp-content/uploads/2020/01/Lightning-Grey-cut-piece-scaled.jpg)            
 
 
-### Wireframes
-#### The Structure & Skeleton planes
+*   ### Wireframes
+    * Full and mobile Index page - [veiw](readme/index_wireframes.pdf)
+
 
 ADD IN WIREFRAMES
 
@@ -60,7 +58,7 @@ Overall the site is responsive and scales with user screen size.
 
 ### Existing Features
 * Header : Navigation collapses depending on screen size, while also adding/removing options depending on users are logged in or not.
-* Index : Is kept concise by design, offers options registration, contact and login in the body. Media queries
+* Index : Is kept concise by design, offers options for registration, contact and login in the body. Media queries
 and jquery adjust the display cards
 accordingly as screen size changes.  
 * Contact : A simple form with an area for messages from users. It is not intended for any other purpose.
