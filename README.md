@@ -106,6 +106,38 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 
 
 ### Testing User Stories from User Experience (UX) section.
+### First Time Visitor Goals :
+
+*  I want easily understand the site's purpose.
+    1.  The index page utilises eye-cathcing colours, fonts and clean lines with an upfront description
+        of the sites aim.
+    2.  Users are immediately granted access to the site's database via clickable images.
+    3.  Users are made aware of the site's policy, and the added benefits to registering.
+     
+* I want to navigate the site's content.
+    1.  A static, collaspible header contains all the nav elemnets available to new users. Although 
+        registration/login is rerquired to access more functions, the main database is available to read.
+        As is the contact, register and Log In page.
+
+* I want to understand how to create my own characters.
+    1.  Users are informed how to create characters on both the index page and the Characters page.
+        New users can register a username and password which instantly grants them create, update and delete
+        functionality for their characters.
+
+### Returning / Registered User Goals :
+
+*  I want to see characters I have created.
+    1.  The 
+    2.  Users 
+    3.  Users 
+     
+* I want to edit or delete my characters. 
+    1.  A static
+
+* I want to contact the site admin.
+    1.  Users 
+
+
 
 
 Click [here](Testing.md) for full testing based on user stories.
