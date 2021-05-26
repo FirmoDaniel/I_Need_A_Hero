@@ -46,70 +46,74 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 
 
 *   ### Wireframes
-    * Full and mobile Index page [here](/workspace/I_Need_A_Hero/readme/index_wireframes.pdf)
-    * Full and mobile Characters page [here](/workspace/I_Need_A_Hero/readme/characters_wireframes.pdf)
-    * Full and mobile Roles page [here](/workspace/I_Need_A_Hero/readme/roles_wireframes.pdf)
-
-
-
+    * Full and mobile Index page [here](readme/index_wireframes.pdf)
+    * Full and mobile Characters page [here](readme/characters_wireframes.pdf)
+    * Full and mobile Roles page [here](readme/roles_wireframes.pdf)
 
 ## Features
-### The Surface Plane
-Overall the site is responsive and scales with user screen size.
+-   Responsive on all devices with:
+    *   CSS Media Queries for showing/hiding elements on scaling.
+    *   Collaspible Header with side nav for mobile devices.
+-   Contains interactive elements such as:
+    *   Serachable database.
+    *   User authentication via register/log in/ log out.
+    *   Loops hide/show various navigation options depending on user status.
+    *   Contact form linked with Emailjs.
+    *   C.R.U.D. functionality scaled with user status.(user/ unregistered / admin).
 
-### Existing Features
-* Header : Navigation collapses depending on screen size, while also adding/removing options depending on users are logged in or not.
-* Index : Is kept concise by design, offers options for registration, contact and login in the body. Media queries
-and jquery adjust the display cards
-accordingly as screen size changes.  
-* Contact : A simple form with an area for messages from users. It is not intended for any other purpose.
-* Characters: Contains an active list of queriable terms for the serach function. Also houses a complete list of all uploaded 
-characters.
-* Roles: Available only to ADMIN, the roles pages allows full C.R.U.D. functionality for the admin. Also provides defensive 
-programming against duplicate role creations.
-* Profile: Allows creation for registered users and ADMIN, as well as displaying characters uploaded by only that user. 
-Edit and Delete functions also accessible 
-* Create: Available to registered users and ADMIN only, allows creation of new characters which are added to the main characters page
-and the users' profile page.
-* Log in: verifies username with stored password before granting access.
-* Register: checks current user list against entry to deny duplicate user names.
-* Log out: Returns user to login page with reduced navbar options, treating them as brand new users. 
-* Footer : Links provided to fictional social medias.
-* Other: Modals and hide/show functions to interupt accidental deletions.
+## Technologies Used
+### Languages Used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [PYthon 3](https://www.python.org/)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-### Features left to implement 
-* Link contact form using python. When email.js was applied and functional, it interfered with the flash messages on submit. Had to use jquery for confirmation message instead. 
+### Frameworks, Libraries & Programs Used
+- [Email.JS](https://www.emailjs.com/) - for contact form.
+- [GitHub](https://github.com)
+- [Jquery](https://jquery.com/) - For hide/ show of elements.
+- [GitPod](https://www.gitpod.io/) - IDE.
+- [Materialize (including JQuery)](https://materializecss.com/) -Utilized for responsiveness via columns, buttons and navbars.
+- [Google Fonts](https://fonts.google.com) - User for header and body fonts throughout.
+- [Font Awesome](https://fontawesome.com/)  - For icons.
+- Google Chrome's Responsive Viewer found [here](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb)
+- Google Chrome's lighthouse function.
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - For template engine.
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/installation/) - For creating views and methods.
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) - For password hashing.
+- [MongoDB](https://www.mongodb.com/) - Database.
+- [Heroku](https://www.heroku.com/) - For hosting.
 
-## Technologies used
-* HTML-For basic structure.
-* CSS-For styling and required Media Query outside of Bootstrap.
-* JavaScriprt 
-* [Email.JS](https://www.emailjs.com/)
-* [Jquery](https://jquery.com/)
-* [W3C validator](https://validator.w3.org/) - Used in testing HTML and CSS.
-* [JsHINT](https://jshint.com)- Used for Java Script validation.
-* [GitHub](https://github.com)
-* [GitPod](https://www.gitpod.io/) - IDE.
-* [Materialize (including JQuery)](https://materializecss.com/) -Utilized for responsiveness via columns, buttons and navbars.
-* [Google Fonts](https://fonts.google.com) - User for header and body fonts throughout.
-* [Font Awesome](https://fontawesome.com/)  - For icons.
-* Google Chrome's Responsive Viewer found [here](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb)
-* Google Chrome's lighthouse function.
-* [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - For template engine.
-* [Flask](https://flask.palletsprojects.com/en/2.0.x/installation/)
-* [Pthon 3](https://www.python.org/) - For creating views and methods.
-* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
-* [MongoDB](https://www.mongodb.com/) - Database.
-* [Heroku](https://www.heroku.com/) - For hosting.
-* Others such as FLASK can be found in the app.py and requirements folders.
+## Testing
+-   Using [W3C validator](https://validator.w3.org/) both HTML and CSS were checked by direct input. Issues arising were promptly corrected. 
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+<p>
+<a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+    </a>
+</p>
 
-# Testing
+-   [JsHINT](https://jshint.com)- Used for Java Script validation. Warnings relating to the use of 'let' to declare variables.
+    The script was not amended to address these.
+
+
+### Testing User Stories from User Experience (UX) section.
+
+
 Click [here](Testing.md) for full testing based on user stories.
-## Responsiveness 
-## Lighthouse
 
-# Code Validation
-## jshint and others 
+
+### Further Testing 
+    login, user, see roles etc
+
 
 # Deployment 
 
