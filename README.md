@@ -193,11 +193,37 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 | Roles | 99  | 94  | 100  | 89  |
 
 ### Security / Access 
-*   access to roles page for admin, access to deletes, create and other buy users.   
-*   Internal page links and external links in the footer were manually tested. 
+####   User based access
 
-### Links
+*   URL access:
+    *   Python checks for the presence of the session cookie before progressing to pages via the url. 
+        In the case of admin only access it also checks the user both exists AND is the admin.
+        Here is a code example: (if session and session[" user "] == "admin":) ref app .py , line 195, add character role.
+        This check can be found throughout the app .py file for any views which require valid log in such as 
+        create_character, edit_character, edit_role, add_role, and all delete functionality.
+*   Unregistered user:
+    *   Can only view the following pages. Home, characters, register, log in and contact.
+    *   Cannot create, edit or delete characters. All relating buttons remain hidden.
+    *   Cannot login prior to registering. Though, the flash messaging doesn't explicity say the username is 
+        unregistered, it does flag an issue to the user regarding their details entered. Both login and register have
+        corresponding links and notes to each other. 'New here? Register Account' or 'Already Registered? Log in'.
+    *   Cannot use URL to access any other pages.
+*   Registered and logged in users:
+    *   Can also view the profile page.
+    *   Can create, update and delete only their own characters.
+    *   Cannot use url to access any extra pages such as roles.html.
+*   Admin :
+    *   Can view all pages including the roles page. 
+    *   Can create, update and delete all created characters.  
+
+#### Links
 *   Internal page links and external links in the footer were manually tested. 
+#### Loops
+*   Loops are utilised throughout to check user status and decide which nav bar elements can be viewed.
+*   Loops are also tasked with displaying only characters created by a user on their profile page.
+*   A loop also ensures users are kept abreast of all currently searchable roles on the characters page.
+*   Also on the characters page, a loop nudges users to log in or register if no user is detected, 
+    but hides the nudge if user exists.
 
 Click [here](Testing.md) for full testing based on user stories.
 
