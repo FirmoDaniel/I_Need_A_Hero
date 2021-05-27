@@ -155,8 +155,6 @@ via the monthly newletter with user-submitted short-stories and awards for best 
         the site's admin. First name, email and a message is all that is required. Links to social media accounts
         are also available in the footer.  
 
-
-
 ### Administrator Goals :
 
 * I should be able to edit / delete any character.
@@ -176,12 +174,30 @@ via the monthly newletter with user-submitted short-stories and awards for best 
     1.  When logged in as admin, the roles page becomes available. The page lists all roles currently live on the site
         from which users can choose for their characters. Roles are listed in alphabetical order. 
     2.  To Add : a 'Add Role' button is prominently displayed at the top of the roles page. Clicking the button brings
-        the admin to add_role.html which contains a single row form the admin can populate. Here they can cancel the operation,
+        the admin to add_role.html which contains a single row form the admin can populate. (There is a built in check to
+        stop duplicate roles being created which flashes a message and returns admin to the roles page.) Here they can cancel the operation,
         or proceed with their addition. Adding a role diverts the admin back to the roles page with a flash message as confirmation. 
     3.  To Edit : a 'Edit / Delete' button is available to the admin for each populated role. Upon clicking the admin is brought to
         edit_role.html which pre-populates the single row form with the current role selected for edit or delete. The admin can
         cancel the request, or proceed with editing. A usccessful edit returns the admin to the roles page with flash message for   
         confirmation.
+
+
+## Further Testing
+### Google Chrome's Lighthouse results
+| Page    | Performance  | Accessibility  | Best Practise  | Seo |
+|---|---|---|---|---|
+| Index  | 99  | 92  | 93  | 90  |
+| Characters | 99  | 94  | 100  | 89  |
+| Profile | 99  | 100  | 100  | 89  |
+| Roles | 99  | 94  | 100  | 89  |
+
+### Security / Access 
+*   access to roles page for admin, access to deletes, create and other buy users.   
+*   Internal page links and external links in the footer were manually tested. 
+
+### Links
+*   Internal page links and external links in the footer were manually tested. 
 
 Click [here](Testing.md) for full testing based on user stories.
 
