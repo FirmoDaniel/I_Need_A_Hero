@@ -24,8 +24,8 @@ via the monthly newletter with user-submitted short-stories and awards for best 
         * I want to edit or delete my characters. 
         * I want to contact the site admin.
 
--    ## Administrator
-        * I should be able to edit / delete all characters.
+-    ## Administrator Goals
+        * I should be able to edit / delete any character.
         * I want to edit or add new character roles.
 
 ### Design
@@ -157,6 +157,31 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 
 
 
+### Administrator Goals :
+
+* I should be able to edit / delete any character.
+    1.  Upon log in, an administrator is brought to their profile page which lists all their characters.
+        The characters page which lists all charcaters is also available but unlike standard users, the admin
+        has the ability to edit or delete all characters in the database. 
+    2.  To Edit : clicking the edit button renders a form populated with the selected character's information.
+        The admin can make their intended changes and click 'Save Changes', or cancel the request altogether. Both
+        options return the admin to the characters page with a flash confirming edits or a reload characters' page
+        in the case of a cancel. 
+    3.  To Delete : clicking the delete button calls a modal to warn the admin all deletions are permenant. 
+        The admin can cancel the process at the modal, or proceed to final confirmation by accepting the warning.
+        Upon accepting the modal warning a 'delete forever' button is displayed which when clicked deletes the
+        selected character from the database with a flash message to confirm.  
+
+* I want to add, edit or delete new character roles.
+    1.  When logged in as admin, the roles page becomes available. The page lists all roles currently live on the site
+        from which users can choose for their characters. Roles are listed in alphabetical order. 
+    2.  To Add : a 'Add Role' button is prominently displayed at the top of the roles page. Clicking the button brings
+        the admin to add_role.html which contains a single row form the admin can populate. Here they can cancel the operation,
+        or proceed with their addition. Adding a role diverts the admin back to the roles page with a flash message as confirmation. 
+    3.  To Edit : a 'Edit / Delete' button is available to the admin for each populated role. Upon clicking the admin is brought to
+        edit_role.html which pre-populates the single row form with the current role selected for edit or delete. The admin can
+        cancel the request, or proceed with editing. A usccessful edit returns the admin to the roles page with flash message for   
+        confirmation.
 
 Click [here](Testing.md) for full testing based on user stories.
 
