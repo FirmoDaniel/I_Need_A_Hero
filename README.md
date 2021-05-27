@@ -225,14 +225,44 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 *   Also on the characters page, a loop nudges users to log in or register if no user is detected, 
     but hides the nudge if user exists.
 
-Click [here](Testing.md) for full testing based on user stories.
+## Deployment
+### Heroku
+1.  Create a requirements.txt file. Command in gitpod is 'pip3 freeze --local> requirements.txt'
+2.  Create a Procfile (Capital 'P' and no file extension).
+3.  Push the two new files to your repository. 
+4.  Login in to [Heroku](https://www.heroku.com/) and from the dasjboard select 'New' > 'Create new app'.
+5.  Create a unique app name utilising '-' instead of spaces. Select your closest region from the dropdown. Then click
+    'Create app'.
+6.  To connect the app use the 'Connect to Github' option for a simplified process. Enusre you github user profile
+    is display after selction. Then, serach for the github repository you wish to connect. Then click 'Connect'.
+7.  Go to settings at the top of the heroku page. Then, scroll down 'Reveal Config Vars'. 
+8.  Here you enter the following data from your env .py file : Keys for IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME
+    and their corresponding values.
+9.  Return to the delopy tab in heroku and click 'Enable Automatic Deployment, then 'Deploy Branch'.
+10. Upon success you will see 'Your app was successfully deployed' and an option to view the app.
+11. A live version can be found here: [I Need A Hero](https://i-need-a-hero.herokuapp.com/)
 
+### Github
+The project was developed using [GitPod](https://www.gitpod.io/) workspace, committed to git and pushed to 
+[GitHub](https://github.com) using the built in function within Gitpod.
+To deploy this page from the [GitHub respository](https://github.com/FirmoDaniel/I_Need_A_Hero), the following steps were taken.
+1.  Log in to **GitHub**.
+2.  From the list of repositories on screen select 'I_Need_A_Hero'.
+3.  Select **Settings** from the menu.
+4.  Scroll down to **GitHub Pages**
+5.  Under **Source** click the dropdown menu labelled **none** and select the **Master Branch**.
+6.  On selecting **Master Branch** the is automatically refreshed, the website is now deployed.
+7.  A link can be found in the **GitHub pages section**, and also in the about section within **I_Need_A_Hero**.
 
-### Further Testing 
-    login, user, see roles etc
+### Cloning
+1. Go to GitHub Repository: [I_Need_A_Hero](https://github.com/FirmoDaniel/I_Need_A_Hero)
+2. Select 'Code' dropdown button (next to green 'gitpod' button).
+3. These are your three options **Clone-Options**.
 
+    * Copy the URL to your local IDE such as [Visual Studio](https://code.visualstudio.com).
+    * Intsall [GitHub desktop](https://desktop.github.com/).
+    * Download the Zip file and use with local IDE such as [Visual Studio](https://code.visualstudio.com).
 
-# Deployment 
 
 # Credits   
 ## contents 
