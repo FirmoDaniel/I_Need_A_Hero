@@ -264,6 +264,8 @@ To deploy this page from the [GitHub respository](https://github.com/FirmoDaniel
     * Download the Zip file and use with local IDE such as [Visual Studio](https://code.visualstudio.com).
 
 
-# Credits   
-## contents 
-## Media
+## Credits   
+### Code
+### contents 
+### Media
+### Acknowledgements
