@@ -122,20 +122,38 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 * I want to understand how to create my own characters.
     1.  Users are informed how to create characters on both the index page and the Characters page.
         New users can register a username and password which instantly grants them create, update and delete
-        functionality for their characters.
+        functionality for their characters. Upon registration, new users are brought to their profile page
+        which, in time, will display all their characters, on first visit they are offered a chance to create
+        their first character.
+    2.  On clicking 'create' a form is rendered where the user can populate the required fields. The character's role
+        must come from an existing list via a dropdown. All users are free to populate the other fields as they wish.
+    3.  Upon completeion, the user is redirected to the characters page with a flash messsage for confirmation,
+        and their new character is added to the database. The new character is also viewable from their profile page. 
 
 ### Returning / Registered User Goals :
 
 *  I want to see characters I have created.
-    1.  The 
-    2.  Users 
-    3.  Users 
+    1.  A returning user can log in, afterwhich they are brought to their profile page which displays any 
+        previously created characters listed from newest addition to oldest. The profile page is always available 
+        in the nav bar for logged in users.
      
 * I want to edit or delete my characters. 
-    1.  A static
+    1.  Only characters created by a user can be edited or deleted by that user. Characters can be deleted or edit 
+        from the user's personal profile page or from the main characters page.
+    2.  Characters eligible for edit or delete will have the available buttons displayed in their drop down.
+    3.  To Edit : clicking the edit button renders a form populated with the selected character's information.
+        The user can make their intended changes and click 'Save Changes', or cancel the request altogether. Both
+        options return the user to the characters page with a flash confirming edits or a reload characters' page
+        in the case of a cancel. 
+    4.  To Delete : clicking the delete button calls a modal to warn the user all deletions are permenant. 
+        The user can cancel the process at the modal, or proceed to final confirmation by accepting the warning.
+        Upon accepting the modal warning a 'delete forever' button is displayed which when clicked deletes the
+        selected character from the database with a flash message to confirm.
 
 * I want to contact the site admin.
-    1.  Users 
+    1.  All users can navigate to the contact page in the nav bar. There is a simple form available to contact
+        the site's admin. First name, email and a message is all that is required. Links to social media accounts
+        are also available in the footer.  
 
 
 
