@@ -4,9 +4,9 @@
 The site's aim is to provide a place for users to share characters 
 they no longer need, or to find character ideas from those uploaded from other users.
 The site targets fantasy writers firstly but the character lists can be utilised by role-players
-or anyone with an idea they like to share.
+or anyone with an idea they'd like to share.
 
-Firstly the site to benefit the user community, and secondly to grow a user database and run competitions
+Firstly the site aims to benefit the user community, and secondly to grow a user database by running competitions
 via the monthly newletter with user-submitted short-stories and awards for best uploads.
 
 [View Live Version here]()
@@ -65,16 +65,16 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 ### Languages Used
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
-- [PYthon 3](https://www.python.org/)
+- [Python 3](https://www.python.org/)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 ### Frameworks, Libraries & Programs Used
 - [Email.JS](https://www.emailjs.com/) - for contact form.
 - [GitHub](https://github.com)
-- [Jquery](https://jquery.com/) - For hide/ show of elements.
+- [Jquery](https://jquery.com/)
 - [GitPod](https://www.gitpod.io/) - IDE.
 - [Materialize (including JQuery)](https://materializecss.com/) -Utilized for responsiveness via columns, buttons and navbars.
-- [Google Fonts](https://fonts.google.com) - User for header and body fonts throughout.
+- [Google Fonts](https://fonts.google.com) - Used for header and body fonts throughout.
 - [Font Awesome](https://fontawesome.com/)  - For icons.
 - Google Chrome's Responsive Viewer found [here](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb)
 - Google Chrome's lighthouse function.
@@ -143,7 +143,7 @@ via the monthly newletter with user-submitted short-stories and awards for best 
     2.  Characters eligible for edit or delete will have the available buttons displayed in their drop down.
     3.  To Edit : clicking the edit button renders a form populated with the selected character's information.
         The user can make their intended changes and click 'Save Changes', or cancel the request altogether. Both
-        options return the user to the characters page with a flash confirming edits or a reload characters' page
+        options return the user to the characters page with a flash confirming edits or a reloaded characters' page
         in the case of a cancel. 
     4.  To Delete : clicking the delete button calls a modal to warn the user all deletions are permenant. 
         The user can cancel the process at the modal, or proceed to final confirmation by accepting the warning.

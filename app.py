@@ -175,10 +175,17 @@ def edit_role(role_id):
     1.  Check if user is Admin.
         (Role edits are only available to Admin.)
     2.  Get ID of role to be edited, and render edit_role.html
-    3.  Update db using the role id and the 'character's role' key.
+    3.  Check if new role already exists in DB. If yes, Flash and redirect.
+    4.  Update db using the role id and the 'character's role' key.
     """
     if session and session["user"] == "admin":
         if request.method == "POST":
+            existing_role = mongo.db.roles.find_one(
+                {"character_role": request.form.get("character_role").lower()})
+            if existing_role:
+                flash("Role already exists")
+                return redirect(url_for("add_role"))
+
             submit = {
                 "character_role": request.form.get("character_role")
             }
