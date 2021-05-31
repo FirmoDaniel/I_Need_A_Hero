@@ -108,19 +108,19 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 ### Testing User Stories from User Experience (UX) section.
 ### First Time Visitor Goals :
 
-*  I want easily understand the site's purpose.
+*  I want to easily understand the site's purpose.
     1.  The index page utilises eye-cathcing colours, fonts and clean lines with an upfront description
         of the sites aim.
-    2.  Users are immediately granted access to the site's database via clickable images.
+    2.  Users are immediately granted access to the site's database via clickable images which redirect to the characters page.
     3.  Users are made aware of the site's policy, and the added benefits to registering.
      
 * I want to navigate the site's content.
     1.  A static, collaspible header contains all the nav elemnets available to new users. Although 
         registration/login is rerquired to access more functions, the main database is available to read.
-        As is the contact, register and Log In page.
+        As are the contact, register and Log In pages.
 
 * I want to understand how to create my own characters.
-    1.  Users are informed how to create characters on both the index page and the Characters page.
+    1.  The index and characters pages inform users how to create characters.
         New users can register a username and password which instantly grants them create, update and delete
         functionality for their characters. Upon registration, new users are brought to their profile page
         which, in time, will display all their characters, on first visit they are offered a chance to create
@@ -198,7 +198,7 @@ via the monthly newletter with user-submitted short-stories and awards for best 
 *   URL access:
     *   Python checks for the presence of the session cookie before progressing to pages via the url. 
         In the case of admin only access it also checks the user both exists AND is the admin.
-        Here is a code example: (if session and session[" user "] == "admin":) ref app .py , line 195, add character role.
+        Here is a code example: (if session and session[" user "] == "admin":) ref app .py , line 213, add character role.
         This check can be found throughout the app .py file for any views which require valid log in such as 
         create_character, edit_character, edit_role, add_role, and all delete functionality.
 *   Unregistered user:
