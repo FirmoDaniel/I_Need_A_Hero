@@ -55,9 +55,9 @@ via the monthly newletter with user-submitted short-stories and awards for best 
     *   CSS Media Queries for showing/hiding elements on scaling.
     *   Collaspible Header with side nav for mobile devices.
 -   Contains interactive elements such as:
-    *   Serachable database.
+    *   Searchable database.
     *   User authentication via register/log in/ log out.
-    *   Loops hide/show various navigation options depending on user status.
+    *   Loops to hide/show various navigation options depending on user status.
     *   Contact form linked with Emailjs.
     *   C.R.U.D. functionality scaled with user status.(user/ unregistered / admin).
 
@@ -266,6 +266,17 @@ To deploy this page from the [GitHub respository](https://github.com/FirmoDaniel
 
 ## Credits   
 ### Code
-### contents 
+1.  Validation for character form taken from Code Institute project walkthrough video. Ref script.js line 45 > 72.
+
+### Content
+1.  Initially uploaded characters were created by the developer.
+2.  README layout taken from Code Institute's sample [README](https://github.com/Code-Institute-Solutions/SampleREADME).
+
 ### Media
+1. Card images 
+    * [Blue sky](https://static.wikia.nocookie.net/god-of-slaughter/images/3/3a/Thunder2.jpg)
+    * [Red Sky](https://media.freestocktextures.com/cache/4b/b4/4bb46fda2948c0d26699661ac01f212c.jpg)
+    * [Grey Sky](https://sewitall.com/wp-content/uploads/2020/01/Lightning-Grey-cut-piece-scaled.jpg) 
+
 ### Acknowledgements
+1. Code Institute Tutorials, student support and my Mentor.  
